@@ -10,7 +10,6 @@ using Windows.Data.Xml.Dom;
 using Windows.Storage.Streams;
 using Windows.System.UserProfile;
 using MagicLockScreen.BackgroundTask;
-using MagicLockScreen_Helper;
 
 namespace MagicLockScreen_Service_ImageSearchService
 {
@@ -41,7 +40,7 @@ namespace MagicLockScreen_Service_ImageSearchService
                 {
                     string[] tc = time.StringToArray(':');
                     if (tc.Length > 1)
-                        TimeTriggerTimes.Add(new { Name = ResourcesLoader.Loader[tc[0]], Value = tc[1] });
+                        TimeTriggerTimes.Add(new {Name = ResourcesLoader.Loader[tc[0]], Value = tc[1]});
                 }
             }
             catch (Exception ex)
@@ -52,36 +51,17 @@ namespace MagicLockScreen_Service_ImageSearchService
 
         private async Task Task_Run(Dictionary<string, string> parameters)
         {
-            if (parameters.ContainsKey("LockScreen") && parameters.ContainsKey("Wallpaper"))
+            var random = new Random(DateTime.Now.Millisecond);
+            var infoImageSearchService = Service as InfoImageSearchService;
+            if (infoImageSearchService != null)
             {
-                bool updateLockScreen = bool.Parse(parameters["LockScreen"]);
-                bool updateWallpaper = bool.Parse(parameters["Wallpaper"]);
-
-                var random = new Random(DateTime.Now.Millisecond);
-                var infoImageSearchService = Service as InfoImageSearchService;
-                if (infoImageSearchService != null)
+                SearchImage image =
+                    await infoImageSearchService.QueryDataAsync(parameters["keyword"], (uint)random.Next(0, (int)infoImageSearchService.MaxItemCount));
+                if (image != null)
                 {
-                    SearchImage image =
-                        await infoImageSearchService.QueryDataAsync(parameters["keyword"], (uint)random.Next(0, (int)infoImageSearchService.MaxItemCount));
-                    if (image != null)
-                    {
-                        RandomAccessStreamReference stream =
-                            RandomAccessStreamReference.CreateFromUri(new Uri(image.OriginalImageUrl));
-
-                        if (updateLockScreen)
-                        {
-                            await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
-                        }
-
-                        if (updateWallpaper)
-                        {
-                            await ApplicationHelper.SetWallpaperAsync(await stream.OpenReadAsync(), false);
-                        }
-
-                        ApplicationHelper.UpdateTileNotification(image.OriginalImageUrl,
-                                                                 infoImageSearchService.ServiceChannel.Model.Title,
-                                                                 image.Title);
-                    }
+                    RandomAccessStreamReference stream =
+                        RandomAccessStreamReference.CreateFromUri(new Uri(image.OriginalImageUrl));
+                    await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
                 }
             }
         }

@@ -62,7 +62,7 @@
                                    Margin="15,0,15,2" />
                         <Button Content="&#x24d8;" FontSize="24" FontFamily="Segoe UI Symbol"
                                 Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}"
-                                HorizontalAlignment="Right" Margin="15,0,8,2"
+                                HorizontalAlignment="Right" Margin="15,0,15,2"
                                 Style="{StaticResource TextButtonStyle}"
                                 Command="{Binding ShowInfoCommand}" />
                     </StackPanel>
@@ -299,7 +299,6 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"
                     Style="{StaticResource BackButtonStyle}" />
             <Image x:Name="pageLogo" x:Uid="PageLogo" Source="Assets/AppTitle.en.png" Grid.Column="1"
@@ -317,14 +316,32 @@
         </Grid>
 
         <VisualStateManager.VisualStateGroups>
+
             <!-- Visual states reflect the application's view state -->
-            <VisualStateGroup>
-                <VisualState x:Name="DefaultLayout" />
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape" />
+                <VisualState x:Name="Filled" />
+
+                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton"
+                                                       Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}" />
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemGridView"
+                                                       Storyboard.TargetProperty="Padding">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="96,137,10,56" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
                 <!--
                     The back button and title have different styles when snapped, and the list representation is substituted
                     for the grid displayed in all other view states
                 -->
-                <VisualState x:Name="Below500Layout">
+                <VisualState x:Name="Snapped">
                     <Storyboard>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton"
                                                        Storyboard.TargetProperty="Style">

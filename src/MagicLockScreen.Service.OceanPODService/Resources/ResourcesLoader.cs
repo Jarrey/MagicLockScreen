@@ -10,7 +10,7 @@ namespace MagicLockScreen_Service_OceanPODService.Resources
 
         private ResourcesLoader()
         {
-            resourceLoader = ResourceLoader.GetForViewIndependentUse(@"MagicLockScreen_Service_OceanPODService/Resources");
+            resourceLoader = new ResourceLoader(@"MagicLockScreen_Service_OceanPODService/Resources");
         }
 
         public static ResourcesLoader Loader

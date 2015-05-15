@@ -10,7 +10,6 @@ using Windows.Data.Xml.Dom;
 using Windows.Storage.Streams;
 using Windows.System.UserProfile;
 using MagicLockScreen.BackgroundTask;
-using MagicLockScreen_Helper;
 
 namespace MagicLockScreen_Service_InterfaceLIFTService
 {
@@ -52,35 +51,19 @@ namespace MagicLockScreen_Service_InterfaceLIFTService
 
         private async Task Task_Run(Dictionary<string, string> parameters)
         {
-            if (parameters.ContainsKey("LockScreen") && parameters.ContainsKey("Wallpaper"))
+            var random = new Random(DateTime.Now.Millisecond);
+            var interfaceLIFTQueryService = Service as InterfaceLIFTQueryService;
+            if (interfaceLIFTQueryService != null)
             {
-                bool updateLockScreen = bool.Parse(parameters["LockScreen"]);
-                bool updateWallpaper = bool.Parse(parameters["Wallpaper"]);
-
-                var random = new Random(DateTime.Now.Millisecond);
-                var interfaceLIFTQueryService = Service as InterfaceLIFTQueryService;
-                if (interfaceLIFTQueryService != null)
+                InterfaceLIFT interfaceLIFT =
+                    await
+                    interfaceLIFTQueryService.QueryDataAsync(
+                        (uint) random.Next(0, (int) interfaceLIFTQueryService.MaxItemCount));
+                if (interfaceLIFT != null && interfaceLIFT.IsAvailable)
                 {
-                    InterfaceLIFT interfaceLIFT = await interfaceLIFTQueryService.QueryDataAsync(
-                            (uint)random.Next(0, (int)interfaceLIFTQueryService.MaxItemCount));
-                    if (interfaceLIFT != null && interfaceLIFT.IsAvailable)
-                    {
-                        RandomAccessStreamReference stream = RandomAccessStreamReference.CreateFromUri(new Uri(interfaceLIFT.OriginalImageUrl));
-
-                        if (updateLockScreen)
-                        {
-                            await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
-                        }
-
-                        if (updateWallpaper)
-                        {
-                            await ApplicationHelper.SetWallpaperAsync(await stream.OpenReadAsync(), false);
-                        }
-
-                        ApplicationHelper.UpdateTileNotification(interfaceLIFT.ThumbnailImageUrl,
-                                                                 interfaceLIFTQueryService.ServiceChannel.Model.Title,
-                                                                 interfaceLIFT.Title);
-                    }
+                    RandomAccessStreamReference stream =
+                        RandomAccessStreamReference.CreateFromUri(new Uri(interfaceLIFT.OriginalImageUrl));
+                    await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
                 }
             }
         }

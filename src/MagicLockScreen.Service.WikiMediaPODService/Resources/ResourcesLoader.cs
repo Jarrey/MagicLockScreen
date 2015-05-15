@@ -10,7 +10,7 @@ namespace MagicLockScreen_Service_WikiMediaPODService.Resources
 
         private ResourcesLoader()
         {
-            resourceLoader = ResourceLoader.GetForViewIndependentUse(@"MagicLockScreen_Service_WikiMediaPODService/Resources");
+            resourceLoader = new ResourceLoader(@"MagicLockScreen_Service_WikiMediaPODService/Resources");
         }
 
         public static ResourcesLoader Loader

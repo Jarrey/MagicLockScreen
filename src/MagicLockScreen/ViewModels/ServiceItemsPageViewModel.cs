@@ -59,9 +59,11 @@ namespace MagicLockScreen_UI.ViewModels
                         var serviceChannelModel = (p[1] as ItemClickEventArgs).ClickedItem as ServiceChannelModel;
                         if (serviceChannelModel != null)
                         {
-                            var propInfo = serviceChannelModel.GetType()
-                                                .GetTypeInfo()
-                                                .GetMemberInfo("ItemClickCommand", MemberType.Property) as PropertyInfo;
+                            var propInfo =
+                                serviceChannelModel.GetType()
+                                                   .GetTypeInfo()
+                                                   .GetMemberInfo("ItemClickCommand", MemberType.Property) as
+                                PropertyInfo;
                             if (propInfo != null)
                             {
                                 object command = propInfo.GetValue(serviceChannelModel);
@@ -134,20 +136,25 @@ namespace MagicLockScreen_UI.ViewModels
             e.Request.ApplicationCommands.Add(helpCommand);
 
             // For Privacy Policy
-            var privacyPolicyCommand = 
-                new SettingsCommand("privacyPolicyPage", ResourcesLoader.Loader["PrivacyPolicy"],
-                    command =>
-                        {
-                            var information = XamlReader.Load(ResourcesLoader.Loader["PrivacyPolicyContent"]) as UIElement;
-                            if (information != null)
-                            {
-                                var settingPopup = new SettingPopup(ResourcesLoader.Loader["PrivacyPolicy"],SettingSourceFlag.ByCharm)
-                                    {
-                                        Content = information
-                                    };
-                                settingPopup.Show();
-                            }
-                        });
+            var privacyPolicyCommand = new SettingsCommand("privacyPolicyPage", ResourcesLoader.Loader["PrivacyPolicy"],
+                                                           command =>
+                                                               {
+                                                                   var information =
+                                                                       XamlReader.Load(
+                                                                           ResourcesLoader.Loader["PrivacyPolicyContent"
+                                                                               ]) as UIElement;
+                                                                   if (information != null)
+                                                                   {
+                                                                       var settingPopup =
+                                                                           new SettingPopup(
+                                                                               ResourcesLoader.Loader["PrivacyPolicy"],
+                                                                               SettingSourceFlag.ByCharm)
+                                                                               {
+                                                                                   Content = information
+                                                                               };
+                                                                       settingPopup.Show();
+                                                                   }
+                                                               });
             e.Request.ApplicationCommands.Add(privacyPolicyCommand);
 
             var aboutCommand = new SettingsCommand("aboutPage", ResourcesLoader.Loader["About"],

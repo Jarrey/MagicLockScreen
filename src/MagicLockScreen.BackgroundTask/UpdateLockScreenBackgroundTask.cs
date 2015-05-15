@@ -29,19 +29,23 @@ namespace MagicLockScreen.BackgroundTask
             await NoteOne_Utility.AppSettings.InitializeSettings(LocalAppSettings.Instance);
             await NoteOne_Utility.AppSettings.InitializeSettings(MagicLockScreen_Helper.AppSettings.Instance);
 
-            StorageFile settingFile = await ApplicationData.Current.LocalFolder.GetFileAsync(BackgroundTaskSettingFileName);
+            StorageFile settingFile =
+                await ApplicationData.Current.LocalFolder.GetFileAsync(BackgroundTaskSettingFileName);
             XmlDocument xmlSetting = await XmlDocument.LoadFromFileAsync(settingFile);
 
             ServiceTypes serviceType;
-            IXmlNode selectSingleNode = xmlSetting.SelectSingleNode("/BackgroundTaskServices/BackgroundTaskService/@ServiceType");
+            IXmlNode selectSingleNode =
+                xmlSetting.SelectSingleNode("/BackgroundTaskServices/BackgroundTaskService/@ServiceType");
             if (selectSingleNode != null)
             {
-                string serviceTypeValue = selectSingleNode.InnerText;
+                string serviceTypeValue =
+                    selectSingleNode.InnerText;
                 IXmlNode singleNode =
                     xmlSetting.SelectSingleNode("/BackgroundTaskServices/BackgroundTaskService/@Parameter");
                 if (singleNode != null)
                 {
-                    string parameter = singleNode.InnerText;
+                    string parameter =
+                        singleNode.InnerText;
                     if (Enum.TryParse(serviceTypeValue, out serviceType))
                     {
                         if (serviceType == ServiceTypes.Online)

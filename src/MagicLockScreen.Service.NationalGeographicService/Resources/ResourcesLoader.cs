@@ -10,7 +10,7 @@ namespace MagicLockScreen_Service_NationalGeographicService.Resources
 
         private ResourcesLoader()
         {
-            resourceLoader = ResourceLoader.GetForViewIndependentUse(@"MagicLockScreen_Service_NationalGeographicService/Resources");
+            resourceLoader = new ResourceLoader(@"MagicLockScreen_Service_NationalGeographicService/Resources");
         }
 
         public static ResourcesLoader Loader

@@ -136,7 +136,7 @@ namespace MagicLockScreen_Service_GooglePicasaService.UI.ViewModels
                     {
                         float zoomInterval =
                             AppSettings.Instance[AppSettings.ZOOM_FACTORY_INTERVAL].ToString(CultureInfo.InvariantCulture).StringToFloat();
-                        imageScrollViewer.ChangeView(null, null, imageScrollViewer.ZoomFactor + zoomInterval);
+                        imageScrollViewer.ZoomToFactor(imageScrollViewer.ZoomFactor + zoomInterval);
                     }
                 });
 
@@ -151,7 +151,7 @@ namespace MagicLockScreen_Service_GooglePicasaService.UI.ViewModels
                     {
                         float zoomInterval =
                             AppSettings.Instance[AppSettings.ZOOM_FACTORY_INTERVAL].ToString(CultureInfo.InvariantCulture).StringToFloat();
-                        imageScrollViewer.ChangeView(null, null, imageScrollViewer.ZoomFactor - zoomInterval);
+                        imageScrollViewer.ZoomToFactor(imageScrollViewer.ZoomFactor - zoomInterval);
                     }
                 });
 

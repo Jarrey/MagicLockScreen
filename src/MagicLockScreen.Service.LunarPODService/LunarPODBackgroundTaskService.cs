@@ -10,7 +10,6 @@ using Windows.Data.Xml.Dom;
 using Windows.Storage.Streams;
 using Windows.System.UserProfile;
 using MagicLockScreen.BackgroundTask;
-using MagicLockScreen_Helper;
 
 namespace MagicLockScreen_Service_LunarPODService
 {
@@ -52,35 +51,17 @@ namespace MagicLockScreen_Service_LunarPODService
 
         private async Task Task_Run(Dictionary<string, string> parameters)
         {
-            if (parameters.ContainsKey("LockScreen") && parameters.ContainsKey("Wallpaper"))
+            var random = new Random(DateTime.Now.Millisecond);
+            var lunarPODQueryService = Service as LunarPODQueryService;
+            if (lunarPODQueryService != null)
             {
-                bool updateLockScreen = bool.Parse(parameters["LockScreen"]);
-                bool updateWallpaper = bool.Parse(parameters["Wallpaper"]);
-
-                var random = new Random(DateTime.Now.Millisecond);
-                var lunarPODQueryService = Service as LunarPODQueryService;
-                if (lunarPODQueryService != null)
+                LunarPOD lunarPOD = await lunarPODQueryService.QueryDataAsync(
+                    DateTime.Now.Subtract(TimeSpan.FromDays(random.Next(0, (int) lunarPODQueryService.MaxItemCount))));
+                if (lunarPOD != null && lunarPOD.IsAvailable)
                 {
-                    LunarPOD lunarPOD = await lunarPODQueryService.QueryDataAsync(
-                        DateTime.Now.Subtract(TimeSpan.FromDays(random.Next(0, (int)lunarPODQueryService.MaxItemCount))));
-                    if (lunarPOD != null && lunarPOD.IsAvailable)
-                    {
-                        var stream = RandomAccessStreamReference.CreateFromUri(new Uri(lunarPOD.OriginalImageUrl));
-
-                        if (updateLockScreen)
-                        {
-                            await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
-                        }
-
-                        if (updateWallpaper)
-                        {
-                            await ApplicationHelper.SetWallpaperAsync(await stream.OpenReadAsync(), false);
-                        }
-
-                        ApplicationHelper.UpdateTileNotification(lunarPOD.ThumbnailImageUrl,
-                                                                 lunarPODQueryService.ServiceChannel.Model.Title,
-                                                                 lunarPOD.Title);
-                    }
+                    RandomAccessStreamReference stream =
+                        RandomAccessStreamReference.CreateFromUri(new Uri(lunarPOD.OriginalImageUrl));
+                    await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
                 }
             }
         }

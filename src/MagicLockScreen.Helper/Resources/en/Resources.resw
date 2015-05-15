@@ -144,35 +144,11 @@
   <data name="BT45M" xml:space="preserve">
     <value>45 mins</value>
   </data>
-  <data name="ComputerFolder" xml:space="preserve">
-    <value>Computer Folder</value>
-  </data>
-  <data name="Desktop" xml:space="preserve">
-    <value>Desktop</value>
-  </data>
-  <data name="DocumentsLibrary" xml:space="preserve">
-    <value>Documents Library</value>
-  </data>
-  <data name="Downloads" xml:space="preserve">
-    <value>Downloads</value>
-  </data>
-  <data name="ErrorOnDesktopService" xml:space="preserve">
-    <value>Cannot find Chameleon Desktop Service in your system, please make sure you have started the service or go to {0} to download the latest Chameleon Desktop Service.</value>
-  </data>
-  <data name="ErrorOnDesktopServiceTitle" xml:space="preserve">
-    <value>Cannot find Chameleon Desktop Service</value>
-  </data>
-  <data name="GoToDownload" xml:space="preserve">
-    <value>Go To Download</value>
-  </data>
   <data name="Later" xml:space="preserve">
     <value>Later</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>No, thanks</value>
-  </data>
-  <data name="PicturesLibrary" xml:space="preserve">
-    <value>Pictures Library</value>
   </data>
   <data name="Rate" xml:space="preserve">
     <value>Rate it</value>
@@ -199,19 +175,13 @@
     <value>Set image as application background sucessfully</value>
   </data>
   <data name="SetBackgroundTaskSucessfully" xml:space="preserve">
-    <value>Set background task sucessfully, task will be run every {0} to chenge your system lock screen or desktop wallpaper</value>
+    <value>Set background task sucessfully, task will be run every {0} to chenge your system lock screen</value>
   </data>
   <data name="SetLockScreenError" xml:space="preserve">
     <value>Set lock screen error, maybe your system is not actived</value>
   </data>
   <data name="SetLockScreenSucessfully" xml:space="preserve">
     <value>Set image as current lock screen background sucessfully</value>
-  </data>
-  <data name="SetWallpaperError" xml:space="preserve">
-    <value>Set desktop wallpaper error</value>
-  </data>
-  <data name="SetWallpaperSucessfully" xml:space="preserve">
-    <value>Set image as desktop wallpaper sucessfully</value>
   </data>
   <data name="UnregisterBackgroundTaskSucessfully" xml:space="preserve">
     <value>Unregister background task sucessfully</value>

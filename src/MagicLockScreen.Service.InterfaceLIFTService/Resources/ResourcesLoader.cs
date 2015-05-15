@@ -10,7 +10,7 @@ namespace MagicLockScreen_Service_InterfaceLIFTService.Resources
 
         private ResourcesLoader()
         {
-            resourceLoader = ResourceLoader.GetForViewIndependentUse(@"MagicLockScreen_Service_InterfaceLIFTService/Resources");
+            resourceLoader = new ResourceLoader(@"MagicLockScreen_Service_InterfaceLIFTService/Resources");
         }
 
         public static ResourcesLoader Loader

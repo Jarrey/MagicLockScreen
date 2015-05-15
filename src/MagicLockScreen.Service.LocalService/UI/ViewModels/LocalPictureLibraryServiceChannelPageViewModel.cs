@@ -69,59 +69,32 @@ namespace MagicLockScreen_Service_LocalService.UI.ViewModels
                 this["BackgroundTaskTimeTiggerTimes"] = localPictureLibraryBackgroundTaskService.TimeTriggerTimes;
                 this["BackgroundTaskTimeTiggerTime"] = "15";
                 this["BackgroundTaskService"] = localPictureLibraryBackgroundTaskService;
-                this["UpdateLockScreen"] = true;
-                this["UpdateWallpaper"] = true;
             }
-
-            this["IsBackgroundTaskPopupOpen"] = false;
 
             #region Commands
 
-            #region PopupBackgroundTaskCommand
-
-            this["PopupBackgroundTaskCommand"] = new RelayCommand(() =>
-            {
-                this["IsBackgroundTaskPopupOpen"] = true;
-            });
-
-            #endregion
-
             #region RegisterBackgroundTaskCommand
 
-            this["RegisterBackgroundTaskCommand"] = new RelayCommand(async () =>
+            this["RegisterBackgroundTaskCommand"] = new RelayCommand(() =>
                 {
                     try
                     {
-                        if ((bool)this["UpdateWallpaper"])
-                        {
-                            this["UpdateWallpaper"] = await ApplicationHelper.CheckPromptDesktopService();
-                        }
+                        if (localPictureLibraryBackgroundTaskService != null)
+                            localPictureLibraryBackgroundTaskService.InitializeBackgroundTask(
+                                new TimeTrigger(this["BackgroundTaskTimeTiggerTime"].ToString().StringToUInt(), false),
+                                null,
+                                ConstKeys.LOCAL_FOLDER_PATH_KEY + ":" + this["CurrentPath"].ToString().Replace(':', '?'));
 
-                        if ((bool)this["UpdateLockScreen"] || (bool)this["UpdateWallpaper"])
-                        {
-                            string parameters = string.Format("LockScreen:{0}|Wallpaper:{1}|", (bool)this["UpdateLockScreen"], (bool)this["UpdateWallpaper"]);
-
-                            if (localPictureLibraryBackgroundTaskService != null)
-                                localPictureLibraryBackgroundTaskService.InitializeBackgroundTask(
-                                    new TimeTrigger(this["BackgroundTaskTimeTiggerTime"].ToString().StringToUInt(), false),
-                                    null,
-                                    parameters + ConstKeys.LOCAL_FOLDER_PATH_KEY + ":" + this["CurrentPath"].ToString().Replace(':', '?'));
-
-                            dynamic selectTriggerTimeDesc =
-                                (from dynamic obj in localPictureLibraryBackgroundTaskService.TimeTriggerTimes
-                                 where obj.Value == this["BackgroundTaskTimeTiggerTime"].ToString()
-                                 select obj.Name).First();
-                            new MessagePopup(string.Format(ResourcesLoader.Loader["SetBackgroundTaskSucessfully"],
-                                                           selectTriggerTimeDesc)).Show();
-                        }
+                        dynamic selectTriggerTimeDesc =
+                            (from dynamic obj in localPictureLibraryBackgroundTaskService.TimeTriggerTimes
+                             where obj.Value == this["BackgroundTaskTimeTiggerTime"].ToString()
+                             select obj.Name).First();
+                        new MessagePopup(string.Format(ResourcesLoader.Loader["SetBackgroundTaskSucessfully"],
+                                                       selectTriggerTimeDesc)).Show();
                     }
                     catch (Exception ex)
                     {
                         ex.WriteLog();
-                    }
-                    finally
-                    {
-                        this["IsBackgroundTaskPopupOpen"] = false;
                     }
                 });
 
@@ -150,12 +123,6 @@ namespace MagicLockScreen_Service_LocalService.UI.ViewModels
             #region SetAsLockScreenCommand
 
             this["SetAsLockScreenCommand"] = ApplicationHelper.SetAsLockScreenCommand;
-
-            #endregion
-
-            #region SetWallpaperCommand
-
-            this["SetWallpaperCommand"] = ApplicationHelper.SetWallpaperCommand;
 
             #endregion
 
@@ -264,7 +231,7 @@ namespace MagicLockScreen_Service_LocalService.UI.ViewModels
                     {
                         float zoomInterval =
                             AppSettings.Instance[AppSettings.ZOOM_FACTORY_INTERVAL].ToString(CultureInfo.InvariantCulture).StringToFloat();
-                        imageScrollViewer.ChangeView(null, null, imageScrollViewer.ZoomFactor + zoomInterval);
+                        imageScrollViewer.ZoomToFactor(imageScrollViewer.ZoomFactor + zoomInterval);
                     }
                 });
 
@@ -279,7 +246,7 @@ namespace MagicLockScreen_Service_LocalService.UI.ViewModels
                     {
                         float zoomInterval =
                             AppSettings.Instance[AppSettings.ZOOM_FACTORY_INTERVAL].ToString(CultureInfo.InvariantCulture).StringToFloat();
-                        imageScrollViewer.ChangeView(null, null, imageScrollViewer.ZoomFactor - zoomInterval);
+                        imageScrollViewer.ZoomToFactor(imageScrollViewer.ZoomFactor - zoomInterval);
                     }
                 });
 

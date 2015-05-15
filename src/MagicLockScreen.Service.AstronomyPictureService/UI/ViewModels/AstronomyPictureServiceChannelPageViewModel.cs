@@ -47,58 +47,31 @@ namespace MagicLockScreen_Service_AstronomyPictureService.UI.ViewModels
                 this["BackgroundTaskTimeTiggerTimes"] = astronomyPictureBackgroundTaskService.TimeTriggerTimes;
                 this["BackgroundTaskTimeTiggerTime"] = "15";
                 this["BackgroundTaskService"] = astronomyPictureBackgroundTaskService;
-                this["UpdateLockScreen"] = true;
-                this["UpdateWallpaper"] = true;
             }
-
-            this["IsBackgroundTaskPopupOpen"] = false;
 
             #region Commands
 
-            #region PopupBackgroundTaskCommand
-
-            this["PopupBackgroundTaskCommand"] = new RelayCommand(() =>
-            {
-                this["IsBackgroundTaskPopupOpen"] = true;
-            });
-
-            #endregion
-
             #region RegisterBackgroundTaskCommand
 
-            this["RegisterBackgroundTaskCommand"] = new RelayCommand(async () =>
+            this["RegisterBackgroundTaskCommand"] = new RelayCommand(() =>
                 {
                     try
                     {
-                        if ((bool)this["UpdateWallpaper"])
-                        {
-                            this["UpdateWallpaper"] = await ApplicationHelper.CheckPromptDesktopService();
-                        }
+                        if (astronomyPictureBackgroundTaskService != null)
+                            astronomyPictureBackgroundTaskService.InitializeBackgroundTask(
+                                new TimeTrigger(this["BackgroundTaskTimeTiggerTime"].ToString().StringToUInt(), false),
+                                null);
 
-                        if ((bool)this["UpdateLockScreen"] || (bool)this["UpdateWallpaper"])
-                        {
-                            string parameters = string.Format("LockScreen:{0}|Wallpaper:{1}", (bool)this["UpdateLockScreen"], (bool)this["UpdateWallpaper"]);
-
-                            if (astronomyPictureBackgroundTaskService != null)
-                                astronomyPictureBackgroundTaskService.InitializeBackgroundTask(
-                                    new TimeTrigger(this["BackgroundTaskTimeTiggerTime"].ToString().StringToUInt(), false),
-                                    null, parameters);
-
-                            dynamic selectTriggerTimeDesc =
-                                (from dynamic obj in astronomyPictureBackgroundTaskService.TimeTriggerTimes
-                                 where obj.Value == this["BackgroundTaskTimeTiggerTime"].ToString()
-                                 select obj.Name).First();
-                            new MessagePopup(string.Format(ResourcesLoader.Loader["SetBackgroundTaskSucessfully"],
-                                                           selectTriggerTimeDesc)).Show();
-                        }
+                        dynamic selectTriggerTimeDesc =
+                            (from dynamic obj in astronomyPictureBackgroundTaskService.TimeTriggerTimes
+                             where obj.Value == this["BackgroundTaskTimeTiggerTime"].ToString()
+                             select obj.Name).First();
+                        new MessagePopup(string.Format(ResourcesLoader.Loader["SetBackgroundTaskSucessfully"],
+                                                       selectTriggerTimeDesc)).Show();
                     }
                     catch (Exception ex)
                     {
                         ex.WriteLog();
-                    }
-                    finally
-                    {
-                        this["IsBackgroundTaskPopupOpen"] = false;
                     }
                 });
 
@@ -113,7 +86,7 @@ namespace MagicLockScreen_Service_AstronomyPictureService.UI.ViewModels
                     if (astronomyPictureBackgroundTaskService != null)
                     {
                         astronomyPictureBackgroundTaskService.UnregisterBackgroundTask();
-                        new MessagePopup(ResourcesLoader.Loader["UnregisterBackgroundTaskSucessfully"]).Show();
+                        new MessagePopup(ResourcesLoader.Loader["UnregisterBackgroundTaskSucessfully"]).Show();                        
                     }
                 }
                 catch (Exception ex)
@@ -127,12 +100,6 @@ namespace MagicLockScreen_Service_AstronomyPictureService.UI.ViewModels
             #region SetAsLockScreenCommand
 
             this["SetAsLockScreenCommand"] = ApplicationHelper.SetAsLockScreenCommand;
-
-            #endregion
-
-            #region SetWallpaperCommand
-
-            this["SetWallpaperCommand"] = ApplicationHelper.SetWallpaperCommand;
 
             #endregion
 
@@ -194,7 +161,7 @@ namespace MagicLockScreen_Service_AstronomyPictureService.UI.ViewModels
                     {
                         float zoomInterval =
                             AppSettings.Instance[AppSettings.ZOOM_FACTORY_INTERVAL].ToString(CultureInfo.InvariantCulture).StringToFloat();
-                        imageScrollViewer.ChangeView(null, null, imageScrollViewer.ZoomFactor + zoomInterval);
+                        imageScrollViewer.ZoomToFactor(imageScrollViewer.ZoomFactor + zoomInterval);
                     }
                 });
 
@@ -209,7 +176,7 @@ namespace MagicLockScreen_Service_AstronomyPictureService.UI.ViewModels
                     {
                         float zoomInterval =
                             AppSettings.Instance[AppSettings.ZOOM_FACTORY_INTERVAL].ToString(CultureInfo.InvariantCulture).StringToFloat();
-                        imageScrollViewer.ChangeView(null, null, imageScrollViewer.ZoomFactor - zoomInterval);
+                        imageScrollViewer.ZoomToFactor(imageScrollViewer.ZoomFactor - zoomInterval);
                     }
                 });
 

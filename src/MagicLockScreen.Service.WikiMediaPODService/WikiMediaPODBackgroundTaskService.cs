@@ -10,7 +10,6 @@ using Windows.Data.Xml.Dom;
 using Windows.Storage.Streams;
 using Windows.System.UserProfile;
 using MagicLockScreen.BackgroundTask;
-using MagicLockScreen_Helper;
 
 namespace MagicLockScreen_Service_WikiMediaPODService
 {
@@ -41,7 +40,7 @@ namespace MagicLockScreen_Service_WikiMediaPODService
                 {
                     string[] tc = time.StringToArray(':');
                     if (tc.Length > 1)
-                        TimeTriggerTimes.Add(new { Name = ResourcesLoader.Loader[tc[0]], Value = tc[1] });
+                        TimeTriggerTimes.Add(new {Name = ResourcesLoader.Loader[tc[0]], Value = tc[1]});
                 }
             }
             catch (Exception ex)
@@ -52,35 +51,17 @@ namespace MagicLockScreen_Service_WikiMediaPODService
 
         private async Task Task_Run(Dictionary<string, string> parameters)
         {
-            if (parameters.ContainsKey("LockScreen") && parameters.ContainsKey("Wallpaper"))
+            var random = new Random(DateTime.Now.Millisecond);
+            var wikiMediaPODQueryService = Service as WikiMediaPODQueryService;
+            if (wikiMediaPODQueryService != null)
             {
-                bool updateLockScreen = bool.Parse(parameters["LockScreen"]);
-                bool updateWallpaper = bool.Parse(parameters["Wallpaper"]);
-
-                var random = new Random(DateTime.Now.Millisecond);
-                var wikiMediaPODQueryService = Service as WikiMediaPODQueryService;
-                if (wikiMediaPODQueryService != null)
+                WikiMediaPOD wikiMediaPOD = await wikiMediaPODQueryService.QueryDataAsync(
+                    DateTime.Now.Subtract(TimeSpan.FromDays(random.Next(0, (int) wikiMediaPODQueryService.MaxItemCount))));
+                if (wikiMediaPOD != null && wikiMediaPOD.IsAvailable)
                 {
-                    WikiMediaPOD wikiMediaPOD = await wikiMediaPODQueryService.QueryDataAsync(
-                        DateTime.Now.Subtract(TimeSpan.FromDays(random.Next(0, (int)wikiMediaPODQueryService.MaxItemCount))));
-                    if (wikiMediaPOD != null && wikiMediaPOD.IsAvailable)
-                    {
-                        var stream = RandomAccessStreamReference.CreateFromUri(new Uri(wikiMediaPOD.OriginalImageUrl));
-
-                        if (updateLockScreen)
-                        {
-                            await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
-                        }
-
-                        if (updateWallpaper)
-                        {
-                            await ApplicationHelper.SetWallpaperAsync(await stream.OpenReadAsync(), false);
-                        }
-
-                        ApplicationHelper.UpdateTileNotification(wikiMediaPOD.OriginalImageUrl,
-                                                                 wikiMediaPODQueryService.ServiceChannel.Model.Title,
-                                                                 wikiMediaPOD.Title);
-                    }
+                    RandomAccessStreamReference stream =
+                        RandomAccessStreamReference.CreateFromUri(new Uri(wikiMediaPOD.OriginalImageUrl));
+                    await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
                 }
             }
         }

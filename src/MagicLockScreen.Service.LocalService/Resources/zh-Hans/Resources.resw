@@ -130,19 +130,10 @@
     <value>取消</value>
   </data>
   <data name="ChangeLockScreenEvery.Text" xml:space="preserve">
-    <value>隔多少时间更新锁屏或桌面壁纸:</value>
-  </data>
-  <data name="ChkLockScreen.Content" xml:space="preserve">
-    <value>锁屏背景</value>
-  </data>
-  <data name="ChkWallpaper.Content" xml:space="preserve">
-    <value>桌面壁纸</value>
+    <value>隔多少时间改变锁屏:</value>
   </data>
   <data name="ChooseButton.Content" xml:space="preserve">
     <value>选择这个文件夹</value>
-  </data>
-  <data name="ConfirmButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>确认</value>
   </data>
   <data name="FolderNotFoundError" xml:space="preserve">
     <value>无法找到文件夹 - {0}</value>
@@ -197,9 +188,6 @@
   </data>
   <data name="SetAppBackgroundButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>设置应用背景</value>
-  </data>
-  <data name="SetDesktopWallpaper.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>设置桌面壁纸</value>
   </data>
   <data name="SetLockScreenButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>设置锁屏</value>

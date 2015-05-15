@@ -34,7 +34,7 @@ namespace MagicLockScreen_Service_GooglePicasaService.Models
             }
         }
 
-        public new event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private void InitializeData(IService[] services, XmlElement configXml, uint maxCount)
         {

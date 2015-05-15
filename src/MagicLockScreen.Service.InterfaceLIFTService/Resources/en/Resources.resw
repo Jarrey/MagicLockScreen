@@ -118,13 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ChangeLockScreenEvery.Text" xml:space="preserve">
-    <value>Update LockScreen or Desktop Wallpaper each:</value>
-  </data>
-  <data name="ChkLockScreen.Content" xml:space="preserve">
-    <value>LockScreen</value>
-  </data>
-  <data name="ChkWallpaper.Content" xml:space="preserve">
-    <value>Desktop Wallpaper</value>
+    <value>Change LockScreen every:</value>
   </data>
   <data name="HomeButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Home</value>
@@ -134,9 +128,6 @@
   </data>
   <data name="InformationTitle" xml:space="preserve">
     <value>Information</value>
-  </data>
-  <data name="OkButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>OK</value>
   </data>
   <data name="RefreshButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Refresh</value>
@@ -171,9 +162,6 @@
   </data>
   <data name="SetAppBackgroundButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Set App Bg</value>
-  </data>
-  <data name="SetDesktopWallpaper.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>Set Desktop Wallpaper</value>
   </data>
   <data name="SetLockScreenButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Set LockScreen</value>

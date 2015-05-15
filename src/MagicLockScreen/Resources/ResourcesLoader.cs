@@ -10,7 +10,7 @@ namespace MagicLockScreen_UI.Resources
 
         private ResourcesLoader()
         {
-            resourceLoader = ResourceLoader.GetForViewIndependentUse(@"Resources");
+            resourceLoader = new ResourceLoader(@"Resources");
         }
 
         public static ResourcesLoader Loader

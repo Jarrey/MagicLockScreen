@@ -45,6 +45,11 @@ namespace MagicLockScreen_Service_ImageSearchService.Models
             {
                 return new RelayCommand<object[]>(async p =>
                     {
+                        if (ApplicationView.Value == ApplicationViewState.Snapped &&
+                            !ApplicationView.TryUnsnap())
+                        {
+                            return;
+                        }
                         await Task.Delay(100);
                         SearchPane searchPane = SearchPane.GetForCurrentView();
                         searchPane.Show();

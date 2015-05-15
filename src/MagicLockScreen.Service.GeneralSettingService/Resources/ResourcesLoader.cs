@@ -10,7 +10,7 @@ namespace MagicLockScreen_Service_GeneralSettingService.Resources
 
         private ResourcesLoader()
         {
-            resourceLoader = ResourceLoader.GetForViewIndependentUse(@"MagicLockScreen_Service_GeneralSettingService/Resources");
+            resourceLoader = new ResourceLoader(@"MagicLockScreen_Service_GeneralSettingService/Resources");
         }
 
         public static ResourcesLoader Loader

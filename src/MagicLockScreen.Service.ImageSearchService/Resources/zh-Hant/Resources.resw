@@ -121,7 +121,7 @@
     <value>取消</value>
   </data>
   <data name="ChangeLockScreenEvery.Text" xml:space="preserve">
-    <value>隔多少時間更新鎖屏或桌面壁紙:</value>
+    <value>隔多少時間修改鎖屏:</value>
   </data>
   <data name="HomeButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>主頁</value>
@@ -269,17 +269,5 @@
 	&lt;TextBlock&gt;所有圖片系Info.com根據你的關鍵詞自動搜索的結果，不代表本程式或者Info.com贊成被搜索網站的內容或立場。所有圖片版權均屬於圖片所有者，不得在未經版權者許可情況下將圖片個用於商業目的。&lt;/TextBlock&gt;
 	&lt;HyperlinkButton Content="Info.com 法律及隱私聲明" NavigateUri="http://images.info.com/conditions"/&gt;
 &lt;/StackPanel&gt;</value>
-  </data>
-  <data name="ChkLockScreen.Content" xml:space="preserve">
-    <value>鎖屏背景</value>
-  </data>
-  <data name="ChkWallpaper.Content" xml:space="preserve">
-    <value>桌面壁紙</value>
-  </data>
-  <data name="ConfirmButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>確認</value>
-  </data>
-  <data name="SetDesktopWallpaper.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>設置桌面壁紙</value>
   </data>
 </root>

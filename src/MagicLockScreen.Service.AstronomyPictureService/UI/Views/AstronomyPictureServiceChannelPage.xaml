@@ -29,8 +29,7 @@
                                Visibility="{Binding IsThumbnailImageDownloading, Converter={StaticResource booleanToVisibilityConverter}, ConverterParameter=NEG}" />
                         <StackPanel VerticalAlignment="Center"
                                     Visibility="{Binding IsThumbnailImageDownloading, Converter={StaticResource booleanToVisibilityConverter}}">
-                            <!--ProgressBar Value="{Binding ThumbnailImageDownloadingProgress}" Margin="15,5,15,5" /-->
-                            <common:PieProgress Value="{Binding ThumbnailImageDownloadingProgress}" Width="80" Foreground="White" Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" LabelFormat=""/>
+                            <ProgressBar Value="{Binding ThumbnailImageDownloadingProgress}" Margin="15,5,15,5" />
                             <TextBlock HorizontalAlignment="Center" Margin="5">
                                 <TextBlock.Inlines>
                                     <Run x:Uid="DownloadingLabel" Text="Downloading: " />
@@ -99,92 +98,7 @@
         <!-- itemListViewHost panel, for showing the items -->
         <Grid Grid.Row="1" x:Name="itemListViewHost" Visibility="Collapsed" />
 
-        <!-- Popup for auto-update backgroundtask with Lockscreen and Desktop Wallpaper -->
-        <Popup Grid.RowSpan="2" x:Name="BackgroundTaskPopup" IsOpen="{Binding IsBackgroundTaskPopupOpen}" IsLightDismissEnabled="True"
-               Width="300" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
-               VerticalOffset="-198" HorizontalOffset="-40">
-            <Popup.ChildTransitions>
-                <TransitionCollection>
-                    <PopupThemeTransition/>
-                </TransitionCollection>
-            </Popup.ChildTransitions>
-            <Grid>
-                <Grid Width="300" Margin="10,10,10,15" Background="#ff222222">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <CheckBox x:Uid="ChkLockScreen" Content="LockScreen" IsChecked="{Binding UpdateLockScreen, Mode=TwoWay}" Margin="10,2"/>
-                    <CheckBox x:Uid="ChkWallpaper" Grid.Row="1" Content="Desktop Wallpaper" IsChecked="{Binding UpdateWallpaper, Mode=TwoWay}" Margin="10,2"/>
-
-                    <Button x:Uid="OkButton" Grid.Column="1" Grid.RowSpan="2" Content="&#xe10b;" 
-                            AutomationProperties.AutomationId="OkButton"
-                            AutomationProperties.Name="Ok"
-                            Style="{StaticResource AppBarButtonStyle}"
-                            Command="{Binding RegisterBackgroundTaskCommand}" />
-                </Grid>
-
-                <Path Fill="#FF222222" HorizontalAlignment="Center" VerticalAlignment="Bottom" Data="M0,0L20,15 40,0 Z" Margin="55,0,0,0"/>
-            </Grid>
-        </Popup>
-        
         <VisualStateManager.VisualStateGroups>
-
-            <VisualStateGroup>
-                <VisualState x:Name="DefaultLayout">
-                    <!-- The default properties are set in the XAML. -->
-                </VisualState>
-                <VisualState x:Name="Below768Layout">
-                    <Storyboard>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="leftPart"
-                                                       Storyboard.TargetProperty="Visibility">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="changeLockScreenLabel"
-                                                       Storyboard.TargetProperty="Visibility">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
-                        </ObjectAnimationUsingKeyFrames>
-                    </Storyboard>
-                </VisualState>
-                
-                <!-- The back button and title have different styles when snapped -->
-                <VisualState x:Name="Below500Layout">
-                    <Storyboard>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton"
-                                                       Storyboard.TargetProperty="Style">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}" />
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle"
-                                                       Storyboard.TargetProperty="Style">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}" />
-                        </ObjectAnimationUsingKeyFrames>
-
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemListViewHost"
-                                                       Storyboard.TargetProperty="Visibility">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemGridViewHost"
-                                                       Storyboard.TargetProperty="Visibility">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
-                        </ObjectAnimationUsingKeyFrames>
-
-                        <!-- Visual State in Snapped View for Bottom AppBar -->
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="leftPart"
-                                                       Storyboard.TargetProperty="Visibility">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="changeLockScreenLabel"
-                                                       Storyboard.TargetProperty="Visibility">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
-                        </ObjectAnimationUsingKeyFrames>
-                    </Storyboard>
-                </VisualState>
-            </VisualStateGroup>
 
             <!-- Visual states reflect the application's view state -->
             <VisualStateGroup x:Name="ApplicationViewStates">
@@ -275,7 +189,7 @@
                             AutomationProperties.AutomationId="StartButon"
                             AutomationProperties.Name="Start"
                             Style="{StaticResource AppBarButtonStyle}"
-                            Command="{Binding PopupBackgroundTaskCommand}" />
+                            Command="{Binding RegisterBackgroundTaskCommand}" />
                     <Button x:Uid="StopButton" Style="{StaticResource StopAppBarButtonStyle}"
                             Command="{Binding UnregisterBackgroundTaskCommand}" 
                             IsEnabled="{Binding BackgroundTaskService.ServiceStatus, Mode=OneWay}" />

@@ -118,13 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ChangeLockScreenEvery.Text" xml:space="preserve">
-    <value>隔多少時間更新鎖屏或桌面壁紙:</value>
-  </data>
-  <data name="ChkLockScreen.Content" xml:space="preserve">
-    <value>鎖屏背景</value>
-  </data>
-  <data name="ChkWallpaper.Content" xml:space="preserve">
-    <value>桌面壁紙</value>
+    <value>隔多少時間修改鎖屏:</value>
   </data>
   <data name="HomeButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>主頁</value>
@@ -134,9 +128,6 @@
   </data>
   <data name="InformationTitle" xml:space="preserve">
     <value>信息</value>
-  </data>
-  <data name="OkButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>確認</value>
   </data>
   <data name="RefreshButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>刷新</value>
@@ -169,9 +160,6 @@
   </data>
   <data name="SetAppBackgroundButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>設置程式背景</value>
-  </data>
-  <data name="SetDesktopWallpaper.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>設置桌面壁紙</value>
   </data>
   <data name="SetLockScreenButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>設置鎖屏</value>

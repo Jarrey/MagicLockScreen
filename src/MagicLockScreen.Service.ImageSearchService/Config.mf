@@ -72,7 +72,7 @@
 
 
     <!--
-        Flickr image search API: https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;api_key=6759d52882025518081557e6075a17b5&amp;tags={0}&amp;per_page={1}&amp;page={2}&amp;format=rest
+        Flickr image search API: http://api.flickr.com/services/rest/?method=flickr.photos.search&amp;api_key=6759d52882025518081557e6075a17b5&amp;tags={0}&amp;per_page={1}&amp;page={2}&amp;format=rest
       
         return format: XML(REST)
       -->
@@ -88,12 +88,12 @@
                ID="F9B6617A-B4DF-4BE6-8CE1-2DE544A5285D"
                Name="FlickrImageSearchService"
                ShortName="FISS"
-               ServiceApiUri="https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;api_key=6759d52882025518081557e6075a17b5&amp;tags={0}&amp;per_page={1}&amp;page={2}&amp;format=rest"
+               ServiceApiUri="http://api.flickr.com/services/rest/?method=flickr.photos.search&amp;api_key=6759d52882025518081557e6075a17b5&amp;tags={0}&amp;per_page={1}&amp;page={2}&amp;format=rest"
                ServiceApiParameters="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.ApiParameters.FlickrImageSearchServiceApiParameter"
                ServiceType="0"
-               BaseImageUrl="https://farm{0}.staticflickr.com/{1}/{2}_{3}{4}.jpg"
-               BaseUserProfileUrl="https://www.flickr.com/photos/{0}/"
-               BasePhotoProfileUrl="https://www.flickr.com/photos/{0}/{1}"
+               BaseImageUrl="http://farm{0}.staticflickr.com/{1}/{2}_{3}{4}.jpg"
+               BaseUserProfileUrl="http://www.flickr.com/photos/{0}/"
+               BasePhotoProfileUrl="http://www.flickr.com/photos/{0}/{1}"
                MaxItemCount="1000"
                IsSupportBackgroundTask="true"
                BackgroundTaskService="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.FlickrImageSearchBackgroundTaskService">

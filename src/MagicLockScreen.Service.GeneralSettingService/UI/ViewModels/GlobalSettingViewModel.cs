@@ -12,10 +12,6 @@ using NoteOne_Core.UI.Common;
 using NoteOne_Utility.Extensions;
 using Windows.UI.Xaml;
 using AppSettings = NoteOne_Utility.AppSettings;
-using Windows.Storage;
-using Windows.UI.Popups;
-using MagicLockScreen_Service_GeneralSettingService.Resources;
-using Windows.Storage.Search;
 
 namespace MagicLockScreen_Service_GeneralSettingService.UI.ViewModels
 {
@@ -40,8 +36,6 @@ namespace MagicLockScreen_Service_GeneralSettingService.UI.ViewModels
                 from ServiceChannelModel model in ServiceChannelManager.CurrentServiceChannelManager.AvailableModels
                 where model.GroupID == ServiceChannelGroupID.OnlinePictures
                 select model;
-
-            this["SaveImagePositions"] = SaveImagePosition.SaveImagePositions;
 
             UpdateCustomizeChannelModels();
             UpdateLocalPictureChannelModels();
@@ -98,35 +92,6 @@ namespace MagicLockScreen_Service_GeneralSettingService.UI.ViewModels
                 });
 
             #endregion
-
-            #region Clean all local settings command
-
-            #endregion
-
-            this["CleanLocalSettingsCommand"] = new RelayCommand(async () =>
-                {
-                    var dialog = new MessageDialog(ResourcesLoader.Loader["CleanSettingsQuestion"]);
-                    dialog.Commands.Add(new UICommand(ResourcesLoader.Loader["OKButton"], null, 1));
-                    dialog.Commands.Add(new UICommand(ResourcesLoader.Loader["CancelButton"], null, 0));
-                    IUICommand command = await dialog.ShowAsync();
-
-                    if ((int)command.Id == 1)  // User click OK
-                    {
-                        foreach (StorageFile file in await ApplicationData.Current.LocalFolder.GetFilesAsync())
-                            await file.DeleteAsync();
-                        foreach (StorageFile file in await ApplicationData.Current.RoamingFolder.GetStorageFiles(new string[] { ".setting" }, FolderDepth.Shallow))
-                            await file.DeleteAsync();
-
-                        LocalAppSettings.Instance.Reset();
-                        AppSettings.Instance.Reset();
-                        MagicLockScreen_Helper.AppSettings.Instance.Reset();
-
-                        // unregister all UpdateLockScreenBackgroundTask tasks from previous version
-                        BackgroundTaskController.UnregisterBackgroundTasks("UpdateLockScreenBackgroundTask");
-                    }
-
-                    SettingPopup.Current.Show();
-                });
 
             #endregion
         }

@@ -50,7 +50,7 @@ namespace MagicLockScreen_Service_InterfaceLIFTService.Results
 
                 var interfaceLIFTHTML = (ResponseContent as string);
 
-                // split image items, one page should contains 10 image parts, and the code before wallpapers part
+                // split image items, one page should contains 10 image parts, and the code before wallpagers part
                 string[] itemParts =
                     Regex.Split(interfaceLIFTHTML, _imagePartSplit, RegexOptions.IgnoreCase | RegexOptions.Singleline);
 

@@ -10,7 +10,7 @@ namespace MagicLockScreen_Service_LunarPODService.Resources
 
         private ResourcesLoader()
         {
-            resourceLoader = ResourceLoader.GetForViewIndependentUse(@"MagicLockScreen_Service_LunarPODService/Resources");
+            resourceLoader = new ResourceLoader(@"MagicLockScreen_Service_LunarPODService/Resources");
         }
 
         public static ResourcesLoader Loader

@@ -117,23 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CancelButton" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="CleanSettingsButton.Content" xml:space="preserve">
-    <value> Clean Settings</value>
-  </data>
-  <data name="CleanSettingsQuestion" xml:space="preserve">
-    <value>Do you want to clean all user settings?</value>
-  </data>
   <data name="CurrentSearchEngine.Text" xml:space="preserve">
     <value>Please select one image search engine:</value>
   </data>
   <data name="CustomizePicturesTitle.Title" xml:space="preserve">
     <value>Customize Pictures</value>
-  </data>
-  <data name="DefaultSavePosition.Text" xml:space="preserve">
-    <value>Image default suggestion save location:</value>
   </data>
   <data name="DisableAnimationSwitchLabel.Text" xml:space="preserve">
     <value>Disable animation</value>
@@ -149,9 +137,6 @@
   </data>
   <data name="LogHistoryDays.Text" xml:space="preserve">
     <value>Day(s)</value>
-  </data>
-  <data name="OKButton" xml:space="preserve">
-    <value>OK</value>
   </data>
   <data name="OnlinePicturesTitle.Title" xml:space="preserve">
     <value>Online Pictures</value>

@@ -26,7 +26,9 @@ namespace MagicLockScreen_UI.ViewModels
 
             this["CloseHelpCommand"] = new RelayCommand(() =>
                 {
-                    if (FullScreenPopup.Current.ContainsKey(ConstKeys.HELP_KEY))
+                    if (
+                        FullScreenPopup.Current.ContainsKey(
+                            ConstKeys.HELP_KEY))
                         FullScreenPopup.Current[ConstKeys.HELP_KEY].Close();
                 });
 

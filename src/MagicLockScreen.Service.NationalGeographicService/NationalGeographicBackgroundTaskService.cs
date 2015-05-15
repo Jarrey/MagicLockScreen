@@ -10,7 +10,6 @@ using Windows.Data.Xml.Dom;
 using Windows.Storage.Streams;
 using Windows.System.UserProfile;
 using MagicLockScreen.BackgroundTask;
-using MagicLockScreen_Helper;
 
 namespace MagicLockScreen_Service_NationalGeographicService
 {
@@ -41,7 +40,7 @@ namespace MagicLockScreen_Service_NationalGeographicService
                 {
                     string[] tc = time.StringToArray(':');
                     if (tc.Length > 1)
-                        TimeTriggerTimes.Add(new { Name = ResourcesLoader.Loader[tc[0]], Value = tc[1] });
+                        TimeTriggerTimes.Add(new {Name = ResourcesLoader.Loader[tc[0]], Value = tc[1]});
                 }
             }
             catch (Exception ex)
@@ -52,34 +51,15 @@ namespace MagicLockScreen_Service_NationalGeographicService
 
         private async Task Task_Run(Dictionary<string, string> parameters)
         {
-            if (parameters.ContainsKey("LockScreen") && parameters.ContainsKey("Wallpaper"))
+            var nationalGeographicQueryService = Service as NationalGeographicQueryService;
+            if (nationalGeographicQueryService != null)
             {
-                bool updateLockScreen = bool.Parse(parameters["LockScreen"]);
-                bool updateWallpaper = bool.Parse(parameters["Wallpaper"]);
-
-                var nationalGeographicQueryService = Service as NationalGeographicQueryService;
-                if (nationalGeographicQueryService != null)
+                NationalGeographic nationalGeographic = await nationalGeographicQueryService.QueryDataAsync();
+                if (nationalGeographic != null)
                 {
-                    NationalGeographic nationalGeographic = await nationalGeographicQueryService.QueryDataAsync();
-                    if (nationalGeographic != null)
-                    {
-                        RandomAccessStreamReference stream =
-                            RandomAccessStreamReference.CreateFromUri(new Uri(nationalGeographic.ThumbnailImageUrl));
-
-                        if (updateLockScreen)
-                        {
-                            await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
-                        }
-
-                        if (updateWallpaper)
-                        {
-                            await ApplicationHelper.SetWallpaperAsync(await stream.OpenReadAsync(), false);
-                        }
-
-                        ApplicationHelper.UpdateTileNotification(nationalGeographic.ThumbnailImageUrl,
-                                                                 nationalGeographicQueryService.ServiceChannel.Model.Title,
-                                                                 nationalGeographic.Title);
-                    }
+                    RandomAccessStreamReference stream =
+                        RandomAccessStreamReference.CreateFromUri(new Uri(nationalGeographic.ThumbnailImageUrl));
+                    await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
                 }
             }
         }

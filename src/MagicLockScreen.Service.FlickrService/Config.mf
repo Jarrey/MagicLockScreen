@@ -16,9 +16,9 @@
                ServiceApiUri="https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&amp;api_key=6759d52882025518081557e6075a17b5&amp;extras=description,owner_name,date_upload&amp;per_page={0}&amp;page={1}&amp;format=rest"
                ServiceApiParameters="MagicLockScreen_Service_FlickrService, Culture=''|MagicLockScreen_Service_FlickrService.ApiParameters.FlickrServiceApiParameter"
                ServiceType="0"
-               BaseImageUrl="https://farm{0}.staticflickr.com/{1}/{2}_{3}{4}.jpg"
-               BaseUserProfileUrl="https://www.flickr.com/photos/{0}/"
-               BasePhotoProfileUrl="https://www.flickr.com/photos/{0}/{1}"
+               BaseImageUrl="http://farm{0}.staticflickr.com/{1}/{2}_{3}{4}.jpg"
+               BaseUserProfileUrl="http://www.flickr.com/photos/{0}/"
+               BasePhotoProfileUrl="http://www.flickr.com/photos/{0}/{1}"
                MaxItemCount="500"
                IsSupportBackgroundTask="True"
                BackgroundTaskService="MagicLockScreen_Service_FlickrService, Culture=''|MagicLockScreen_Service_FlickrService.FlickrBackgroundTaskService">

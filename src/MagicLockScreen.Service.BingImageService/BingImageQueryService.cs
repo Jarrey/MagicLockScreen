@@ -55,7 +55,7 @@ namespace MagicLockScreen_Service_BingImageService
                 CurrentMarket = Markets[0];
                 foreach (string market in Markets)
                 {
-                    if (market.ToUpperInvariant().Contains(currentLanaguageTag.ToUpperInvariant()))
+                    if (market.Contains(currentLanaguageTag))
                     {
                         CurrentMarket = market;
                         break;

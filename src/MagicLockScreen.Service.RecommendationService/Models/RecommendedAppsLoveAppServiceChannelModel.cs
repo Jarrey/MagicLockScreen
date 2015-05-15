@@ -10,11 +10,14 @@ using Windows.System;
 
 namespace MagicLockScreen_Service_RecommendationService.Models
 {
-    public class RecommendedAppsLoveAppServiceChannelModel : RecommendedAppsServiceChannelModel
+    public class RecommendedAppsLoveAppServiceChannelModel : MagicLockScreenServiceChannelModel
     {
         public RecommendedAppsLoveAppServiceChannelModel(ServiceChannel channel)
             : base(channel)
         {
+            Index = 10;
+            Title = string.Empty;
+            SubTitle = string.Empty;
             Logo = new Collection<BindableImage>
                 {
                     new BindableImage
@@ -24,6 +27,9 @@ namespace MagicLockScreen_Service_RecommendationService.Models
                             IsThumbnailImageDownloading = false
                         }
                 };
+            GroupID = ServiceChannelGroupID.RecommendedApps;
+            ShowOverlay = false;
+            PrimaryViewType = null;
 
             // second logo
             HasSecondLogo = true;
@@ -37,5 +43,35 @@ namespace MagicLockScreen_Service_RecommendationService.Models
                         }
                 };
         }
+
+        public override bool IsEnabled
+        {
+            get { return (bool) AppSettings.Instance[AppSettings.SERVICE_CHANNEL_STATUS_RALASC]; }
+            set
+            {
+                base.IsEnabled = value;
+                AppSettings.Instance[AppSettings.SERVICE_CHANNEL_STATUS_RALASC] = value;
+                OnPropertyChanged("IsEnabled");
+            }
+        }
+
+        #region Commands
+
+        public RelayCommand<object[]> ItemClickCommand
+        {
+            get
+            {
+                return new RelayCommand<object[]>(async p =>
+                    {
+                        if (Channel is RecommendedAppsLoveAppServiceChannel)
+                        {
+                            var uri = new Uri((Channel as RecommendedAppsLoveAppServiceChannel).URL);
+                            await Launcher.LaunchUriAsync(uri);
+                        }
+                    });
+            }
+        }
+
+        #endregion
     }
 }

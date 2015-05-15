@@ -10,7 +10,6 @@ using Windows.Data.Xml.Dom;
 using Windows.Storage.Streams;
 using Windows.System.UserProfile;
 using MagicLockScreen.BackgroundTask;
-using MagicLockScreen_Helper;
 
 namespace MagicLockScreen_Service_FlickrService
 {
@@ -41,7 +40,7 @@ namespace MagicLockScreen_Service_FlickrService
                 {
                     string[] tc = time.StringToArray(':');
                     if (tc.Length > 1)
-                        TimeTriggerTimes.Add(new { Name = ResourcesLoader.Loader[tc[0]], Value = tc[1] });
+                        TimeTriggerTimes.Add(new {Name = ResourcesLoader.Loader[tc[0]], Value = tc[1]});
                 }
             }
             catch (Exception ex)
@@ -52,34 +51,17 @@ namespace MagicLockScreen_Service_FlickrService
 
         private async Task Task_Run(Dictionary<string, string> parameters)
         {
-            if (parameters.ContainsKey("LockScreen") && parameters.ContainsKey("Wallpaper"))
+            var random = new Random(DateTime.Now.Millisecond);
+            var flickrQueryService = Service as FlickrQueryService;
+            if (flickrQueryService != null)
             {
-                bool updateLockScreen = bool.Parse(parameters["LockScreen"]);
-                bool updateWallpaper = bool.Parse(parameters["Wallpaper"]);
-
-                var random = new Random(DateTime.Now.Millisecond);
-                var flickrQueryService = Service as FlickrQueryService;
-                if (flickrQueryService != null)
+                Flickr flickr =
+                    await flickrQueryService.QueryDataAsync(random.Next(0, (int) flickrQueryService.MaxItemCount));
+                if (flickr != null)
                 {
-                    Flickr flickr = await flickrQueryService.QueryDataAsync(random.Next(0, (int)flickrQueryService.MaxItemCount));
-                    if (flickr != null)
-                    {
-                        RandomAccessStreamReference stream = RandomAccessStreamReference.CreateFromUri(new Uri(flickr.OriginalImageUrl));
-
-                        if (updateLockScreen)
-                        {
-                            await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
-                        }
-
-                        if (updateWallpaper)
-                        {
-                            await ApplicationHelper.SetWallpaperAsync(await stream.OpenReadAsync(), false);
-                        }
-
-                        ApplicationHelper.UpdateTileNotification(flickr.ThumbnailImageUrl,
-                                                                 flickrQueryService.ServiceChannel.Model.Title,
-                                                                 flickr.Title);
-                    }
+                    RandomAccessStreamReference stream =
+                        RandomAccessStreamReference.CreateFromUri(new Uri(flickr.OriginalImageUrl));
+                    await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
                 }
             }
         }

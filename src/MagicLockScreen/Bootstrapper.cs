@@ -36,7 +36,7 @@ namespace MagicLockScreen_UI
         /// <summary>
         ///     Searching page type
         /// </summary>
-        private readonly Type searchCopntractPage = typeof(ImageSearchServiceChannelPage);
+        private readonly Type searchCopntractPage = typeof (ImageSearchServiceChannelPage);
 
         private LaunchActivatedEventArgs launchArgs;
         private Frame rootFrame;
@@ -63,7 +63,7 @@ namespace MagicLockScreen_UI
             if (Window.Current.Content == null)
             {
                 rootFrame = new Frame();
-                rootFrame.Navigate(typeof(Splash), args.SplashScreen);
+                rootFrame.Navigate(typeof (Splash), args.SplashScreen);
                 Window.Current.Content = rootFrame;
             }
             Window.Current.Activate();
@@ -123,42 +123,45 @@ namespace MagicLockScreen_UI
         {
             await InitializeAppBackgroundAsync();
             await rootFrame.Dispatcher.RunAsync(CoreDispatcherPriority.High,
-                async () =>
-                {
-                    if (launchArgs.PreviousExecutionState == ApplicationExecutionState.Running)
-                    {
-                        CoreApplication.Properties.Clear();
-                        Window.Current.Activate();
-                        return;
-                    }
+                                                async () =>
+                                                    {
+                                                        if (launchArgs.PreviousExecutionState ==
+                                                            ApplicationExecutionState.Running)
+                                                        {
+                                                            CoreApplication.Properties.Clear();
+                                                            Window.Current.Activate();
+                                                            return;
+                                                        }
 
-                    rootFrame = new Frame();
-                    SuspensionManager.RegisterFrame(rootFrame, "AppFrame");
+                                                        rootFrame = new Frame();
+                                                        SuspensionManager.RegisterFrame(rootFrame, "AppFrame");
 
-                    if (launchArgs.PreviousExecutionState == ApplicationExecutionState.Terminated)
-                    {
-                        // Restore the saved session state only when appropriate
-                        try
-                        {
-                            await InitializeData();
-                            await SuspensionManager.RestoreAsync();
-                        }
-                        catch (SuspensionManagerException ex)
-                        {
-                            ex.WriteLog();
-                        }
-                    }
+                                                        if (launchArgs.PreviousExecutionState ==
+                                                            ApplicationExecutionState.Terminated)
+                                                        {
+                                                            // Restore the saved session state only when appropriate
+                                                            try
+                                                            {
+                                                                await InitializeData();
+                                                                await SuspensionManager.RestoreAsync();
+                                                            }
+                                                            catch (SuspensionManagerException ex)
+                                                            {
+                                                                ex.WriteLog();
+                                                            }
+                                                        }
 
-                    if (rootFrame.Content == null)
-                    {
-                        if (!rootFrame.Navigate(typeof(ServiceChannelItemsPage)))
-                        {
-                            new Exception("Failed to create initial page").WriteLog();
-                        }
-                    }
-                    Window.Current.Content = rootFrame;
-                    TileUpdateManager.CreateTileUpdaterForApplication().EnableNotificationQueue(true);
-                });
+                                                        if (rootFrame.Content == null)
+                                                        {
+                                                            if (!rootFrame.Navigate(typeof (ServiceChannelItemsPage)))
+                                                            {
+                                                                new Exception("Failed to create initial page").WriteLog();
+                                                            }
+                                                        }
+                                                        Window.Current.Content = rootFrame;
+                                                        TileUpdateManager.CreateTileUpdaterForApplication()
+                                                                         .EnableNotificationQueue(true);
+                                                    });
         }
 
         #region Cleanup Method
@@ -177,17 +180,6 @@ namespace MagicLockScreen_UI
             //foreach (StorageFile file in await ApplicationData.Current.RoamingFolder.GetStorageFiles(new string[] { ".setting" }, FolderDepth.Shallow))
             //    await file.DeleteAsync();
 
-            LocalAppSettings.Instance.Reset();
-            AppSettings.Instance.Reset();
-            MagicLockScreen_Helper.AppSettings.Instance.Reset();
-
-            // Initialize local aplication settings
-            await AppSettings.InitializeSettings(LocalAppSettings.Instance);
-
-            // Initialize roaming aplication settings
-            await AppSettings.InitializeSettings(AppSettings.Instance);
-            await AppSettings.InitializeSettings(MagicLockScreen_Helper.AppSettings.Instance);
-            
             // unregister all UpdateLockScreenBackgroundTask tasks from previous version
             BackgroundTaskController.UnregisterBackgroundTasks("UpdateLockScreenBackgroundTask");
             new MessagePopup(ResourcesLoader.Loader["UpgradePrompt"]).Show(30);
@@ -212,7 +204,7 @@ namespace MagicLockScreen_UI
                         StorageFileQueryResult queryResult = Package.Current.InstalledLocation.
                                                                      CreateFileQueryWithOptions(
                                                                          new QueryOptions(CommonFileQuery.OrderByName,
-                                                                                          new List<string> { ".mf" })
+                                                                                          new List<string> {".mf"})
                                                                              {
                                                                                  FolderDepth = FolderDepth.Deep
                                                                              });
@@ -284,18 +276,18 @@ namespace MagicLockScreen_UI
 
                     // Initialize local aplication settings
                     await AppSettings.InitializeSettings(LocalAppSettings.Instance);
-
-                    // Initialize roaming aplication settings
-                    await AppSettings.InitializeSettings(AppSettings.Instance);
-                    await AppSettings.InitializeSettings(MagicLockScreen_Helper.AppSettings.Instance);
-
                     // Check upgrade key to do cleanup after upgrading
                     if (LocalAppSettings.Instance[LocalAppSettings.UPGRADE_KEY].ToString() != upgradeKey)
                     {
                         await CleanUpAsync();
+                        LocalAppSettings.Instance.Reset();
                         LocalAppSettings.Instance[LocalAppSettings.UPGRADE_KEY] = upgradeKey;
                         await AppSettings.SaveSettings(LocalAppSettings.Instance);
                     }
+
+                    // Initialize roaming aplication settings
+                    await AppSettings.InitializeSettings(AppSettings.Instance);
+                    await AppSettings.InitializeSettings(MagicLockScreen_Helper.AppSettings.Instance);
 
                     // Initialize log sub-system
                     await LogExtension.InitializeLogger();

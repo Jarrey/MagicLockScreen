@@ -121,7 +121,7 @@
     <value>Cancel</value>
   </data>
   <data name="ChangeLockScreenEvery.Text" xml:space="preserve">
-    <value>Update LockScreen or Desktop Wallpaper each:</value>
+    <value>Change LockScreen every:</value>
   </data>
   <data name="HomeButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Home</value>
@@ -269,17 +269,5 @@
 &lt;TextBlock&gt;All images are retrieved from automatically search result of Info.com according to your keywords. Chameleon or Baidu cannot make any representations regarding the content found there. All images are copyrighted to the image owners, and anyone without the permission of copyright holders shall not use them for commercial purpose. &lt;/TextBlock&gt;
 &lt;HyperlinkButton Content="Info.com Legal &amp;amp; Privacy Policy" NavigateUri="http://images.info.com/conditions"/&gt;
 &lt;/StackPanel&gt;</value>
-  </data>
-  <data name="ChkLockScreen.Content" xml:space="preserve">
-    <value>LockScreen</value>
-  </data>
-  <data name="ChkWallpaper.Content" xml:space="preserve">
-    <value>Desktop Wallpaper</value>
-  </data>
-  <data name="ConfirmButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="SetDesktopWallpaper.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>Set Desktop Wallpaper</value>
   </data>
 </root>

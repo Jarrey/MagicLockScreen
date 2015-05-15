@@ -10,7 +10,6 @@ using Windows.Data.Xml.Dom;
 using Windows.Storage.Streams;
 using Windows.System.UserProfile;
 using MagicLockScreen.BackgroundTask;
-using MagicLockScreen_Helper;
 
 namespace MagicLockScreen_Service_ImageSearchService
 {
@@ -52,38 +51,19 @@ namespace MagicLockScreen_Service_ImageSearchService
 
         private async Task Task_Run(Dictionary<string, string> parameters)
         {
-            if (parameters.ContainsKey("LockScreen") && parameters.ContainsKey("Wallpaper"))
+            var random = new Random(DateTime.Now.Millisecond);
+            var googleImageSearchService = Service as GoogleImageSearchService;
+            if (googleImageSearchService != null)
             {
-                bool updateLockScreen = bool.Parse(parameters["LockScreen"]);
-                bool updateWallpaper = bool.Parse(parameters["Wallpaper"]);
-
-                var random = new Random(DateTime.Now.Millisecond);
-                var googleImageSearchService = Service as GoogleImageSearchService;
-                if (googleImageSearchService != null)
+                SearchImage image =
+                    await
+                    googleImageSearchService.QueryDataAsync(parameters["keyword"],
+                                                            random.Next(0, (int) googleImageSearchService.MaxItemCount));
+                if (image != null)
                 {
-                    SearchImage image =
-                        await
-                        googleImageSearchService.QueryDataAsync(parameters["keyword"],
-                                                                random.Next(0, (int)googleImageSearchService.MaxItemCount));
-                    if (image != null)
-                    {
-                        RandomAccessStreamReference stream =
-                            RandomAccessStreamReference.CreateFromUri(new Uri(image.OriginalImageUrl));
-
-                        if (updateLockScreen)
-                        {
-                            await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
-                        }
-
-                        if (updateWallpaper)
-                        {
-                            await ApplicationHelper.SetWallpaperAsync(await stream.OpenReadAsync(), false);
-                        }
-
-                        ApplicationHelper.UpdateTileNotification(image.OriginalImageUrl,
-                                                                 googleImageSearchService.ServiceChannel.Model.Title,
-                                                                 image.Title);
-                    }
+                    RandomAccessStreamReference stream =
+                        RandomAccessStreamReference.CreateFromUri(new Uri(image.OriginalImageUrl));
+                    await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
                 }
             }
         }

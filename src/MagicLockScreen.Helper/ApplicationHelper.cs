@@ -24,15 +24,11 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Buffer = Windows.Storage.Streams.Buffer;
 using NoteOne_Core.Notifications;
-using NoteOne_Utility.Helpers;
 
 namespace MagicLockScreen_Helper
 {
     public class ApplicationHelper
     {
-        private static string EncryptedKey = MD5Encryptor.GetMD5("chameleon");
-        private const string DesktopServiceAddressFile = "address.service";
-        private const string DesktopServiceOKResponse = "Bomb";
         public static Dictionary<string, string> SupportImageExtensions = new Dictionary<string, string>();
 
         static ApplicationHelper()
@@ -110,109 +106,6 @@ namespace MagicLockScreen_Helper
             }
         }
 
-        /// <summary>
-        ///     Set desktop wallpaper from image url
-        /// </summary>
-        /// <param name="imageUrl">image url</param>
-        /// <returns></returns>
-        public static async Task SetWallpaperAsync(string imageUrl, bool withUi = true)
-        {
-            try
-            {
-                var imageBase64 = string.Empty;
-                var uri = new Uri(imageUrl);
-                if (uri.Scheme == "file")
-                {
-                    StorageFile imagFile = await StorageFile.GetFileFromPathAsync(imageUrl);
-                    using (IRandomAccessStreamWithContentType s = await imagFile.OpenReadAsync())
-                    {
-                        await SetWallpaperAsync(s, withUi);
-                    }
-                }
-                else
-                {
-                    RandomAccessStreamReference stream = RandomAccessStreamReference.CreateFromUri(new Uri(imageUrl));
-                    using (IRandomAccessStreamWithContentType s = await stream.OpenReadAsync())
-                    {
-                        await SetWallpaperAsync(s, withUi);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ex.WriteLog();
-            }
-        }
-
-        /// <summary>
-        ///     Set desktop wallpaper from image stream
-        /// </summary>
-        /// <param name="stream">image stream</param>
-        /// <returns></returns>
-        public static async Task SetWallpaperAsync(IRandomAccessStream stream, bool withUi = true)
-        {
-            try
-            {
-                stream.Seek(0);
-                var imageBase64 = Convert.ToBase64String(await stream.GetBytes());
-                var serviceaddress = await GetDesktopServiceAddress();
-                await HttpClientHelper.Instance.PostResponseStringAsync(new Uri(serviceaddress + "/api/update?key=" + EncryptedKey), imageBase64);
-
-                if (withUi)
-                {
-                    new MessagePopup(ResourcesLoader.Loader["SetWallpaperSucessfully"]).Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                ex.WriteLog();
-                if (withUi)
-                {
-                    new MessagePopup(ResourcesLoader.Loader["SetWallpaperError"]).Show();
-                }
-            }
-        }
-
-        public static async Task<bool> CheckPromptDesktopService()
-        {
-            var result = await CheckDesktopService();
-            if (!result)
-            {
-                string downloadUrl = LocalAppSettings.Instance[LocalAppSettings.DESKTOP_SERVICE_DOWNLOAD_URL].ToString();
-                var rateReviewPrompt = new MessageDialog(string.Format(ResourcesLoader.Loader["ErrorOnDesktopService"], downloadUrl),
-                                                         ResourcesLoader.Loader["ErrorOnDesktopServiceTitle"]);
-                rateReviewPrompt.Commands.Add(new UICommand(ResourcesLoader.Loader["GoToDownload"], null, 1));
-                rateReviewPrompt.Commands.Add(new UICommand(ResourcesLoader.Loader["Never"], null, 0));
-                IUICommand command = await rateReviewPrompt.ShowAsync();
-
-                if ((int)command.Id == 1) // choose download
-                {
-                    await Launcher.LaunchUriAsync(new Uri(downloadUrl));
-                }
-            }
-
-            return result;
-        }
-
-        public static async Task<bool> CheckDesktopService()
-        {
-            try
-            {
-                var serviceaddress = await GetDesktopServiceAddress();
-                if (string.IsNullOrEmpty(serviceaddress))
-                    return false;
-
-                var response = await HttpClientHelper.Instance.GetResponseStringAsync(new Uri(serviceaddress + "/api/IsValid?key=" + EncryptedKey));
-
-                return DesktopServiceOKResponse == response.Body;
-            }
-            catch (Exception ex)
-            {
-                return false;
-                ex.WriteLog();
-            }
-        }
-
         public static async Task<StorageFile> GetTemporaryStorageImageAsync(string imageUrl)
         {
             var uri = new Uri(imageUrl);
@@ -232,9 +125,9 @@ namespace MagicLockScreen_Helper
                     Buffer buffer;
                     using (IRandomAccessStream originalImageStream = await stream.OpenReadAsync())
                     {
-                        buffer = new Buffer((uint)originalImageStream.Size);
+                        buffer = new Buffer((uint) originalImageStream.Size);
                         await
-                            originalImageStream.ReadAsync(buffer, (uint)originalImageStream.Size,
+                            originalImageStream.ReadAsync(buffer, (uint) originalImageStream.Size,
                                                           InputStreamOptions.None);
                     }
                     await randomAccessStream.WriteAsync(buffer);
@@ -282,7 +175,7 @@ namespace MagicLockScreen_Helper
                         LocalAppSettings.Instance[LocalAppSettings.INIT_MAIN_PAGE_COUNT].ToString().StringToInt();
                     if (initCount >= 0)
                     {
-                        if (initCount > 10 && initCount % 10 == 0)
+                        if (initCount > 10 && initCount%10 == 0)
                         {
                             var rateReviewPrompt = new MessageDialog(ResourcesLoader.Loader["ReviewPromptContent"],
                                                                      ResourcesLoader.Loader["ReviewPromptTitle"]);
@@ -291,14 +184,14 @@ namespace MagicLockScreen_Helper
                             rateReviewPrompt.Commands.Add(new UICommand(ResourcesLoader.Loader["Later"], null, 0));
                             IUICommand command = await rateReviewPrompt.ShowAsync();
 
-                            if ((int)command.Id == 1) // choose never
+                            if ((int) command.Id == 1) // choose never
                             {
                                 LocalAppSettings.Instance[LocalAppSettings.INIT_MAIN_PAGE_COUNT] = -1;
                                 await NoteOne_Utility.AppSettings.SaveSettings(LocalAppSettings.Instance);
                                 return;
                             }
 
-                            if ((int)command.Id == 2) // choose rate it
+                            if ((int) command.Id == 2) // choose rate it
                             {
                                 LocalAppSettings.Instance[LocalAppSettings.INIT_MAIN_PAGE_COUNT] = -1;
                                 var uri = new Uri("ms-windows-store:REVIEW?PFN=" + Package.Current.Id.FamilyName);
@@ -313,26 +206,6 @@ namespace MagicLockScreen_Helper
                 });
         }
 
-        #region Desktop service helper
-
-        private static async Task<string> GetDesktopServiceAddress()
-        {
-            try
-            {
-                if (!await ApplicationData.Current.LocalFolder.CheckFileExisted(DesktopServiceAddressFile))
-                    return null;
-
-                return await FileIO.ReadTextAsync(await ApplicationData.Current.LocalFolder.GetFileAsync(DesktopServiceAddressFile));
-            }
-            catch (Exception ex)
-            {
-                return null;
-                ex.WriteLog();
-            }
-        }
-
-        #endregion
-
         #endregion
 
         #region App Global Commands
@@ -343,32 +216,30 @@ namespace MagicLockScreen_Helper
         public static readonly RelayCommand<string> SetAppBackgroundCommand =
             new RelayCommand<string>(async url => { await SetAppBackgroundAsync(url); });
 
-        public static readonly RelayCommand<string> SetWallpaperCommand =
-            new RelayCommand<string>(async url =>
-            {
-                if (await CheckPromptDesktopService())
-                {
-                    await SetWallpaperAsync(url);
-                }
-            });
-
         public static readonly RelayCommand<string> SaveAsCommand = new RelayCommand<string>(async url =>
             {
                 try
                 {
+                    if (ApplicationView.Value == ApplicationViewState.Snapped &&
+                        !ApplicationView.TryUnsnap())
+                    {
+                        new MessagePopup(ResourcesLoader.Loader["SaveErrorOnSnapped"]).Show();
+                        return;
+                    }
+
                     string fileName = Regex.Match(url, @"\w*\.[\w]{2,4}$").Value;
                     string fileExtension = Regex.Match(fileName, @"\.[\w]{2,4}$").Value;
                     if (!string.IsNullOrEmpty(fileName) && !string.IsNullOrEmpty(fileExtension))
                     {
                         var fsp = new FileSavePicker
                             {
-                                SuggestedStartLocation = (PickerLocationId)LocalAppSettings.Instance[LocalAppSettings.DEFAULT_IMAGE_SAVE_POSITION],
+                                SuggestedStartLocation = PickerLocationId.PicturesLibrary,
                                 SuggestedFileName = fileName,
                                 DefaultFileExtension = fileExtension
                             };
                         foreach (var fileType in SupportImageExtensions)
                         {
-                            fsp.FileTypeChoices.Add(fileType.Key, new List<string> { fileType.Value });
+                            fsp.FileTypeChoices.Add(fileType.Key, new List<string> {fileType.Value});
                         }
                         StorageFile file = await fsp.PickSaveFileAsync();
                         if (file != null)

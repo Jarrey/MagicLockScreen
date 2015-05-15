@@ -2,7 +2,6 @@
 using NoteOne_Utility;
 using NoteOne_Utility.Helpers;
 using Windows.Storage;
-using Windows.Storage.Pickers;
 
 namespace MagicLockScreen_Helper
 {
@@ -25,11 +24,9 @@ namespace MagicLockScreen_Helper
         public void Reset()
         {
             Settings[RECENT_LOCAL_SELECTED_PICTURE_FOLDER_PATH] = "/|";
-            Settings[UPGRADE_KEY] = "233FD9A8-3FFF-4CB1-A178-6FBFE9A741C3";
+            Settings[UPGRADE_KEY] = "A1B21ADD-0930-43BD-A88B-9914FC88E0EB";
             Settings[INIT_MAIN_PAGE_COUNT] = 0;
             Settings[LOGO_ANIMATION] = true;
-            Settings[DEFAULT_IMAGE_SAVE_POSITION] = (int)PickerLocationId.PicturesLibrary;
-            Settings[DESKTOP_SERVICE_DOWNLOAD_URL] = @"http://chameapp.azurewebsites.net/chamedesk/chamedesk_setup.exe";
         }
 
         #region Setting fields
@@ -51,10 +48,6 @@ namespace MagicLockScreen_Helper
         public const string INIT_MAIN_PAGE_COUNT = "INIT_MAIN_PAGE_COUNT";
 
         public const string LOGO_ANIMATION = "LOGO_ANIMATION";
-
-        public const string DEFAULT_IMAGE_SAVE_POSITION = "DEFAULT_IMAGE_SAVE_POSITION";
-
-        public const string DESKTOP_SERVICE_DOWNLOAD_URL = "DESKTOP_SERVICE_DOWNLOAD_URL";
 
         #endregion
 

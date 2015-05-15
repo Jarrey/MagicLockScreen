@@ -10,7 +10,6 @@ using Windows.Data.Xml.Dom;
 using Windows.Storage.Streams;
 using Windows.System.UserProfile;
 using MagicLockScreen.BackgroundTask;
-using MagicLockScreen_Helper;
 
 namespace MagicLockScreen_Service_AstronomyPictureService
 {
@@ -41,7 +40,7 @@ namespace MagicLockScreen_Service_AstronomyPictureService
                 {
                     string[] tc = time.StringToArray(':');
                     if (tc.Length > 1)
-                        TimeTriggerTimes.Add(new { Name = ResourcesLoader.Loader[tc[0]], Value = tc[1] });
+                        TimeTriggerTimes.Add(new {Name = ResourcesLoader.Loader[tc[0]], Value = tc[1]});
                 }
             }
             catch (Exception ex)
@@ -52,37 +51,18 @@ namespace MagicLockScreen_Service_AstronomyPictureService
 
         private async Task Task_Run(Dictionary<string, string> parameters)
         {
-            if (parameters.ContainsKey("LockScreen") && parameters.ContainsKey("Wallpaper"))
+            var random = new Random(DateTime.Now.Millisecond);
+            var astronomyPictureQueryService = Service as AstronomyPictureQueryService;
+            if (astronomyPictureQueryService != null)
             {
-                bool updateLockScreen = bool.Parse(parameters["LockScreen"]);
-                bool updateWallpaper = bool.Parse(parameters["Wallpaper"]);
-
-                var random = new Random(DateTime.Now.Millisecond);
-                var astronomyPictureQueryService = Service as AstronomyPictureQueryService;
-                if (astronomyPictureQueryService != null)
+                AstronomyPicture astronomyPicture = await astronomyPictureQueryService.QueryDataAsync(
+                    DateTime.Now.Subtract(
+                        TimeSpan.FromDays(random.Next(0, (int) astronomyPictureQueryService.MaxItemCount))));
+                if (astronomyPicture != null && astronomyPicture.IsAvailable)
                 {
-                    AstronomyPicture astronomyPicture = await astronomyPictureQueryService.QueryDataAsync(
-                        DateTime.Now.Subtract(
-                            TimeSpan.FromDays(random.Next(0, (int)astronomyPictureQueryService.MaxItemCount))));
-                    if (astronomyPicture != null && astronomyPicture.IsAvailable)
-                    {
-                        RandomAccessStreamReference stream =
-                            RandomAccessStreamReference.CreateFromUri(new Uri(astronomyPicture.OriginalImageUrl));
-
-                        if (updateLockScreen)
-                        {
-                            await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
-                        }
-
-                        if (updateWallpaper)
-                        {
-                            await ApplicationHelper.SetWallpaperAsync(await stream.OpenReadAsync(), false);
-                        }
-
-                        ApplicationHelper.UpdateTileNotification(astronomyPicture.ThumbnailImageUrl,
-                                                                 astronomyPictureQueryService.ServiceChannel.Model.Title,
-                                                                 astronomyPicture.Title);
-                    }
+                    RandomAccessStreamReference stream =
+                        RandomAccessStreamReference.CreateFromUri(new Uri(astronomyPicture.OriginalImageUrl));
+                    await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
                 }
             }
         }

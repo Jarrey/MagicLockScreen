@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,16 +14,13 @@
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>MagicLockScreen.UI_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
-    <AppxPackageDir>C:\Users\Jie\Desktop\MagicLockscreen\1.1.0.4\</AppxPackageDir>
+    <AppxPackageDir>C:\Users\developer\Desktop\DeployPackages\MagicLockScreen\Win8\1.3.0.4\</AppxPackageDir>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
-    <PackageCertificateThumbprint>2557322F3486B263CEFC0271DC02BECC85EBB77A</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>F197712722C6DC29D0BD0D1CBD91A81A82BB3DED</PackageCertificateThumbprint>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <TargetPlatformVersion>8.1</TargetPlatformVersion>
-    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
-    <TargetFrameworkVersion />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -112,17 +109,13 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <ProjectReference Include="..\..\..\ChameNews\dev\ChameNews\ChameNews.Service\ChameNews.Service.csproj">
-      <Project>{327bd02b-97a3-49f0-bd27-84729b303546}</Project>
-      <Name>ChameNews.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\NoteOne_Framework\src\NoteOne.Core\NoteOne.Core.csproj">
+    <ProjectReference Include="..\..\..\NoteOne_Framework\src\NoteOne.Core\NoteOne.Core.Win8.csproj">
       <Project>{db78d313-1066-48a8-b333-ca2f3a35678d}</Project>
-      <Name>NoteOne.Core</Name>
+      <Name>NoteOne.Core.Win8</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\NoteOne_Framework\src\NoteOne.Utility\NoteOne.Utility.csproj">
+    <ProjectReference Include="..\..\..\NoteOne_Framework\src\NoteOne.Utility\NoteOne.Utility.Win8.csproj">
       <Project>{22e2dfb3-53a9-448e-9fde-9cc93329e40d}</Project>
-      <Name>NoteOne.Utility</Name>
+      <Name>NoteOne.Utility.Win8</Name>
     </ProjectReference>
     <ProjectReference Include="..\MagicLockScreen.BackgroundTask\MagicLockScreen.BackgroundTask.csproj">
       <Project>{18610dba-5d8b-4ca5-bd45-a2a7931cac8e}</Project>
@@ -164,7 +157,7 @@
       <Project>{6c1534ca-952b-409c-92bb-e1803dd12bee}</Project>
       <Name>MagicLockScreen.Service.LunarPODService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MagicLockScreen.Service.MicrosoftWallpaperService\MagicLockScreen.Service.MicrosoftWallpaperService.csproj">
+    <ProjectReference Include="..\MagicLockScreen.Service.MicrosoftWallpagerService\MagicLockScreen.Service.MicrosoftWallpagerService.csproj">
       <Project>{734c7b06-e380-4045-b58c-9efc00be725d}</Project>
       <Name>MagicLockScreen.Service.MicrosoftWallpagerService</Name>
     </ProjectReference>
@@ -183,10 +176,6 @@
     <ProjectReference Include="..\MagicLockScreen.Service.WikiMediaPODService\MagicLockScreen.Service.WikiMediaPODService.csproj">
       <Project>{a35a0faf-a695-4f6d-9231-2fa2e8557459}</Project>
       <Name>MagicLockScreen.Service.WikiMediaPODService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MagicLockScreen.Service.WWFPictureService\MagicLockScreen.Service.WWFPictureService.csproj">
-      <Project>{4873bb63-7abd-4506-a5f2-b87ffa91b7e2}</Project>
-      <Name>MagicLockScreen.Service.WWFPictureService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -218,7 +207,6 @@
     <Content Include="Assets\AppTitle.fr.png" />
     <Content Include="Assets\AppTitle.zh-hans.png" />
     <Content Include="Assets\AppTitle.zh-hant.png" />
-    <Content Include="Assets\ChameHOTLogo.png" />
     <Content Include="Assets\Help\HelpPage1.en.jpg" />
     <Content Include="Assets\Help\HelpPage1.fr.jpg" />
     <Content Include="Assets\Help\HelpPage1.zh-hans.jpg" />
@@ -271,8 +259,8 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
-    <VisualStudioVersion>12.0</VisualStudioVersion>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

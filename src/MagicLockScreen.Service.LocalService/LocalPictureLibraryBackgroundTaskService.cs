@@ -55,37 +55,19 @@ namespace MagicLockScreen_Service_LocalService
             var localPictureLibraryQueryService = Service as LocalPictureLibraryQueryService;
             if (localPictureLibraryQueryService != null && parameters != null && parameters.Count > 0)
             {
-                if (parameters.ContainsKey("LockScreen") && parameters.ContainsKey("Wallpaper"))
+                string localFolderPath = parameters[ConstKeys.LOCAL_FOLDER_PATH_KEY].Replace('?', ':');
+                LocalPictureLibrary localPictureLibrary =
+                    await localPictureLibraryQueryService.QueryDataAsync(localFolderPath);
+                if (localPictureLibrary != null)
                 {
-                    bool updateLockScreen = bool.Parse(parameters["LockScreen"]);
-                    bool updateWallpaper = bool.Parse(parameters["Wallpaper"]);
-
-                    string localFolderPath = parameters[ConstKeys.LOCAL_FOLDER_PATH_KEY].Replace('?', ':');
-                    LocalPictureLibrary localPictureLibrary = await localPictureLibraryQueryService.QueryDataAsync(localFolderPath);
-                    if (localPictureLibrary != null)
+                    try
                     {
-                        try
-                        {
-                            StorageFile file = await StorageFile.GetFileFromPathAsync(localPictureLibrary.LocalImagePath);
-
-                            if (updateLockScreen)
-                            {
-                                await LockScreen.SetImageStreamAsync(await file.OpenReadAsync());
-                            }
-
-                            if (updateWallpaper)
-                            {
-                                await ApplicationHelper.SetWallpaperAsync(await file.OpenReadAsync(), false);
-                            }
-
-                            ApplicationHelper.UpdateTileNotification(localPictureLibrary.LocalImagePath,
-                                                                     localPictureLibraryQueryService.ServiceChannel.Model.Title,
-                                                                     localPictureLibrary.Title);
-                        }
-                        catch (Exception ex)
-                        {
-                            ex.WriteLog();
-                        }
+                        StorageFile file = await StorageFile.GetFileFromPathAsync(localPictureLibrary.LocalImagePath);
+                        await LockScreen.SetImageStreamAsync(await file.OpenReadAsync());
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.WriteLog();
                     }
                 }
             }

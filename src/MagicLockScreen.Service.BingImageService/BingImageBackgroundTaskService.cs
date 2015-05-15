@@ -10,7 +10,6 @@ using Windows.Data.Xml.Dom;
 using Windows.Storage.Streams;
 using Windows.System.UserProfile;
 using MagicLockScreen.BackgroundTask;
-using MagicLockScreen_Helper;
 
 namespace MagicLockScreen_Service_BingImageService
 {
@@ -41,7 +40,7 @@ namespace MagicLockScreen_Service_BingImageService
                 {
                     string[] tc = time.StringToArray(':');
                     if (tc.Length > 1)
-                        TimeTriggerTimes.Add(new { Name = ResourcesLoader.Loader[tc[0]], Value = tc[1] });
+                        TimeTriggerTimes.Add(new {Name = ResourcesLoader.Loader[tc[0]], Value = tc[1]});
                 }
             }
             catch (Exception ex)
@@ -52,36 +51,18 @@ namespace MagicLockScreen_Service_BingImageService
 
         private async Task Task_Run(Dictionary<string, string> parameters)
         {
-            if (parameters.ContainsKey("LockScreen") && parameters.ContainsKey("Wallpaper"))
+            var random = new Random(DateTime.Now.Millisecond);
+            var bingImageQueryService = Service as BingImageQueryService;
+            if (bingImageQueryService != null)
             {
-                bool updateLockScreen = bool.Parse(parameters["LockScreen"]);
-                bool updateWallpaper = bool.Parse(parameters["Wallpaper"]);
-
-                var random = new Random(DateTime.Now.Millisecond);
-                var bingImageQueryService = Service as BingImageQueryService;
-                if (bingImageQueryService != null)
+                IList<BingImage> bingImages = await bingImageQueryService.QueryDataAsync(
+                    (uint) random.Next(0, (int) bingImageQueryService.MaxItemCount), 1);
+                if (bingImages != null && bingImages.Count > 0)
                 {
-                    IList<BingImage> bingImages = await bingImageQueryService.QueryDataAsync(
-                        (uint)random.Next(0, (int)bingImageQueryService.MaxItemCount), 1);
-                    if (bingImages != null && bingImages.Count > 0)
-                    {
-                        BingImage bingImage = bingImages[0];
-                        RandomAccessStreamReference stream = RandomAccessStreamReference.CreateFromUri(new Uri(bingImage.OriginalImageUrl));
-
-                        if (updateLockScreen)
-                        {
-                            await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
-                        }
-
-                        if (updateWallpaper)
-                        {
-                            await ApplicationHelper.SetWallpaperAsync(await stream.OpenReadAsync(), false);
-                        }
-
-                        ApplicationHelper.UpdateTileNotification(bingImage.OriginalImageUrl,
-                                                                 bingImageQueryService.ServiceChannel.Model.Title,
-                                                                 bingImage.CopyrightLink);
-                    }
+                    BingImage bingImage = bingImages[0];
+                    RandomAccessStreamReference stream =
+                        RandomAccessStreamReference.CreateFromUri(new Uri(bingImage.OriginalImageUrl));
+                    await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
                 }
             }
         }

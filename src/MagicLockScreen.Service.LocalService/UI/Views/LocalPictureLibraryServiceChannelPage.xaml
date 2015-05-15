@@ -105,40 +105,6 @@
         <!-- itemListViewHost panel, for showing the items -->
         <Grid Grid.Row="1" x:Name="itemListViewHost" Visibility="Collapsed" />
 
-        <!-- Popup for auto-update backgroundtask with Lockscreen and Desktop Wallpaper -->
-        <Popup Grid.RowSpan="2" x:Name="BackgroundTaskPopup" IsOpen="{Binding IsBackgroundTaskPopupOpen}" IsLightDismissEnabled="True"
-               Width="300" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
-               VerticalOffset="-198" HorizontalOffset="-40">
-            <Popup.ChildTransitions>
-                <TransitionCollection>
-                    <PopupThemeTransition/>
-                </TransitionCollection>
-            </Popup.ChildTransitions>
-            <Grid>
-                <Grid Width="300" Margin="10,10,10,15" Background="#ff222222">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <CheckBox x:Uid="ChkLockScreen" Content="LockScreen" IsChecked="{Binding UpdateLockScreen, Mode=TwoWay}" Margin="10,2"/>
-                    <CheckBox x:Uid="ChkWallpaper" Grid.Row="1" Content="Desktop Wallpaper" IsChecked="{Binding UpdateWallpaper, Mode=TwoWay}" Margin="10,2"/>
-
-                    <Button x:Uid="ConfirmButton" Grid.Column="1" Grid.RowSpan="2" Content="&#xe10b;" 
-                            AutomationProperties.AutomationId="OkButton"
-                            AutomationProperties.Name="Ok"
-                            Style="{StaticResource AppBarButtonStyle}"
-                            Command="{Binding RegisterBackgroundTaskCommand}" />
-                </Grid>
-
-                <Path Fill="#FF222222" HorizontalAlignment="Center" VerticalAlignment="Bottom" Data="M0,0L20,15 40,0 Z" Margin="55,0,0,0"/>
-            </Grid>
-        </Popup>
-
         <VisualStateManager.VisualStateGroups>
 
             <!-- Visual states reflect the application's view state -->
@@ -230,7 +196,7 @@
                             AutomationProperties.AutomationId="StartButon"
                             AutomationProperties.Name="Start"
                             Style="{StaticResource AppBarButtonStyle}"
-                            Command="{Binding PopupBackgroundTaskCommand}" />
+                            Command="{Binding RegisterBackgroundTaskCommand}" />
                     <Button x:Uid="StopButton" Style="{StaticResource StopAppBarButtonStyle}"
 		                    Command="{Binding UnregisterBackgroundTaskCommand}"
                             IsEnabled="{Binding BackgroundTaskService.ServiceStatus, Mode=OneWay}" />

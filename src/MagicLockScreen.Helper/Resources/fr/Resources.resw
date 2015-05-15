@@ -144,35 +144,11 @@
   <data name="BT45M" xml:space="preserve">
     <value>45 mins</value>
   </data>
-  <data name="ComputerFolder" xml:space="preserve">
-    <value>Ordinateur</value>
-  </data>
-  <data name="Desktop" xml:space="preserve">
-    <value>Bureau</value>
-  </data>
-  <data name="DocumentsLibrary" xml:space="preserve">
-    <value>Bibliothèque de Documents</value>
-  </data>
-  <data name="Downloads" xml:space="preserve">
-    <value>Téléchargements</value>
-  </data>
-  <data name="ErrorOnDesktopService" xml:space="preserve">
-    <value>Vous ne trouvez pas Desktop Service Chameleon dans votre système, se il vous plaît assurez-vous que vous avez démarré le service ou aller à {0} pour télécharger la dernière Desktop Service Chameleon.</value>
-  </data>
-  <data name="ErrorOnDesktopServiceTitle" xml:space="preserve">
-    <value>Vous ne trouvez pas Desktop Service Chameleon</value>
-  </data>
-  <data name="GoToDownload" xml:space="preserve">
-    <value>Aller à Télécharger</value>
-  </data>
   <data name="Later" xml:space="preserve">
     <value>Plus tard</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>Non, merci</value>
-  </data>
-  <data name="PicturesLibrary" xml:space="preserve">
-    <value>Bibliothèque d'images</value>
   </data>
   <data name="Rate" xml:space="preserve">
     <value>Donnez une note</value>
@@ -199,19 +175,13 @@
     <value>Configuration du fond d'application avec succès</value>
   </data>
   <data name="SetBackgroundTaskSucessfully" xml:space="preserve">
-    <value>Le fond d'écran est modifié avec succès, cette tâche sera exécutée tous les {0} pour changer votre écran de verrouillage et fond d'écran</value>
+    <value>Le fond d'écran est modifié avec succès, cette tâche sera exécutée tous les {0} pour changer votre écran de verrouillage</value>
   </data>
   <data name="SetLockScreenError" xml:space="preserve">
     <value>Configuration de l'écran Verrouillage en erreur, peut-être votre système n'est pas encore activé</value>
   </data>
   <data name="SetLockScreenSucessfully" xml:space="preserve">
     <value>Configuration de l'écran Verrouillage avec succès</value>
-  </data>
-  <data name="SetWallpaperError" xml:space="preserve">
-    <value>Réglez bureau erreur de fond d'écran</value>
-  </data>
-  <data name="SetWallpaperSucessfully" xml:space="preserve">
-    <value>Définir l'image comme papier peint de bureau avec succès</value>
   </data>
   <data name="UnregisterBackgroundTaskSucessfully" xml:space="preserve">
     <value>Unregister le tâche de fond avec succès</value>

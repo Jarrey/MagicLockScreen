@@ -121,7 +121,7 @@
     <value>Annuler</value>
   </data>
   <data name="ChangeLockScreenEvery.Text" xml:space="preserve">
-    <value>Mise à jour LockScreen ou Fond d'écran chaque:</value>
+    <value>Changer l'écran Verrouillage chaque:</value>
   </data>
   <data name="HomeButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Accueil</value>
@@ -269,17 +269,5 @@
  &lt;TextBlock&gt;Toutes les images sont récupérées automatiquement via Info.com Image en fonction de vos mots-clés. Caméléon ou Info.com ne peut faire aucune déclaration concernant le contenu qui s'y trouvent. Toutes les propriétéles des images sont aux  propriétaires des image. Les personnes sans l'autorisation des propriétaires des droits ne doit pas les utiliser à des fins commerciales.&lt;/TextBlock&gt;
 &lt;HyperlinkButton Content="Info.com Légal &amp;amp; Politique de confidentialité" NavigateUri="http://images.info.com/conditions"/&gt;
 &lt;/StackPanel&gt;</value>
-  </data>
-  <data name="ChkLockScreen.Content" xml:space="preserve">
-    <value>LockScreen</value>
-  </data>
-  <data name="ChkWallpaper.Content" xml:space="preserve">
-    <value>Fond d'écran</value>
-  </data>
-  <data name="ConfirmButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="SetDesktopWallpaper.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>Réglez Fond d'écran</value>
   </data>
 </root>

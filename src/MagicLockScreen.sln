@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicLockScreen.Service.BingImageService", "MagicLockScreen.Service.BingImageService\MagicLockScreen.Service.BingImageService.csproj", "{194698F4-0B3A-4503-9CAF-655F2CD63E47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteOne.Core", "..\..\NoteOne_Framework\src\NoteOne.Core\NoteOne.Core.csproj", "{DB78D313-1066-48A8-B333-CA2F3A35678D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteOne.Core.Win8", "..\..\NoteOne_Framework\src\NoteOne.Core\NoteOne.Core.Win8.csproj", "{DB78D313-1066-48A8-B333-CA2F3A35678D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteOne.Utility", "..\..\NoteOne_Framework\src\NoteOne.Utility\NoteOne.Utility.csproj", "{22E2DFB3-53A9-448E-9FDE-9CC93329E40D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteOne.Utility.Win8", "..\..\NoteOne_Framework\src\NoteOne.Utility\NoteOne.Utility.Win8.csproj", "{22E2DFB3-53A9-448E-9FDE-9CC93329E40D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicLockScreen.BackgroundTask", "MagicLockScreen.BackgroundTask\MagicLockScreen.BackgroundTask.csproj", "{18610DBA-5D8B-4CA5-BD45-A2A7931CAC8E}"
 EndProject
@@ -43,36 +43,24 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicLockScreen.Service.Ima
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicLockScreen.Service.InterfaceLIFTService", "MagicLockScreen.Service.InterfaceLIFTService\MagicLockScreen.Service.InterfaceLIFTService.csproj", "{5E76AAEF-6D15-4510-A017-BCDC63210A66}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PayServices", "PayServices", "{092D0BCE-DA6B-478D-984D-163FB1EEFE2B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChameNews.Service", "..\..\ChameNews\dev\ChameNews\ChameNews.Service\ChameNews.Service.csproj", "{327BD02B-97A3-49F0-BD27-84729B303546}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteOne.ImageHelper", "..\..\NoteOne_Framework\src\NoteOne.ImageHelper\NoteOne.ImageHelper.csproj", "{C5C49E12-9063-47F3-967B-D51FD735A546}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicLockScreen.Service.RecommendationService", "MagicLockScreen.Service.RecommendationService\MagicLockScreen.Service.RecommendationService.csproj", "{7680B6A3-78A0-4C55-9AF6-FFA2505C2418}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FreeFeeds", "FreeFeeds", "{83324CCC-5B71-4995-A279-BC9A8F186B04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicLockScreen.Service.MicrosoftWallpaperService", "MagicLockScreen.Service.MicrosoftWallpaperService\MagicLockScreen.Service.MicrosoftWallpaperService.csproj", "{734C7B06-E380-4045-B58C-9EFC00BE725D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicLockScreen.Service.MicrosoftWallpagerService", "MagicLockScreen.Service.MicrosoftWallpagerService\MagicLockScreen.Service.MicrosoftWallpagerService.csproj", "{734C7B06-E380-4045-B58C-9EFC00BE725D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicLockScreen.Service.WWFPictureService", "MagicLockScreen.Service.WWFPictureService\MagicLockScreen.Service.WWFPictureService.csproj", "{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A1E591E4-4627-4E3D-85FC-7D66BDF21A45}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F9287802-B61E-4B3B-90F8-3B806D396A6F}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop Service", "Desktop Service", "{14E438BD-6E55-49B5-958B-449DF5B6D620}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chameleon.UpdateWallpaper.Service", "Chameleon.UpdateWallpaper.Service\Chameleon.UpdateWallpaper.Service.csproj", "{EB4D1A2E-8B49-4882-9A91-F913D2D0225B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chameleon.UpdateWallpaper.ServiceHost", "Chameleon.UpdateWallpaper.WinformServiceHost\Chameleon.UpdateWallpaper.ServiceHost.csproj", "{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteOne.ImageHelper.Win8", "..\..\NoteOne_Framework\src\NoteOne.ImageHelper.Win8\NoteOne.ImageHelper.Win8.csproj", "{C5C49E12-9063-47F3-967B-D51FD735A546}"
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 25
+		SccNumberOfProjects = 24
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://jarrey.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -143,34 +131,30 @@ Global
 		SccProjectTopLevelParentUniqueName17 = MagicLockScreen.sln
 		SccProjectName17 = ../../NoteOne_Framework/src/NoteOne.Core
 		SccLocalPath17 = ..\\..\\NoteOne_Framework\\src\\NoteOne.Core
-		SccProjectUniqueName18 = ..\\..\\ChameNews\\dev\\ChameNews\\ChameNews.Service\\ChameNews.Service.csproj
+		SccProjectUniqueName18 = ..\\..\\NoteOne_Framework\\src\\NoteOne.ImageHelper\\NoteOne.ImageHelper.csproj
 		SccProjectTopLevelParentUniqueName18 = MagicLockScreen.sln
-		SccProjectName18 = ../../ChameNews/dev/ChameNews/ChameNews.Service
-		SccLocalPath18 = ..\\..\\ChameNews\\dev\\ChameNews\\ChameNews.Service
-		SccProjectUniqueName19 = ..\\..\\NoteOne_Framework\\src\\NoteOne.ImageHelper\\NoteOne.ImageHelper.csproj
+		SccProjectName18 = ../../NoteOne_Framework/src/NoteOne.ImageHelper
+		SccLocalPath18 = ..\\..\\NoteOne_Framework\\src\\NoteOne.ImageHelper
+		SccProjectUniqueName19 = MagicLockScreen.Service.RecommendationService\\MagicLockScreen.Service.RecommendationService.csproj
 		SccProjectTopLevelParentUniqueName19 = MagicLockScreen.sln
-		SccProjectName19 = ../../NoteOne_Framework/src/NoteOne.ImageHelper
-		SccLocalPath19 = ..\\..\\NoteOne_Framework\\src\\NoteOne.ImageHelper
-		SccProjectUniqueName20 = MagicLockScreen.Service.RecommendationService\\MagicLockScreen.Service.RecommendationService.csproj
+		SccProjectName19 = MagicLockScreen.Service.RecommendationService
+		SccLocalPath19 = MagicLockScreen.Service.RecommendationService
+		SccProjectUniqueName20 = MagicLockScreen.Service.MicrosoftWallpagerService\\MagicLockScreen.Service.MicrosoftWallpagerService.csproj
 		SccProjectTopLevelParentUniqueName20 = MagicLockScreen.sln
-		SccProjectName20 = MagicLockScreen.Service.RecommendationService
-		SccLocalPath20 = MagicLockScreen.Service.RecommendationService
-		SccProjectUniqueName21 = MagicLockScreen.Service.MicrosoftWallpaperService\\MagicLockScreen.Service.MicrosoftWallpaperService.csproj
+		SccProjectName20 = MagicLockScreen.Service.MicrosoftWallpagerService
+		SccLocalPath20 = MagicLockScreen.Service.MicrosoftWallpagerService
+		SccProjectUniqueName21 = ..\\..\\NoteOne_Framework\\src\\NoteOne.Utility\\NoteOne.Utility.Win8.csproj
 		SccProjectTopLevelParentUniqueName21 = MagicLockScreen.sln
-		SccProjectName21 = MagicLockScreen.Service.MicrosoftWallpaperService
-		SccLocalPath21 = MagicLockScreen.Service.MicrosoftWallpaperService
-		SccProjectUniqueName22 = MagicLockScreen.Service.WWFPictureService\\MagicLockScreen.Service.WWFPictureService.csproj
+		SccProjectName21 = ../../NoteOne_Framework/src/NoteOne.Utility
+		SccLocalPath21 = ..\\..\\NoteOne_Framework\\src\\NoteOne.Utility
+		SccProjectUniqueName22 = ..\\..\\NoteOne_Framework\\src\\NoteOne.Core\\NoteOne.Core.Win8.csproj
 		SccProjectTopLevelParentUniqueName22 = MagicLockScreen.sln
-		SccProjectName22 = MagicLockScreen.Service.WWFPictureService
-		SccLocalPath22 = MagicLockScreen.Service.WWFPictureService
-		SccProjectUniqueName23 = Chameleon.UpdateWallpaper.Service\\Chameleon.UpdateWallpaper.Service.csproj
+		SccProjectName22 = ../../NoteOne_Framework/src/NoteOne.Core
+		SccLocalPath22 = ..\\..\\NoteOne_Framework\\src\\NoteOne.Core
+		SccProjectUniqueName23 = ..\\..\\NoteOne_Framework\\src\\NoteOne.ImageHelper.Win8\\NoteOne.ImageHelper.Win8.csproj
 		SccProjectTopLevelParentUniqueName23 = MagicLockScreen.sln
-		SccProjectName23 = Chameleon.UpdateWallpaper.Service
-		SccLocalPath23 = Chameleon.UpdateWallpaper.Service
-		SccProjectUniqueName24 = Chameleon.UpdateWallpaper.WinformServiceHost\\Chameleon.UpdateWallpaper.ServiceHost.csproj
-		SccProjectTopLevelParentUniqueName24 = MagicLockScreen.sln
-		SccProjectName24 = Chameleon.UpdateWallpaper.WinformServiceHost
-		SccLocalPath24 = Chameleon.UpdateWallpaper.WinformServiceHost
+		SccProjectName23 = ../../NoteOne_Framework/src/NoteOne.ImageHelper.Win8
+		SccLocalPath23 = ..\\..\\NoteOne_Framework\\src\\NoteOne.ImageHelper.Win8
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -463,38 +447,6 @@ Global
 		{5E76AAEF-6D15-4510-A017-BCDC63210A66}.Release|x64.Build.0 = Release|x64
 		{5E76AAEF-6D15-4510-A017-BCDC63210A66}.Release|x86.ActiveCfg = Release|x86
 		{5E76AAEF-6D15-4510-A017-BCDC63210A66}.Release|x86.Build.0 = Release|x86
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Debug|ARM.ActiveCfg = Debug|ARM
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Debug|ARM.Build.0 = Debug|ARM
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Debug|x64.ActiveCfg = Debug|x64
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Debug|x64.Build.0 = Debug|x64
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Debug|x86.ActiveCfg = Debug|x86
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Debug|x86.Build.0 = Debug|x86
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Release|Any CPU.Build.0 = Release|Any CPU
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Release|ARM.ActiveCfg = Release|ARM
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Release|ARM.Build.0 = Release|ARM
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Release|x64.ActiveCfg = Release|x64
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Release|x64.Build.0 = Release|x64
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Release|x86.ActiveCfg = Release|x86
-		{327BD02B-97A3-49F0-BD27-84729B303546}.Release|x86.Build.0 = Release|x86
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|ARM.ActiveCfg = Debug|ARM
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|ARM.Build.0 = Debug|ARM
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|x64.ActiveCfg = Debug|x64
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|x64.Build.0 = Debug|x64
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|x86.ActiveCfg = Debug|x86
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|x86.Build.0 = Debug|x86
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|ARM.ActiveCfg = Release|ARM
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|ARM.Build.0 = Release|ARM
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|x64.ActiveCfg = Release|x64
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|x64.Build.0 = Release|x64
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|x86.ActiveCfg = Release|x86
-		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|x86.Build.0 = Release|x86
 		{7680B6A3-78A0-4C55-9AF6-FFA2505C2418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7680B6A3-78A0-4C55-9AF6-FFA2505C2418}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7680B6A3-78A0-4C55-9AF6-FFA2505C2418}.Debug|ARM.ActiveCfg = Debug|ARM
@@ -527,42 +479,22 @@ Global
 		{734C7B06-E380-4045-B58C-9EFC00BE725D}.Release|x64.Build.0 = Release|x64
 		{734C7B06-E380-4045-B58C-9EFC00BE725D}.Release|x86.ActiveCfg = Release|x86
 		{734C7B06-E380-4045-B58C-9EFC00BE725D}.Release|x86.Build.0 = Release|x86
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Debug|ARM.ActiveCfg = Debug|ARM
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Debug|ARM.Build.0 = Debug|ARM
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Debug|x64.ActiveCfg = Debug|x64
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Debug|x64.Build.0 = Debug|x64
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Debug|x86.ActiveCfg = Debug|x86
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Debug|x86.Build.0 = Debug|x86
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Release|ARM.ActiveCfg = Release|ARM
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Release|ARM.Build.0 = Release|ARM
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Release|x64.ActiveCfg = Release|x64
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Release|x64.Build.0 = Release|x64
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Release|x86.ActiveCfg = Release|x86
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2}.Release|x86.Build.0 = Release|x86
-		{EB4D1A2E-8B49-4882-9A91-F913D2D0225B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB4D1A2E-8B49-4882-9A91-F913D2D0225B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB4D1A2E-8B49-4882-9A91-F913D2D0225B}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{EB4D1A2E-8B49-4882-9A91-F913D2D0225B}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{EB4D1A2E-8B49-4882-9A91-F913D2D0225B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{EB4D1A2E-8B49-4882-9A91-F913D2D0225B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB4D1A2E-8B49-4882-9A91-F913D2D0225B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB4D1A2E-8B49-4882-9A91-F913D2D0225B}.Release|ARM.ActiveCfg = Release|Any CPU
-		{EB4D1A2E-8B49-4882-9A91-F913D2D0225B}.Release|x64.ActiveCfg = Release|Any CPU
-		{EB4D1A2E-8B49-4882-9A91-F913D2D0225B}.Release|x86.ActiveCfg = Release|Any CPU
-		{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530}.Release|ARM.ActiveCfg = Release|Any CPU
-		{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530}.Release|x64.ActiveCfg = Release|Any CPU
-		{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530}.Release|x86.ActiveCfg = Release|Any CPU
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|ARM.ActiveCfg = Debug|ARM
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|ARM.Build.0 = Debug|ARM
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|x64.ActiveCfg = Debug|x64
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|x64.Build.0 = Debug|x64
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|x86.ActiveCfg = Debug|x86
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Debug|x86.Build.0 = Debug|x86
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|ARM.ActiveCfg = Release|ARM
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|ARM.Build.0 = Release|ARM
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|x64.ActiveCfg = Release|x64
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|x64.Build.0 = Release|x64
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|x86.ActiveCfg = Release|x86
+		{C5C49E12-9063-47F3-967B-D51FD735A546}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -584,14 +516,9 @@ Global
 		{DC81E58B-5ADD-4150-9143-958710966A1C} = {83324CCC-5B71-4995-A279-BC9A8F186B04}
 		{41EFD3FD-DDCF-4384-BEDB-EB61429FEA6A} = {83324CCC-5B71-4995-A279-BC9A8F186B04}
 		{5E76AAEF-6D15-4510-A017-BCDC63210A66} = {83324CCC-5B71-4995-A279-BC9A8F186B04}
-		{092D0BCE-DA6B-478D-984D-163FB1EEFE2B} = {15A77B5A-8064-45C7-9271-7C37079D1A45}
-		{327BD02B-97A3-49F0-BD27-84729B303546} = {092D0BCE-DA6B-478D-984D-163FB1EEFE2B}
-		{C5C49E12-9063-47F3-967B-D51FD735A546} = {B33A5B2B-D009-4616-B519-BFC9BA08A649}
 		{7680B6A3-78A0-4C55-9AF6-FFA2505C2418} = {83324CCC-5B71-4995-A279-BC9A8F186B04}
 		{83324CCC-5B71-4995-A279-BC9A8F186B04} = {15A77B5A-8064-45C7-9271-7C37079D1A45}
 		{734C7B06-E380-4045-B58C-9EFC00BE725D} = {83324CCC-5B71-4995-A279-BC9A8F186B04}
-		{4873BB63-7ABD-4506-A5F2-B87FFA91B7E2} = {83324CCC-5B71-4995-A279-BC9A8F186B04}
-		{EB4D1A2E-8B49-4882-9A91-F913D2D0225B} = {14E438BD-6E55-49B5-958B-449DF5B6D620}
-		{EAF65EFC-1FE3-44B3-80E3-AFAE27C35530} = {14E438BD-6E55-49B5-958B-449DF5B6D620}
+		{C5C49E12-9063-47F3-967B-D51FD735A546} = {B33A5B2B-D009-4616-B519-BFC9BA08A649}
 	EndGlobalSection
 EndGlobal

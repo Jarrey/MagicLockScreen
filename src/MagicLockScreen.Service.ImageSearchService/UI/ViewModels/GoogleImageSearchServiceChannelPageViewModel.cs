@@ -48,64 +48,38 @@ namespace MagicLockScreen_Service_ImageSearchService.UI.ViewModels
                 this["BackgroundTaskTimeTiggerTimes"] = googleImageSearchBackgroundTaskService.TimeTriggerTimes;
                 this["BackgroundTaskTimeTiggerTime"] = "15";
                 this["BackgroundTaskService"] = googleImageSearchBackgroundTaskService;
-                this["UpdateLockScreen"] = true;
-                this["UpdateWallpaper"] = true;
             }
 
-            this["IsBackgroundTaskPopupOpen"] = false;
             this["ShowSaveButton"] = false;
             this["ShowRemoveButton"] = false;
             this["EnableAppBar"] = false;
 
             #region Commands
 
-            #region PopupBackgroundTaskCommand
-
-            this["PopupBackgroundTaskCommand"] = new RelayCommand(() =>
-            {
-                this["IsBackgroundTaskPopupOpen"] = true;
-            });
-
-            #endregion
-
             #region RegisterBackgroundTaskCommand
 
-            this["RegisterBackgroundTaskCommand"] = new RelayCommand(async () =>
+            this["RegisterBackgroundTaskCommand"] = new RelayCommand(() =>
                 {
                     try
                     {
-                        if ((bool)this["UpdateWallpaper"])
-                        {
-                            this["UpdateWallpaper"] = await ApplicationHelper.CheckPromptDesktopService();
-                        }
+                        if (googleImageSearchBackgroundTaskService != null)
+                            googleImageSearchBackgroundTaskService.InitializeBackgroundTask(
+                                new TimeTrigger(this["BackgroundTaskTimeTiggerTime"].ToString().StringToUInt(), false),
+                                null,
+                                "keyword:" + _queryText);
 
-                        if ((bool)this["UpdateLockScreen"] || (bool)this["UpdateWallpaper"])
-                        {
-                            string parameters = string.Format("LockScreen:{0}|Wallpaper:{1}|keyword:{2}", (bool)this["UpdateLockScreen"], (bool)this["UpdateWallpaper"], _queryText);
-
-                            if (googleImageSearchBackgroundTaskService != null)
-                                googleImageSearchBackgroundTaskService.InitializeBackgroundTask(
-                                    new TimeTrigger(this["BackgroundTaskTimeTiggerTime"].ToString().StringToUInt(), false),
-                                    null,
-                                    parameters);
-
-                            dynamic selectTriggerTimeDesc =
-                                (from dynamic obj in googleImageSearchBackgroundTaskService.TimeTriggerTimes
-                                 where obj.Value == this["BackgroundTaskTimeTiggerTime"].ToString()
-                                 select obj.Name).First();
-                            new MessagePopup(
-                                string.Format(
-                                    MagicLockScreen_Helper.Resources.ResourcesLoader.Loader["SetBackgroundTaskSucessfully"],
-                                    selectTriggerTimeDesc)).Show();
-                        }
+                        dynamic selectTriggerTimeDesc =
+                            (from dynamic obj in googleImageSearchBackgroundTaskService.TimeTriggerTimes
+                             where obj.Value == this["BackgroundTaskTimeTiggerTime"].ToString()
+                             select obj.Name).First();
+                        new MessagePopup(
+                            string.Format(
+                                MagicLockScreen_Helper.Resources.ResourcesLoader.Loader["SetBackgroundTaskSucessfully"],
+                                selectTriggerTimeDesc)).Show();
                     }
                     catch (Exception ex)
                     {
                         ex.WriteLog();
-                    }
-                    finally
-                    {
-                        this["IsBackgroundTaskPopupOpen"] = false;
                     }
                 });
 
@@ -134,12 +108,6 @@ namespace MagicLockScreen_Service_ImageSearchService.UI.ViewModels
             #region SetAsLockScreenCommand
 
             this["SetAsLockScreenCommand"] = ApplicationHelper.SetAsLockScreenCommand;
-
-            #endregion
-
-            #region SetWallpaperCommand
-
-            this["SetWallpaperCommand"] = ApplicationHelper.SetWallpaperCommand;
 
             #endregion
 
@@ -250,7 +218,7 @@ namespace MagicLockScreen_Service_ImageSearchService.UI.ViewModels
                     {
                         float zoomInterval =
                             AppSettings.Instance[AppSettings.ZOOM_FACTORY_INTERVAL].ToString(CultureInfo.InvariantCulture).StringToFloat();
-                        imageScrollViewer.ChangeView(null, null, imageScrollViewer.ZoomFactor + zoomInterval);
+                        imageScrollViewer.ZoomToFactor(imageScrollViewer.ZoomFactor + zoomInterval);
                     }
                 });
 
@@ -265,7 +233,7 @@ namespace MagicLockScreen_Service_ImageSearchService.UI.ViewModels
                     {
                         float zoomInterval =
                             AppSettings.Instance[AppSettings.ZOOM_FACTORY_INTERVAL].ToString(CultureInfo.InvariantCulture).StringToFloat();
-                        imageScrollViewer.ChangeView(null, null, imageScrollViewer.ZoomFactor - zoomInterval);
+                        imageScrollViewer.ZoomToFactor(imageScrollViewer.ZoomFactor - zoomInterval);
                     }
                 });
 

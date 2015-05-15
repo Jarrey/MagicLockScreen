@@ -117,23 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CancelButton" xml:space="preserve">
-    <value>取消</value>
-  </data>
-  <data name="CleanSettingsButton.Content" xml:space="preserve">
-    <value> 清除設置</value>
-  </data>
-  <data name="CleanSettingsQuestion" xml:space="preserve">
-    <value>是否要清除所有用戶設置？</value>
-  </data>
   <data name="CurrentSearchEngine.Text" xml:space="preserve">
     <value>請選擇一個圖片搜索引擎:</value>
   </data>
   <data name="CustomizePicturesTitle.Title" xml:space="preserve">
     <value>自定義圖片集</value>
-  </data>
-  <data name="DefaultSavePosition.Text" xml:space="preserve">
-    <value>圖片默認建議保存地址:</value>
   </data>
   <data name="DisableAnimationSwitchLabel.Text" xml:space="preserve">
     <value>禁用動畫</value>
@@ -149,9 +137,6 @@
   </data>
   <data name="LogHistoryDays.Text" xml:space="preserve">
     <value>天</value>
-  </data>
-  <data name="OKButton" xml:space="preserve">
-    <value>確定</value>
   </data>
   <data name="OnlinePicturesTitle.Title" xml:space="preserve">
     <value>在線圖片集</value>

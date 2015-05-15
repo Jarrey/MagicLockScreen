@@ -65,7 +65,7 @@
                                 </StackPanel>
                             </common:ListViewItemOverlay>
 
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,25,5,0"
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top"
                                         Visibility="{Binding IsOriginalImageDownloading, Converter={StaticResource booleanToVisibilityConverter}, ConverterParameter=NEG}">
                                 <Button Content="&#xe108;" FontFamily="Segoe UI Symbol" Background="Transparent"
                                         BorderBrush="Transparent" BorderThickness="0"
@@ -178,11 +178,6 @@
                             AutomationProperties.Name="Set LockScreen"
                             Style="{StaticResource AppBarButtonStyle}"
                             Command="{Binding SetAsLockScreenCommand}"
-                            CommandParameter="{Binding LocalPictureLibrarySelectedItem.LocalImagePath}" />
-                    <Button Content="&#xe1e4;" x:Uid="SetDesktopWallpaper"
-                            AutomationProperties.Name="Set Desktop Wallpaper"
-                            Style="{StaticResource AppBarButtonStyle}"
-                            Command="{Binding SetWallpaperCommand}"
                             CommandParameter="{Binding LocalPictureLibrarySelectedItem.LocalImagePath}" />
                 </StackPanel>
             </Grid>

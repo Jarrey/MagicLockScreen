@@ -158,43 +158,28 @@
   </data>
   <data name="PrimaryInformation" xml:space="preserve">
     <value>&lt;StackPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
-    &lt;StackPanel.Resources&gt;
-        &lt;Style TargetType="TextBlock"&gt;
-            &lt;Setter Property="Margin" Value="0,8,0,8"/&gt;
-            &lt;Setter Property="TextWrapping" Value="Wrap"/&gt;
-        &lt;/Style&gt;
-    &lt;/StackPanel.Resources&gt;
-    &lt;TextBlock Foreground="Red" FontWeight="Bold"&gt;注: 自动更换锁屏功能在未激活的Windows 8.1上无法工作，请及时检查你的Windows 8.1的激活状态。&lt;/TextBlock&gt;
-    &lt;Grid&gt;
-        &lt;HyperlinkButton Grid.Column="1" Content="下载 ChameDesk 桌面服务程序" VerticalAlignment="Center" NavigateUri="http://chameapp.azurewebsites.net/chamedesk/chamedesk_setup.exe"/&gt;
-    &lt;/Grid&gt;
-    
-    &lt;TextBlock&gt;百变锁屏(Chameleon) v3.0支持修改桌面壁纸。&lt;/TextBlock&gt; &lt;TextBlock&gt;Chameleon(百变锁屏)是一款提供网络每日一图查看,分享服务,能够同步更新网络以及本地图片库图片,并隔一定时间自动随机将一幅图片其设置为系统锁屏背景。&lt;/TextBlock&gt;
-    &lt;TextBlock&gt;网络每日一图查看服务主要包括:&lt;/TextBlock&gt;
-    &lt;HyperlinkButton Content="NASA 天文每日一图" NavigateUri="http://apod.nasa.gov/apod/"/&gt;
-    &lt;HyperlinkButton Content="必应首页每日一图" NavigateUri="http://www.bing.com/"/&gt;
-    &lt;HyperlinkButton Content="Flickr 趣图" NavigateUri="http://www.flickr.com/explore/interesting/"/&gt;
-    &lt;HyperlinkButton Content="InterfaceLIFT 高清壁纸" NavigateUri="http://interfacelift.com/"/&gt;
-    &lt;!--&lt;HyperlinkButton Content="Google Picasa 公共图片" NavigateUri="https://picasaweb.google.com/"/&gt;--&gt;
-    &lt;HyperlinkButton Content="Lunar 每日一图" NavigateUri="http://lpod.wikispaces.com/"/&gt;
-    &lt;!--&lt;HyperlinkButton Content="海洋每日一图" NavigateUri="http://theoceanproject.org/opod/index.php"/&gt;--&gt;
-    &lt;HyperlinkButton Content="维基百科每日一图" NavigateUri="http://commons.wikimedia.org/wiki/Commons:Picture_of_the_day"/&gt;
-    &lt;HyperlinkButton Content="国家地理杂志每日一图" NavigateUri="http://photography.nationalgeographic.com/"/&gt;
-    &lt;HyperlinkButton Content="Microsoft®桌面背景" NavigateUri="http://windows.microsoft.com/en-us/windows/wallpaper"/&gt;
-    &lt;HyperlinkButton Content="WWF© 美图" NavigateUri="http://worldwildlife.org/media?filter=photos"/&gt;
-    &lt;TextBlock&gt;此外还支持本地图片库浏览，并使用图片库图片设置为锁屏背景。&lt;/TextBlock&gt;
-    &lt;TextBlock&gt;所有图片提供服务均为免费公开的网络服务，所有图片版权归属于图片所有者，本应用从网络获取这些图片，认为图片作者已经许可了对应网站的图片分享公开协议。任何人员均不得利用这些图片用于商业目的，任何无授权使用产生的法律问题，可由图片版权所有人根据当地法律追究法律责任。&lt;/TextBlock&gt;
-    &lt;TextBlock&gt;请注意浏览图片时的介绍以及版权信息，任何疑问可联系应用作者: jar.bob@gmail.com&lt;/TextBlock&gt;
-    &lt;TextBlock FontWeight="Bold"&gt;Chameleon系列:&lt;/TextBlock&gt;
-    &lt;Grid&gt;
-        &lt;Grid.ColumnDefinitions&gt;
-            &lt;ColumnDefinition Width="auto"/&gt;
-            &lt;ColumnDefinition Width="*"/&gt;
-        &lt;/Grid.ColumnDefinitions&gt;                
-        &lt;Image Source="ms-appx:///Assets/ChameHOTLogo.png"/&gt;
-        &lt;HyperlinkButton Grid.Column="1" Content="下载Chameleon - 历史上的今天" VerticalAlignment="Center" NavigateUri="http://apps.microsoft.com/windows/app/chameleon-on-this-day/513a0951-1c08-485d-80d4-2a06832dbd83"/&gt;
-    &lt;/Grid&gt;
-&lt;/StackPanel&gt;</value>
+            &lt;StackPanel.Resources&gt;
+                &lt;Style TargetType="TextBlock"&gt;
+                    &lt;Setter Property="Margin" Value="0,8,0,8"/&gt;
+                    &lt;Setter Property="TextWrapping" Value="Wrap"/&gt;
+                &lt;/Style&gt;
+            &lt;/StackPanel.Resources&gt;
+            &lt;TextBlock Foreground="Red" FontWeight="Bold"&gt;注: 自动更换锁屏功能在未激活的Windows 8上无法工作，请及时检查你的Windows 8的激活状态。&lt;/TextBlock&gt;
+            &lt;TextBlock&gt;Chameleon(百变锁屏)是一款提供网络每日一图查看,分享服务,能够同步更新网络以及本地图片库图片,并隔一定时间自动随机将一幅图片其设置为系统锁屏背景。&lt;/TextBlock&gt;
+            &lt;TextBlock&gt;网络每日一图查看服务主要包括:&lt;/TextBlock&gt;
+            &lt;HyperlinkButton Content="NASA 天文每日一图" NavigateUri="http://apod.nasa.gov/apod/"/&gt;
+            &lt;HyperlinkButton Content="必应首页每日一图" NavigateUri="http://www.bing.com/"/&gt;
+            &lt;HyperlinkButton Content="Flickr 趣图" NavigateUri="http://www.flickr.com/explore/interesting/"/&gt;
+            &lt;HyperlinkButton Content="InterfaceLIFT 高清壁纸" NavigateUri="http://interfacelift.com/"/&gt;
+            &lt;!--&lt;HyperlinkButton Content="Google Picasa 公共图片" NavigateUri="https://picasaweb.google.com/"/&gt;--&gt;
+            &lt;HyperlinkButton Content="Lunar 每日一图" NavigateUri="http://lpod.wikispaces.com/"/&gt;
+            &lt;HyperlinkButton Content="海洋每日一图" NavigateUri="http://theoceanproject.org/opod/index.php"/&gt;
+            &lt;HyperlinkButton Content="维基百科每日一图" NavigateUri="http://commons.wikimedia.org/wiki/Commons:Picture_of_the_day"/&gt;
+            &lt;HyperlinkButton Content="国家地理杂志每日一图" NavigateUri="http://photography.nationalgeographic.com/"/&gt;
+            &lt;TextBlock&gt;此外还支持本地图片库浏览，并使用图片库图片设置为锁屏背景。&lt;/TextBlock&gt;
+            &lt;TextBlock&gt;所有图片提供服务均为免费公开的网络服务，所有图片版权归属于图片所有者，本应用从网络获取这些图片，认为图片作者已经许可了对应网站的图片分享公开协议。任何人员均不得利用这些图片用于商业目的，任何无授权使用产生的法律问题，可由图片版权所有人根据当地法律追究法律责任。&lt;/TextBlock&gt;
+            &lt;TextBlock&gt;请注意浏览图片时的介绍以及版权信息，任何疑问可联系应用作者: jar.bob@gmail.com&lt;/TextBlock&gt;
+        &lt;/StackPanel&gt;</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>关于应用</value>
@@ -256,7 +241,7 @@
     <value>关闭</value>
   </data>
   <data name="UpgradePrompt" xml:space="preserve">
-    <value>设置被重置，请重新设置你的自动更换锁屏功能</value>
+    <value>此次升级重置了后台任务设置，请重新设置你的自动更换锁屏功能</value>
   </data>
   <data name="GetItLabel.Text" xml:space="preserve">
     <value>立刻获取:</value>

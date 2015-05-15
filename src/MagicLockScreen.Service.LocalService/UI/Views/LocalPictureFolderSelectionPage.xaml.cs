@@ -31,6 +31,16 @@ namespace MagicLockScreen_Service_LocalService.UI.Views
         /// </param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
+            // If in SnappedView mode, we should switch to full view mode
+            // Otherwise, navigate back to the previous page
+            if (ApplicationView.Value == ApplicationViewState.Snapped &&
+                !ApplicationView.TryUnsnap())
+            {
+                new MessagePopup("Error" /*ResourcesLoader.Loader["SaveErrorOnSnapped"]*/).Show();
+                Frame.GoBack();
+                return;
+            }
+
             DefaultViewModel =
                 new LocalPictureFolderSelectionPageViewModel(this, pageState);
         }

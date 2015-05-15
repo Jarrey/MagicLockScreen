@@ -10,7 +10,7 @@ namespace MagicLockScreen_Service_FlickrService.Resources
 
         private ResourcesLoader()
         {
-            resourceLoader = ResourceLoader.GetForViewIndependentUse(@"MagicLockScreen_Service_FlickrService/Resources");
+            resourceLoader = new ResourceLoader(@"MagicLockScreen_Service_FlickrService/Resources");
         }
 
         public static ResourcesLoader Loader

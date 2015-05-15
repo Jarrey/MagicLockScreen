@@ -10,7 +10,7 @@ namespace MagicLockScreen_Service_GooglePicasaService.Resources
 
         private ResourcesLoader()
         {
-            resourceLoader = ResourceLoader.GetForViewIndependentUse(@"MagicLockScreen_Service_GooglePicasaService/Resources");
+            resourceLoader = new ResourceLoader(@"MagicLockScreen_Service_GooglePicasaService/Resources");
         }
 
         public static ResourcesLoader Loader

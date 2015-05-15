@@ -10,7 +10,6 @@ using Windows.Data.Xml.Dom;
 using Windows.Storage.Streams;
 using Windows.System.UserProfile;
 using MagicLockScreen.BackgroundTask;
-using MagicLockScreen_Helper;
 
 namespace MagicLockScreen_Service_WWFPictureService
 {
@@ -52,38 +51,19 @@ namespace MagicLockScreen_Service_WWFPictureService
 
         private async Task Task_Run(Dictionary<string, string> parameters)
         {
-            if (parameters.ContainsKey("LockScreen") && parameters.ContainsKey("Wallpaper"))
+            var random = new Random(DateTime.Now.Millisecond);
+            var wwfPictureQueryService = Service as WWFPictureQueryService;
+            if (wwfPictureQueryService != null)
             {
-                bool updateLockScreen = bool.Parse(parameters["LockScreen"]);
-                bool updateWallpaper = bool.Parse(parameters["Wallpaper"]);
-
-                var random = new Random(DateTime.Now.Millisecond);
-                var wwfPictureQueryService = Service as WWFPictureQueryService;
-                if (wwfPictureQueryService != null)
+                WWFPicture wwfPicture =
+                    await
+                    wwfPictureQueryService.QueryDataAsync(
+                        (uint) random.Next(0, (int) wwfPictureQueryService.MaxItemCount));
+                if (wwfPicture != null && wwfPicture.IsAvailable)
                 {
-                    WWFPicture wwfPicture =
-                        await
-                        wwfPictureQueryService.QueryDataAsync(
-                            (uint)random.Next(0, (int)wwfPictureQueryService.MaxItemCount));
-                    if (wwfPicture != null && wwfPicture.IsAvailable)
-                    {
-                        RandomAccessStreamReference stream =
-                            RandomAccessStreamReference.CreateFromUri(new Uri(wwfPicture.OriginalImageUrl));
-
-                        if (updateLockScreen)
-                        {
-                            await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
-                        }
-
-                        if (updateWallpaper)
-                        {
-                            await ApplicationHelper.SetWallpaperAsync(await stream.OpenReadAsync(), false);
-                        }
-
-                        ApplicationHelper.UpdateTileNotification(wwfPicture.ThumbnailImageUrl,
-                                                                 wwfPictureQueryService.ServiceChannel.Model.Title,
-                                                                 wwfPicture.Title);
-                    }
+                    RandomAccessStreamReference stream =
+                        RandomAccessStreamReference.CreateFromUri(new Uri(wwfPicture.OriginalImageUrl));
+                    await LockScreen.SetImageStreamAsync(await stream.OpenReadAsync());
                 }
             }
         }

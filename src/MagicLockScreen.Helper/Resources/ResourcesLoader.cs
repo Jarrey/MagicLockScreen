@@ -11,7 +11,7 @@ namespace MagicLockScreen_Helper.Resources
 
         private ResourcesLoader()
         {
-            resourceLoader = ResourceLoader.GetForViewIndependentUse(@"MagicLockScreen_Helper/Resources");
+            resourceLoader = new ResourceLoader(@"MagicLockScreen_Helper/Resources");
         }
 
         public static ResourcesLoader Loader

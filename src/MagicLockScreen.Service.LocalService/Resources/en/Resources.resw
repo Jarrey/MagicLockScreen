@@ -130,19 +130,10 @@
     <value>Cancel</value>
   </data>
   <data name="ChangeLockScreenEvery.Text" xml:space="preserve">
-    <value>Update LockScreen or Desktop Wallpaper each:</value>
-  </data>
-  <data name="ChkLockScreen.Content" xml:space="preserve">
-    <value>LockScreen</value>
-  </data>
-  <data name="ChkWallpaper.Content" xml:space="preserve">
-    <value>Desktop Wallpaper</value>
+    <value>Change LockScreen every:</value>
   </data>
   <data name="ChooseButton.Content" xml:space="preserve">
     <value>Choose this folder</value>
-  </data>
-  <data name="ConfirmButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>OK</value>
   </data>
   <data name="FolderNotFoundError" xml:space="preserve">
     <value>Cannot find folder - {0}</value>
@@ -197,9 +188,6 @@
   </data>
   <data name="SetAppBackgroundButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Set App Bg</value>
-  </data>
-  <data name="SetDesktopWallpaper.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>Set Desktop Wallpaper</value>
   </data>
   <data name="SetLockScreenButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Set LockScreen</value>

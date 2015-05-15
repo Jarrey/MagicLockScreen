@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CancelButton" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ChangeLockScreenEvery.Text" xml:space="preserve">
+    <value>隔多少时间更新锁屏或桌面壁纸:</value>
+  </data>
+  <data name="HomeButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="InfoButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>信息</value>
+  </data>
+  <data name="InformationTitle" xml:space="preserve">
+    <value>信息</value>
+  </data>
+  <data name="OKButton" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="RefreshButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="RemoveModelQuestion" xml:space="preserve">
+    <value>是否真的要移除此自定义图片集合?</value>
+  </data>
+  <data name="SaveAsButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>另存为</value>
+  </data>
+  <data name="BaiduSearchProviderTitle" xml:space="preserve">
+    <value>百度©图片搜索</value>
+  </data>
+  <data name="BaiduSearchSubTitle" xml:space="preserve">
+    <value>由百度©提供数据</value>
+  </data>
+  <data name="BaiduServiceChannelInformation" xml:space="preserve">
+    <value>&lt;StackPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+	&lt;StackPanel.Resources&gt;
+		&lt;Style TargetType="TextBlock"&gt;
+			&lt;Setter Property="Margin" Value="0,8,0,8"/&gt;
+			&lt;Setter Property="TextWrapping" Value="Wrap"/&gt;
+		&lt;/Style&gt;
+	&lt;/StackPanel.Resources&gt;
+	&lt;TextBlock&gt;百度图片搜索&lt;/TextBlock&gt;
+	&lt;TextBlock&gt;由百度图片搜索引擎提供数据。&lt;/TextBlock&gt;
+	&lt;TextBlock&gt;
+    &lt;TextBlock.Inlines&gt;
+      &lt;Run Text="此图片集合搜索关键词为: "/&gt;
+      &lt;Run Text="{0}" FontWeight="Bold" FontSize="18"/&gt;
+    &lt;/TextBlock.Inlines&gt;
+  &lt;/TextBlock&gt;
+	&lt;TextBlock&gt;百度搜索结果链接：&lt;/TextBlock&gt;
+	&lt;HyperlinkButton Content="{0}" NavigateUri="http://image.baidu.com/i?word={0}&amp;amp;ie=utf-8"/&gt;
+	&lt;TextBlock&gt;所有图片系百度根据你的关键词自动搜索的结果，不代表本应用或者百度赞成被搜索网站的内容或立场。所有图片版权均属于图片所有者，不得在未经版权者许可情况下将图片个用于商业目的。&lt;/TextBlock&gt;
+&lt;/StackPanel&gt;</value>
+  </data>
+  <data name="SetAppBackgroundButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>设置应用背景</value>
+  </data>
+  <data name="SetLockScreenButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>设置锁屏</value>
+  </data>
+  <data name="ShareButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>分享</value>
+  </data>
+  <data name="StartButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="GoogleSearchSubTitle" xml:space="preserve">
+    <value>由谷歌©提供数据</value>
+  </data>
+  <data name="GoogleSearchProviderTitle" xml:space="preserve">
+    <value>谷歌©图片搜索</value>
+  </data>
+  <data name="GoogleServiceChannelInformation" xml:space="preserve">
+    <value>&lt;StackPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+	&lt;StackPanel.Resources&gt;
+		&lt;Style TargetType="TextBlock"&gt;
+			&lt;Setter Property="Margin" Value="0,8,0,8"/&gt;
+			&lt;Setter Property="TextWrapping" Value="Wrap"/&gt;
+		&lt;/Style&gt;
+	&lt;/StackPanel.Resources&gt;
+	&lt;TextBlock&gt;谷歌图片搜索&lt;/TextBlock&gt;
+	&lt;TextBlock&gt;由谷歌图片搜索引擎提供数据。&lt;/TextBlock&gt;
+	&lt;TextBlock&gt;
+    &lt;TextBlock.Inlines&gt;
+      &lt;Run Text="此图片集合搜索关键词为: "/&gt;
+      &lt;Run Text="{0}" FontWeight="Bold" FontSize="18"/&gt;
+    &lt;/TextBlock.Inlines&gt;
+  &lt;/TextBlock&gt;
+	&lt;TextBlock&gt;谷歌搜索结果链接：&lt;/TextBlock&gt;
+	&lt;HyperlinkButton Content="{0}" NavigateUri="https://www.google.com/search?q={0}&amp;amp;tbm=isch&amp;amp;tbs=isz:l"/&gt;
+	&lt;TextBlock&gt;所有图片系谷歌根据你的关键词自动搜索的结果，不代表本应用或者谷歌赞成被搜索网站的内容或立场。所有图片版权均属于图片所有者，不得在未经版权者许可情况下将图片个用于商业目的。请阅读和了解：&lt;/TextBlock&gt;
+	&lt;HyperlinkButton Content="谷歌政策和原则声明" NavigateUri="https://www.google.com/intl/zh-CN/policies/"/&gt;
+&lt;/StackPanel&gt;</value>
+  </data>
+  <data name="FlickrSearchProviderTitle" xml:space="preserve">
+    <value>Flickr©图片搜索</value>
+  </data>
+  <data name="FlickrSearchSubTitle" xml:space="preserve">
+    <value>由Flickr©提供数据</value>
+  </data>
+  <data name="FlickrServiceChannelInformation" xml:space="preserve">
+    <value>&lt;StackPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+	&lt;StackPanel.Resources&gt;
+		&lt;Style TargetType="TextBlock"&gt;
+			&lt;Setter Property="Margin" Value="0,8,0,8"/&gt;
+			&lt;Setter Property="TextWrapping" Value="Wrap"/&gt;
+		&lt;/Style&gt;
+	&lt;/StackPanel.Resources&gt;
+	&lt;TextBlock&gt;Flickr图片搜索&lt;/TextBlock&gt;
+	&lt;TextBlock&gt;由Flickr图片搜索引擎提供数据。&lt;/TextBlock&gt;
+	&lt;TextBlock&gt;
+    &lt;TextBlock.Inlines&gt;
+      &lt;Run Text="此图片集合搜索关键词为: "/&gt;
+      &lt;Run Text="{0}" FontWeight="Bold" FontSize="18"/&gt;
+    &lt;/TextBlock.Inlines&gt;
+  &lt;/TextBlock&gt;
+	&lt;TextBlock&gt;所有图片系Flickr根据你的关键词自动搜索的结果，不代表本应用或者Flickr赞成被搜索网站的内容或立场。所有图片版权均属于图片所有者，不得在未经版权者许可情况下将图片个用于商业目的。&lt;/TextBlock&gt;
+&lt;/StackPanel&gt;</value>
+  </data>
+  <data name="ServiceChannelTitle" xml:space="preserve">
+    <value>搜索图片</value>
+  </data>
+  <data name="StopButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="InfoSearchProviderTitle" xml:space="preserve">
+    <value>Info.com©图片搜索</value>
+  </data>
+  <data name="InfoSearchSubTitle" xml:space="preserve">
+    <value>由Info.com©提供数据</value>
+  </data>
+  <data name="InfoServiceChannelInformation" xml:space="preserve">
+    <value>&lt;StackPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+	&lt;StackPanel.Resources&gt;
+		&lt;Style TargetType="TextBlock"&gt;
+			&lt;Setter Property="Margin" Value="0,8,0,8"/&gt;
+			&lt;Setter Property="TextWrapping" Value="Wrap"/&gt;
+		&lt;/Style&gt;
+	&lt;/StackPanel.Resources&gt;
+	&lt;TextBlock&gt;Info.com图片搜索&lt;/TextBlock&gt;
+	&lt;TextBlock&gt;由Info.com图片搜索引擎提供数据。&lt;/TextBlock&gt;
+	&lt;TextBlock&gt;
+    &lt;TextBlock.Inlines&gt;
+      &lt;Run Text="此图片集合搜索关键词为: "/&gt;
+      &lt;Run Text="{0}" FontWeight="Bold" FontSize="18"/&gt;
+    &lt;/TextBlock.Inlines&gt;
+  &lt;/TextBlock&gt;
+	&lt;TextBlock&gt;Info.com搜索结果链接：&lt;/TextBlock&gt;
+	&lt;HyperlinkButton Content="{0}" NavigateUri="http://images.info.com/{0}"/&gt;
+	&lt;TextBlock&gt;所有图片系Info.com根据你的关键词自动搜索的结果，不代表本应用或者Info.com赞成被搜索网站的内容或立场。所有图片版权均属于图片所有者，不得在未经版权者许可情况下将图片个用于商业目的。&lt;/TextBlock&gt;
+	&lt;HyperlinkButton Content="Info.com 法律及隐私声明" NavigateUri="http://images.info.com/conditions"/&gt;
+&lt;/StackPanel&gt;</value>
+  </data>
+  <data name="ChkLockScreen.Content" xml:space="preserve">
+    <value>锁屏背景</value>
+  </data>
+  <data name="ChkWallpaper.Content" xml:space="preserve">
+    <value>桌面壁纸</value>
+  </data>
+  <data name="ConfirmButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="SetDesktopWallpaper.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>设置桌面壁纸</value>
+  </data>
+</root>

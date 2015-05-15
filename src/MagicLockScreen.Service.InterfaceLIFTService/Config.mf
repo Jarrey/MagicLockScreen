@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+    <ServiceChannel Name="InterfaceLIFTServiceChannel"
+                    ID="8910F522-5D9C-4529-A0F9-B24CDE14FA57"
+                    Type="MagicLockScreen_Service_InterfaceLIFTService, Culture=''|MagicLockScreen_Service_InterfaceLIFTService.InterfaceLIFTServiceChannel"
+                    ShortName="ILSC"
+                    IsEnabled="true"
+                    LogoCount="10"
+                    VariableSizedWrapGridStyleKey="22">
+
+      <Service Type="MagicLockScreen_Service_InterfaceLIFTService, Culture=''|MagicLockScreen_Service_InterfaceLIFTService.InterfaceLIFTQueryService"
+               ID="5F9D0BDF-26B2-49CD-80BD-62861D29B308"
+               Name="InterfaceLIFTQueryService"
+               ShortName="ILQS"
+               ServiceApiUri="https://interfacelift.com/wallpaper/downloads/date/widescreen/1920x1200/index{0}.html"
+               ServiceApiParameters="MagicLockScreen_Service_InterfaceLIFTService, Culture=''|MagicLockScreen_Service_InterfaceLIFTService.ApiParameters.InterfaceLIFTServiceApiParameter"
+               ServiceType="0"
+               BaseUrl="https://interfacelift.com"
+               NumberInPage="10"
+               MaxItemCount="1000"
+               IsSupportBackgroundTask="True"
+               BackgroundTaskService="MagicLockScreen_Service_InterfaceLIFTService, Culture=''|MagicLockScreen_Service_InterfaceLIFTService.InterfaceLIFTBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+      
+    </ServiceChannel>
+  </ServiceChannels>
+</App>

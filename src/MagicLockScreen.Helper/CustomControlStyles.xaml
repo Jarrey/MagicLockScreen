@@ -1,0 +1,43 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NoteOne_Core.UI.Common"
+    xmlns:i="using:NoteOne_Core.Interaction"
+    xmlns:b="using:NoteOne_Core.Behaviours">
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <SolidColorBrush x:Key="ProgressBarIndeterminateForegroundThemeBrush" Color="#DEFFFFFF" />
+            <SolidColorBrush x:Key="ProgressBarForegroundThemeBrush" Color="#DEFFFFFF" />
+            <SolidColorBrush x:Key="HyperlinkForegroundThemeBrush" Color="#FF1C064F" />
+
+            <SolidColorBrush x:Key="ToggleSwitchOuterBorderBorderThemeBrush" Color="#FF222222" />
+            <SolidColorBrush x:Key="ToggleSwitchTrackBorderThemeBrush" Color="Transparent" />
+            <SolidColorBrush x:Key="ToggleSwitchTrackBackgroundThemeBrush" Color="Gray" />
+            <SolidColorBrush x:Key="ToggleSwitchCurtainBackgroundThemeBrush" Color="Black" />
+            <SolidColorBrush x:Key="ToggleSwitchThumbBackgroundThemeBrush" Color="#DEFFFFFF" />
+            <SolidColorBrush x:Key="ToggleSwitchThumbBorderThemeBrush" Color="Black" />
+
+            <SolidColorBrush x:Key="ToggleSwitchCurtainPointerOverBackgroundThemeBrush" Color="#FF222222" />
+            <SolidColorBrush x:Key="ToggleSwitchThumbPointerOverBackgroundThemeBrush" Color="#FFAAAAAA" />
+            <SolidColorBrush x:Key="ToggleSwitchTrackPointerOverBackgroundThemeBrush" Color="#FF444444" />
+            <SolidColorBrush x:Key="ToggleSwitchThumbPointerOverBorderThemeBrush" Color="Black" />
+            <SolidColorBrush x:Key="ToggleSwitchThumbPressedForegroundThemeBrush" Color="Black" />
+
+            <SolidColorBrush x:Key="ComboBoxPointerOverBorderThemeBrush" Color="Black" />
+            <SolidColorBrush x:Key="ComboBoxPressedBorderThemeBrush" Color="Black" />
+
+            <SolidColorBrush x:Key="SliderThumbBorderThemeBrush" Color="Black" />
+            <SolidColorBrush x:Key="SliderThumbPointerOverBorderThemeBrush" Color="Black" />
+            <SolidColorBrush x:Key="SliderThumbPressedBorderThemeBrush" Color="Black" />
+            <SolidColorBrush x:Key="SliderTrackPointerOverBackgroundThemeBrush" Color="#ff888888" />
+            <SolidColorBrush x:Key="SliderTrackPressedBackgroundThemeBrush" Color="#ff888888" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>
+
+<!--
+******************************************************************
+Default Theme is stored in C:\Program Files (x86)\Windows Kits\8.0\Include\winrt\xaml\design\
+******************************************************************
+-->

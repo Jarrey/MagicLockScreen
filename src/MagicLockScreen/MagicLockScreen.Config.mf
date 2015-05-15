@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Review page Uri:  ms-windows-store:REVIEW?PFN=30059Jarrey.MagicLockScreen_2cz0jn84nveec -->
+<App>
+</App>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+    <!-- 
+        Microsoft desktop wallpaper feed
+    
+        Address: http://windows.microsoft.com/en-us/windows/wallpaper
+    -->
+    <ServiceChannel Name="MicrosoftWallpaperServiceChannel"
+                    ID="793409E5-A79D-4946-8498-674C662B396B"
+                    Type="MagicLockScreen_Service_MicrosoftWallpaperService, Culture=''|MagicLockScreen_Service_MicrosoftWallpaperService.MicrosoftWallpaperServiceChannel"
+                    ShortName="MSWSC"
+                    IsEnabled="true"
+                    AvailableDate="2013/6/12"
+                    LogoCount="20"
+                    VariableSizedWrapGridStyleKey="22">
+
+      <Service Type="MagicLockScreen_Service_MicrosoftWallpaperService, Culture=''|MagicLockScreen_Service_MicrosoftWallpaperService.MicrosoftWallpaperQueryService"
+               ID="E46696EB-BB08-404D-8E64-6AE59316B159"
+               Name="MicrosoftWallpaperQueryService"
+               ShortName="MSWQS"
+               ServiceApiUri="http://windows.microsoft.com/en-us/windows/wallpaper?T1=all"
+               ServiceApiParameters="MagicLockScreen_Service_MicrosoftWallpaperService, Culture=''|MagicLockScreen_Service_MicrosoftWallpaperService.ApiParameters.MicrosoftWallpaperServiceApiParameter"
+               ServiceType="0"
+               MaxItemCount="400"
+               IsSupportBackgroundTask="True"
+               BackgroundTaskService="MagicLockScreen_Service_MicrosoftWallpaperService, Culture=''|MagicLockScreen_Service_MicrosoftWallpaperService.MicrosoftWallpaperBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+
+    </ServiceChannel>
+  </ServiceChannels>
+</App>

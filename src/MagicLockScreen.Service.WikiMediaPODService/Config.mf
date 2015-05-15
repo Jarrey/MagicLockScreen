@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+    <ServiceChannel Name="WikiMediaPODServiceChannel"
+                    ID="eab06ad9-c2c7-4d85-af55-6378c6dbcbc6"
+                    Type="MagicLockScreen_Service_WikiMediaPODService, Culture=''|MagicLockScreen_Service_WikiMediaPODService.WikiMediaPODServiceChannel"
+                    ShortName="WMPSC"
+                    IsEnabled="true"
+                    LogoCount="10"
+                    VariableSizedWrapGridStyleKey="22">
+
+      <Service Type="MagicLockScreen_Service_WikiMediaPODService, Culture=''|MagicLockScreen_Service_WikiMediaPODService.WikiMediaPODQueryService"
+               ID="887236a1-ea41-4f16-b3e8-ac0e399861ab"
+               Name="WikiMediaPODQueryService"
+               ShortName="WMPQS"
+               ServiceApiUri="http://commons.wikimedia.org/wiki/Template:Potd/{0:yyyy-MM-dd}_(en)"
+               ServiceApiParameters="MagicLockScreen_Service_WikiMediaPODService, Culture=''|MagicLockScreen_Service_WikiMediaPODService.ApiParameters.WikiMediaPODServiceApiParameter"
+               ServiceType="0"
+               BaseUrl="http://commons.wikimedia.org"
+               MaxItemCount="1000"
+               IsSupportBackgroundTask="True"
+               BackgroundTaskService="MagicLockScreen_Service_WikiMediaPODService, Culture=''|MagicLockScreen_Service_WikiMediaPODService.WikiMediaPODBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+      
+    </ServiceChannel>
+  </ServiceChannels>
+</App>

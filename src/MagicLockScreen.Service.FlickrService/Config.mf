@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+    <ServiceChannel Name="FlickrServiceChannel"
+                    ID="f6e6f65e-95e7-460a-b56f-3bb6b063d2cf"
+                    Type="MagicLockScreen_Service_FlickrService, Culture=''|MagicLockScreen_Service_FlickrService.FlickrServiceChannel"
+                    ShortName="FSC"
+                    IsEnabled="true"
+                    LogoCount="10"
+                    VariableSizedWrapGridStyleKey="22">
+
+      <Service Type="MagicLockScreen_Service_FlickrService, Culture=''|MagicLockScreen_Service_FlickrService.FlickrQueryService"
+               ID="ecdba335-b6bc-4348-be6d-2679c273b7ee"
+               Name="FlickrQueryService"
+               ShortName="FQS"
+               ServiceApiUri="https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&amp;api_key=6759d52882025518081557e6075a17b5&amp;extras=description,owner_name,date_upload&amp;per_page={0}&amp;page={1}&amp;format=rest"
+               ServiceApiParameters="MagicLockScreen_Service_FlickrService, Culture=''|MagicLockScreen_Service_FlickrService.ApiParameters.FlickrServiceApiParameter"
+               ServiceType="0"
+               BaseImageUrl="https://farm{0}.staticflickr.com/{1}/{2}_{3}{4}.jpg"
+               BaseUserProfileUrl="https://www.flickr.com/photos/{0}/"
+               BasePhotoProfileUrl="https://www.flickr.com/photos/{0}/{1}"
+               MaxItemCount="500"
+               IsSupportBackgroundTask="True"
+               BackgroundTaskService="MagicLockScreen_Service_FlickrService, Culture=''|MagicLockScreen_Service_FlickrService.FlickrBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+      
+    </ServiceChannel>
+  </ServiceChannels>
+</App>

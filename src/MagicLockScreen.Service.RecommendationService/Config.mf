@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+
+    <!-- 
+    Is App HD LimitedFree recommendation channel
+    FamilyName is: 3802www.xapcn.com.IsAPPHD-LimitedFree_k7gtn7njh8w9e
+    Latest update: 2013-5-7
+    -->
+    <ServiceChannel Name="RecommendedApps_LoveAppServiceChannel"
+                    ID="94A2530F-72FF-4B02-8980-449964097AA7"
+                    Type="MagicLockScreen_Service_RecommendationService, Culture=''|MagicLockScreen_Service_RecommendationService.RecommendedAppsLoveAppServiceChannel"
+                    ShortName="RALASC"
+                    IsEnabled="false"
+                    LogoCount="1"
+                    Region="en"
+                    URL="http://apps.microsoft.com/windows/en-us/app/e238e688-3a8e-477e-a908-a5af253f682a"
+                    VariableSizedWrapGridStyleKey="21"/>
+
+    <!-- Chameleon - On This Day recommend channel -->
+    <ServiceChannel Name="RecommendedApps_ChameHOTServiceChannel"
+                    ID="063FF86B-6461-4B38-90FD-C8A3E44EEDFE"
+                    Type="MagicLockScreen_Service_RecommendationService, Culture=''|MagicLockScreen_Service_RecommendationService.RecommendedAppsChameHOTServiceChannel"
+                    ShortName="RACHOTSC"
+                    IsEnabled="true"
+                    LogoCount="1"
+                    Region="all"
+                    URL="http://apps.microsoft.com/windows/app/chameleon-on-this-day/513a0951-1c08-485d-80d4-2a06832dbd83"
+                    VariableSizedWrapGridStyleKey="21"/>
+  
+    <!-- ChameDesk recommend channel -->
+    <ServiceChannel Name="RecommendedApps_ChameDeskServiceChannel"
+                    ID="3FA1336F-1F7E-44CB-8200-7D135BD386AD"
+                    Type="MagicLockScreen_Service_RecommendationService, Culture=''|MagicLockScreen_Service_RecommendationService.RecommendedAppsChameDeskServiceChannel"
+                    ShortName="RACDSC"
+                    IsEnabled="true"
+                    LogoCount="1"
+                    Region="all"
+                    URL="http://chameapp.azurewebsites.net/chamedesk/chamedesk_setup.exe"
+                    VariableSizedWrapGridStyleKey="21"/>
+  </ServiceChannels>
+</App>

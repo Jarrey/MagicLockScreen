@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{39941CC9-F2DC-4FF0-A171-12F1457067B4}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MagicLockScreen_UI</RootNamespace>
+    <AssemblyName>MagicLockScreen</AssemblyName>
+    <DefaultLanguage>en</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>MagicLockScreen.UI_StoreKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxPackageDir>C:\Users\Jie\Desktop\MagicLockscreen\1.1.0.4\</AppxPackageDir>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <PackageCertificateThumbprint>2557322F3486B263CEFC0271DC02BECC85EBB77A</PackageCertificateThumbprint>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <TargetFrameworkVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\..\..\ChameNews\dev\ChameNews\ChameNews.Service\ChameNews.Service.csproj">
+      <Project>{327bd02b-97a3-49f0-bd27-84729b303546}</Project>
+      <Name>ChameNews.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NoteOne_Framework\src\NoteOne.Core\NoteOne.Core.csproj">
+      <Project>{db78d313-1066-48a8-b333-ca2f3a35678d}</Project>
+      <Name>NoteOne.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NoteOne_Framework\src\NoteOne.Utility\NoteOne.Utility.csproj">
+      <Project>{22e2dfb3-53a9-448e-9fde-9cc93329e40d}</Project>
+      <Name>NoteOne.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.BackgroundTask\MagicLockScreen.BackgroundTask.csproj">
+      <Project>{18610dba-5d8b-4ca5-bd45-a2a7931cac8e}</Project>
+      <Name>MagicLockScreen.BackgroundTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Helper\MagicLockScreen.Helper.csproj">
+      <Project>{3b5cd4d5-47eb-4e85-b316-c65b957e2313}</Project>
+      <Name>MagicLockScreen.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.AstronomyPictureService\MagicLockScreen.Service.AstronomyPictureService.csproj">
+      <Project>{fd46e22c-4190-4a27-919d-78ea00b53ec4}</Project>
+      <Name>MagicLockScreen.Service.AstronomyPictureService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.ImageSearchService\MagicLockScreen.Service.ImageSearchService.csproj">
+      <Project>{41efd3fd-ddcf-4384-bedb-eb61429fea6a}</Project>
+      <Name>MagicLockScreen.Service.ImageSearchService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.BingImageService\MagicLockScreen.Service.BingImageService.csproj">
+      <Project>{194698f4-0b3a-4503-9caf-655f2cd63e47}</Project>
+      <Name>MagicLockScreen.Service.BingImageService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.FlickrService\MagicLockScreen.Service.FlickrService.csproj">
+      <Project>{5dd6bdd8-7b68-4748-9f10-3896b77f900d}</Project>
+      <Name>MagicLockScreen.Service.FlickrService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.GeneralSettingService\MagicLockScreen.Service.GeneralSettingService.csproj">
+      <Project>{dc81e58b-5add-4150-9143-958710966a1c}</Project>
+      <Name>MagicLockScreen.Service.GeneralSettingService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.InterfaceLIFTService\MagicLockScreen.Service.InterfaceLIFTService.csproj">
+      <Project>{5e76aaef-6d15-4510-a017-bcdc63210a66}</Project>
+      <Name>MagicLockScreen.Service.InterfaceLIFTService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.LocalService\MagicLockScreen.Service.LocalService.csproj">
+      <Project>{d929a88d-7987-477e-9715-f1ea5667b4b2}</Project>
+      <Name>MagicLockScreen.Service.LocalService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.LunarPODService\MagicLockScreen.Service.LunarPODService.csproj">
+      <Project>{6c1534ca-952b-409c-92bb-e1803dd12bee}</Project>
+      <Name>MagicLockScreen.Service.LunarPODService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.MicrosoftWallpaperService\MagicLockScreen.Service.MicrosoftWallpaperService.csproj">
+      <Project>{734c7b06-e380-4045-b58c-9efc00be725d}</Project>
+      <Name>MagicLockScreen.Service.MicrosoftWallpagerService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.NationalGeographicService\MagicLockScreen.Service.NationalGeographicService.csproj">
+      <Project>{6535cdc7-b6f1-4af6-bde0-306cea2b5655}</Project>
+      <Name>MagicLockScreen.Service.NationalGeographicService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.OceanPODService\MagicLockScreen.Service.OceanPODService.csproj">
+      <Project>{c0bd0685-980e-4c9b-b779-d222a8966803}</Project>
+      <Name>MagicLockScreen.Service.OceanPODService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.RecommendationService\MagicLockScreen.Service.RecommendationService.csproj">
+      <Project>{7680b6a3-78a0-4c55-9af6-ffa2505c2418}</Project>
+      <Name>MagicLockScreen.Service.RecommendationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.WikiMediaPODService\MagicLockScreen.Service.WikiMediaPODService.csproj">
+      <Project>{a35a0faf-a695-4f6d-9231-2fa2e8557459}</Project>
+      <Name>MagicLockScreen.Service.WikiMediaPODService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MagicLockScreen.Service.WWFPictureService\MagicLockScreen.Service.WWFPictureService.csproj">
+      <Project>{4873bb63-7abd-4506-a5f2-b87ffa91b7e2}</Project>
+      <Name>MagicLockScreen.Service.WWFPictureService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="HelpContent.xaml.cs">
+      <DependentUpon>HelpContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ResourcesLoader.cs" />
+    <Compile Include="ServiceChannelItemsPage.xaml.cs">
+      <DependentUpon>ServiceChannelItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Splash.xaml.cs">
+      <DependentUpon>Splash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\HelpContentViewModel.cs" />
+    <Compile Include="ViewModels\ServiceItemsPageViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="Assets\Add.png" />
+    <Content Include="Assets\appbg.jpg" />
+    <Content Include="Assets\AppTitle.en.png" />
+    <Content Include="Assets\AppTitle.fr.png" />
+    <Content Include="Assets\AppTitle.zh-hans.png" />
+    <Content Include="Assets\AppTitle.zh-hant.png" />
+    <Content Include="Assets\ChameHOTLogo.png" />
+    <Content Include="Assets\Help\HelpPage1.en.jpg" />
+    <Content Include="Assets\Help\HelpPage1.fr.jpg" />
+    <Content Include="Assets\Help\HelpPage1.zh-hans.jpg" />
+    <Content Include="Assets\Help\HelpPage1.zh-hant.jpg" />
+    <Content Include="Assets\Help\HelpPage2.en.jpg" />
+    <Content Include="Assets\Help\HelpPage2.fr.jpg" />
+    <Content Include="Assets\Help\HelpPage2.zh-hans.jpg" />
+    <Content Include="Assets\Help\HelpPage2.zh-hant.jpg" />
+    <Content Include="Assets\Help\HelpPage3.en.jpg" />
+    <Content Include="Assets\Help\HelpPage3.fr.jpg" />
+    <Content Include="Assets\Help\HelpPage3.zh-hans.jpg" />
+    <Content Include="Assets\Help\HelpPage3.zh-hant.jpg" />
+    <Content Include="Assets\LockScreenLogo.scale-100.png" />
+    <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\ServiceChannelLogo\ChannelLogo2x2.png" />
+    <Content Include="Assets\ServiceChannelLogo\ChannelLogo4x2.png" />
+    <Content Include="Assets\ServiceChannelLogo\ChannelLogo4x4.png" />
+    <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\SmallLogo.targetsize-16.png" />
+    <Content Include="Assets\SmallLogo.targetsize-256.png" />
+    <Content Include="Assets\SmallLogo.targetsize-32.png" />
+    <Content Include="Assets\SmallLogo.targetsize-48.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\WideLogo.scale-100.png" />
+    <Content Include="MagicLockScreen.Config.mf" />
+    <None Include="MagicLockScreen.UI_StoreKey.pfx" />
+    <None Include="Package.StoreAssociation.xml" />
+    <None Include="MagicLockScreen.UI_TemporaryKey.pfx" />
+    <PRIResource Include="Resources\zh-Hans\Resources.resw" />
+    <PRIResource Include="Resources\fr\Resources.resw" />
+    <PRIResource Include="Resources\zh-Hant\Resources.resw" />
+    <PRIResource Include="Resources\en\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="HelpContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ServiceChannelItemsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Splash.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

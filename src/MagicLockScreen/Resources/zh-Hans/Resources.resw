@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="appDescription" xml:space="preserve">
+    <value>百变锁屏 (Chameleon) 是一款提供网络每日一图查看服务,能够同步更新网络以及本地图片库图片,并隔一定时间自动随机将一幅图片其设置为系统锁屏背景。</value>
+  </data>
+  <data name="appDisplayName" xml:space="preserve">
+    <value>百变锁屏</value>
+  </data>
+  <data name="AppName.Text" xml:space="preserve">
+    <value>百变锁屏</value>
+  </data>
+  <data name="appShortName" xml:space="preserve">
+    <value>百变锁屏</value>
+  </data>
+  <data name="packageDisplayName" xml:space="preserve">
+    <value>百变锁屏</value>
+  </data>
+  <data name="DownloadingLabel.Text" xml:space="preserve">
+    <value>正在下载:</value>
+  </data>
+  <data name="ExplanationTextLabel.Title" xml:space="preserve">
+    <value>介绍:</value>
+  </data>
+  <data name="OriginalSiteUrlLabel.Text" xml:space="preserve">
+    <value>了解更多, 请访问:</value>
+  </data>
+  <data name="CopyrightLabel.Text" xml:space="preserve">
+    <value>版权所有:</value>
+  </data>
+  <data name="DescriptionTextLabel.Title" xml:space="preserve">
+    <value>介绍:</value>
+  </data>
+  <data name="SummaryTextLabel.Title" xml:space="preserve">
+    <value>介绍:</value>
+  </data>
+  <data name="InfoButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>信息</value>
+  </data>
+  <data name="InformationTitle" xml:space="preserve">
+    <value>信息</value>
+  </data>
+  <data name="PrimaryInformation" xml:space="preserve">
+    <value>&lt;StackPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+    &lt;StackPanel.Resources&gt;
+        &lt;Style TargetType="TextBlock"&gt;
+            &lt;Setter Property="Margin" Value="0,8,0,8"/&gt;
+            &lt;Setter Property="TextWrapping" Value="Wrap"/&gt;
+        &lt;/Style&gt;
+    &lt;/StackPanel.Resources&gt;
+    &lt;TextBlock Foreground="Red" FontWeight="Bold"&gt;注: 自动更换锁屏功能在未激活的Windows 8.1上无法工作，请及时检查你的Windows 8.1的激活状态。&lt;/TextBlock&gt;
+    &lt;Grid&gt;
+        &lt;HyperlinkButton Grid.Column="1" Content="下载 ChameDesk 桌面服务程序" VerticalAlignment="Center" NavigateUri="http://chameapp.azurewebsites.net/chamedesk/chamedesk_setup.exe"/&gt;
+    &lt;/Grid&gt;
+    
+    &lt;TextBlock&gt;百变锁屏(Chameleon) v3.0支持修改桌面壁纸。&lt;/TextBlock&gt; &lt;TextBlock&gt;Chameleon(百变锁屏)是一款提供网络每日一图查看,分享服务,能够同步更新网络以及本地图片库图片,并隔一定时间自动随机将一幅图片其设置为系统锁屏背景。&lt;/TextBlock&gt;
+    &lt;TextBlock&gt;网络每日一图查看服务主要包括:&lt;/TextBlock&gt;
+    &lt;HyperlinkButton Content="NASA 天文每日一图" NavigateUri="http://apod.nasa.gov/apod/"/&gt;
+    &lt;HyperlinkButton Content="必应首页每日一图" NavigateUri="http://www.bing.com/"/&gt;
+    &lt;HyperlinkButton Content="Flickr 趣图" NavigateUri="http://www.flickr.com/explore/interesting/"/&gt;
+    &lt;HyperlinkButton Content="InterfaceLIFT 高清壁纸" NavigateUri="http://interfacelift.com/"/&gt;
+    &lt;!--&lt;HyperlinkButton Content="Google Picasa 公共图片" NavigateUri="https://picasaweb.google.com/"/&gt;--&gt;
+    &lt;HyperlinkButton Content="Lunar 每日一图" NavigateUri="http://lpod.wikispaces.com/"/&gt;
+    &lt;!--&lt;HyperlinkButton Content="海洋每日一图" NavigateUri="http://theoceanproject.org/opod/index.php"/&gt;--&gt;
+    &lt;HyperlinkButton Content="维基百科每日一图" NavigateUri="http://commons.wikimedia.org/wiki/Commons:Picture_of_the_day"/&gt;
+    &lt;HyperlinkButton Content="国家地理杂志每日一图" NavigateUri="http://photography.nationalgeographic.com/"/&gt;
+    &lt;HyperlinkButton Content="Microsoft®桌面背景" NavigateUri="http://windows.microsoft.com/en-us/windows/wallpaper"/&gt;
+    &lt;HyperlinkButton Content="WWF© 美图" NavigateUri="http://worldwildlife.org/media?filter=photos"/&gt;
+    &lt;TextBlock&gt;此外还支持本地图片库浏览，并使用图片库图片设置为锁屏背景。&lt;/TextBlock&gt;
+    &lt;TextBlock&gt;所有图片提供服务均为免费公开的网络服务，所有图片版权归属于图片所有者，本应用从网络获取这些图片，认为图片作者已经许可了对应网站的图片分享公开协议。任何人员均不得利用这些图片用于商业目的，任何无授权使用产生的法律问题，可由图片版权所有人根据当地法律追究法律责任。&lt;/TextBlock&gt;
+    &lt;TextBlock&gt;请注意浏览图片时的介绍以及版权信息，任何疑问可联系应用作者: jar.bob@gmail.com&lt;/TextBlock&gt;
+    &lt;TextBlock FontWeight="Bold"&gt;Chameleon系列:&lt;/TextBlock&gt;
+    &lt;Grid&gt;
+        &lt;Grid.ColumnDefinitions&gt;
+            &lt;ColumnDefinition Width="auto"/&gt;
+            &lt;ColumnDefinition Width="*"/&gt;
+        &lt;/Grid.ColumnDefinitions&gt;                
+        &lt;Image Source="ms-appx:///Assets/ChameHOTLogo.png"/&gt;
+        &lt;HyperlinkButton Grid.Column="1" Content="下载Chameleon - 历史上的今天" VerticalAlignment="Center" NavigateUri="http://apps.microsoft.com/windows/app/chameleon-on-this-day/513a0951-1c08-485d-80d4-2a06832dbd83"/&gt;
+    &lt;/Grid&gt;
+&lt;/StackPanel&gt;</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>关于应用</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="SettingButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="HelpButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>隐私策略</value>
+  </data>
+  <data name="PrivacyPolicyContent" xml:space="preserve">
+    <value>&lt;StackPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+            &lt;StackPanel.Resources&gt;
+                &lt;Style TargetType="TextBlock"&gt;
+                    &lt;Setter Property="Margin" Value="0,8,0,8"/&gt;
+                    &lt;Setter Property="TextWrapping" Value="Wrap"/&gt;
+                &lt;/Style&gt;
+            &lt;/StackPanel.Resources&gt;
+            &lt;TextBlock&gt;本应用不会收集、存储、发布您的任何个人信息或者与您的设备相关的信息。
+本应用不会收集任何统计数据和分析数据，也不会跟踪用户的行为。&lt;/TextBlock&gt;
+&lt;TextBlock&gt;如果需要改变本应用的隐私策略，我会将相关的改动在此设置页面发布，以便您能随时了解本应用会收集什么信息。
+任何时候如果您对此隐私策略有疑问，请通过电子邮件 jar.bob@gmail.com 和我联系。&lt;/TextBlock&gt;
+&lt;/StackPanel&gt;</value>
+  </data>
+  <data name="InvalidImage.Text" xml:space="preserve">
+    <value>无效图片</value>
+  </data>
+  <data name="RefreshButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="AppName.FontFamily" xml:space="preserve">
+    <value>Microsoft YaHei UI</value>
+  </data>
+  <data name="AppName.FontStyle" xml:space="preserve">
+    <value>Italic</value>
+  </data>
+  <data name="PageLogo.Source" xml:space="preserve">
+    <value>Assets/AppTitle.zh-hans.png</value>
+  </data>
+  <data name="HelpPage1" xml:space="preserve">
+    <value>Assets/Help/HelpPage1.zh-hans.jpg</value>
+  </data>
+  <data name="HelpPage2" xml:space="preserve">
+    <value>Assets/Help/HelpPage2.zh-hans.jpg</value>
+  </data>
+  <data name="HelpPage3" xml:space="preserve">
+    <value>Assets/Help/HelpPage3.zh-hans.jpg</value>
+  </data>
+  <data name="CloseButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="UpgradePrompt" xml:space="preserve">
+    <value>设置被重置，请重新设置你的自动更换锁屏功能</value>
+  </data>
+  <data name="GetItLabel.Text" xml:space="preserve">
+    <value>立刻获取:</value>
+  </data>
+</root>

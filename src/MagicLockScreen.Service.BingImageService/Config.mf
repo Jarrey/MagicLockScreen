@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+    <ServiceChannel Name="BingImageServiceChannel"
+                    ID="535de752-8d47-480e-b84e-b3f09e1afbc8"
+                    Type="MagicLockScreen_Service_BingImageService, Culture=''|MagicLockScreen_Service_BingImageService.BingImageServiceChannel"
+                    ShortName="BISC"
+                    IsEnabled="True"
+                    LogoCount="12"
+                    VariableSizedWrapGridStyleKey="42">
+
+      <Service Type="MagicLockScreen_Service_BingImageService, Culture=''|MagicLockScreen_Service_BingImageService.BingImageQueryService"
+               ID="5b986175-763c-4af4-b616-b96bd04743c0"
+               Name="BingImageQueryService"
+               ShortName="BIQS"
+               ServiceApiUri="http://www.bing.com/HPImageArchive.aspx?format=xml&amp;idx={0}&amp;n={1}&amp;mkt={2}"
+               ServiceApiParameters="MagicLockScreen_Service_BingImageService, Culture=''|MagicLockScreen_Service_BingImageService.ApiParameters.BingImageServiceApiParameter"
+               ServiceType="0"
+               BaseUrl="http://www.bing.com"
+               Markets="en-US,zh-CN,zh-TW,ja-JP,en-AU,en-UK,de-DE,en-NZ,en-CA"
+               MaxItemCount="10"
+               IsSupportBackgroundTask="True"
+               BackgroundTaskService="MagicLockScreen_Service_BingImageService, Culture=''|MagicLockScreen_Service_BingImageService.BingImageBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+
+    </ServiceChannel>
+  </ServiceChannels>
+</App>

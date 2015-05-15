@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+    <ServiceChannel Name="AstronomyPictureServiceChannel"
+                    ID="F071A80F-8ABB-4BC8-82E6-1666C82C65C4"
+                    Type="MagicLockScreen_Service_AstronomyPictureService, Culture=''|MagicLockScreen_Service_AstronomyPictureService.AstronomyPictureServiceChannel"
+                    ShortName="APSC"
+                    IsEnabled="true"
+                    LogoCount="6"
+                    VariableSizedWrapGridStyleKey="44">
+
+      <Service Type="MagicLockScreen_Service_AstronomyPictureService, Culture=''|MagicLockScreen_Service_AstronomyPictureService.AstronomyPictureQueryService"
+               ID="9F59EF49-8861-4DE9-B3AE-E82233CF0A95"
+               Name="AstronomyPictureQueryService"
+               ShortName="APQS"
+               ServiceApiUri="http://apod.nasa.gov/apod/ap{0:yyMMdd}.html"
+               ServiceApiParameters="MagicLockScreen_Service_AstronomyPictureService, Culture=''|MagicLockScreen_Service_AstronomyPictureService.ApiParameters.AstronomyPictureServiceApiParameter"
+               ServiceType="0"
+               BaseUrl="http://apod.nasa.gov/apod/"
+               MaxItemCount="1000"
+               IsSupportBackgroundTask="True"
+               BackgroundTaskService="MagicLockScreen_Service_AstronomyPictureService, Culture=''|MagicLockScreen_Service_AstronomyPictureService.AstronomyPictureBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+      
+    </ServiceChannel>
+  </ServiceChannels>
+</App>

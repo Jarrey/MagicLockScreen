@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--
+ Google has already disable this service since year 2012
+-->
+<App>
+  <ServiceChannels>
+    <ServiceChannel Name="GooglePicasaServiceChannel"
+                    ID="FEB2C864-0B36-4537-9914-637EC62CCC2C"
+                    Type="MagicLockScreen_Service_GooglePicasaService, Culture=''|MagicLockScreen_Service_GooglePicasaService.GooglePicasaServiceChannel"
+                    ShortName="GPSC"
+                    IsEnabled="false"
+                    LogoCount="10"
+                    LogoKeyword="Windows 8"
+                    VariableSizedWrapGridStyleKey="42">
+
+      <Service Type="MagicLockScreen_Service_GooglePicasaService, Culture=''|MagicLockScreen_Service_GooglePicasaService.GooglePicasaQueryService"
+               ID="7C9D2FDB-D43E-4573-A6EF-BF609445B3F7"
+               Name="GooglePicasaQueryService"
+               ShortName="GPQS"
+               ServiceApiUri="https://picasaweb.google.com/data/feed/api/all?q={0}&amp;max-results={1}&amp;start-index={2}"
+               ServiceApiParameters="MagicLockScreen_Service_GooglePicasaService, Culture=''|MagicLockScreen_Service_GooglePicasaService.ApiParameters.GooglePicasaServiceApiParameter"
+               ServiceType="0"
+               MaxItemCount="500"
+               IsSupportBackgroundTask="True"
+               BackgroundTaskService="MagicLockScreen_Service_GooglePicasaService, Culture=''|MagicLockScreen_Service_GooglePicasaService.GooglePicasaBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+        
+        <ItemGroups>
+          <Item Keyword="nature" Title="Nature" PreviewCount="8"/>
+          <Item Keyword="travel" Title="Travel" PreviewCount="8"/>
+          <Item Keyword="people" Title="People" PreviewCount="8"/>
+          <Item Keyword="car" Title="Car" PreviewCount="8"/>
+        </ItemGroups>
+      </Service>
+      
+    </ServiceChannel>
+  </ServiceChannels>
+</App>

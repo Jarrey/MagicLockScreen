@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+    <ServiceChannel Name="LunarPODServiceChannel"
+                    ID="a859c537-9f8e-44da-960d-6d2fc1fcb84a"
+                    Type="MagicLockScreen_Service_LunarPODService, Culture=''|MagicLockScreen_Service_LunarPODService.LunarPODServiceChannel"
+                    ShortName="LPSC"
+                    IsEnabled="true"
+                    LogoCount="6"
+                    VariableSizedWrapGridStyleKey="22">
+
+      <Service Type="MagicLockScreen_Service_LunarPODService, Culture=''|MagicLockScreen_Service_LunarPODService.LunarPODQueryService"
+               ID="e35a00b4-f6cf-478d-80c3-1043954dcba8"
+               Name="LunarPODQueryService"
+               ShortName="LPQS"
+               ServiceApiUri="http://lpod.wikispaces.com/{0}{1:+d,+yyyy}"
+               ServiceApiParameters="MagicLockScreen_Service_LunarPODService, Culture=''|MagicLockScreen_Service_LunarPODService.ApiParameters.LunarPODServiceApiParameter"
+               ServiceType="0"
+               BaseUrl="http://lpod.wikispaces.com"
+               MaxItemCount="500"
+               IsSupportBackgroundTask="True"
+               BackgroundTaskService="MagicLockScreen_Service_LunarPODService, Culture=''|MagicLockScreen_Service_LunarPODService.LunarPODBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+      
+    </ServiceChannel>
+  </ServiceChannels>
+</App>

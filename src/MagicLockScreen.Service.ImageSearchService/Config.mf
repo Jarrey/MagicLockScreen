@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+
+    <!--
+        Baidu image search API: http://image.baidu.com/i?tn=baiduimagejson&word={0}&rn={1}&pn={2}$ie=utf-8
+        word: key word
+        rn: record number
+        pn: page number
+      
+        return format: json
+    -->
+    <!-- Baidu image service channel config XML -->
+    <ServiceChannel Name="BaiduImageSearchServiceChannel"
+                    ID="C8BAC329-DA5D-4E95-B359-151D75F66A29"
+                    Type="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.BaiduImageSearchServiceChannel"
+                    ShortName="BISSC"
+                    IsEnabled="true"
+                    LogoCount="10"
+                    VariableSizedWrapGridStyleKey="22">
+      <Service Type="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.BaiduImageSearchService"
+               ID="1270A168-641F-48BD-95CB-544D49985764"
+               Name="BaiduImageSearchService"
+               ShortName="BISS"
+               ServiceApiUri="http://image.baidu.com/i?tn=baiduimagejson&amp;word={0}&amp;rn={1}&amp;pn={2}&amp;ie=utf-8"
+               ServiceApiParameters="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.ApiParameters.BaiduImageSearchServiceApiParameter"
+               ServiceType="0"
+               MaxItemCount="1000"
+               IsSupportBackgroundTask="true"
+               BackgroundTaskService="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.BaiduImageSearchBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+    </ServiceChannel>
+
+
+    <!--       
+      Google image search API:
+      API document: https://developers.google.com/image-search/v1/jsondevguide#request_format
+      
+      https://ajax.googleapis.com/ajax/services/search/images?q={0}&rsz={1}&start={2}&v=1.0&imgsz=xlarge
+      
+      rsz: range is 1-8, image number per page
+      start: range is 0-8
+      
+      Note: Google JSON Image search API only can reply 8*8-1=63 imgages
+    -->
+    <!-- Google image service channel config XML -->
+    <ServiceChannel Name="GoogleImageSearchServiceChannel"
+                    ID="2924EE5A-E0D1-4940-9498-11A199747093"
+                    Type="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.GoogleImageSearchServiceChannel"
+                    ShortName="GISSC"
+                    IsEnabled="true"
+                    LogoCount="8"
+                    VariableSizedWrapGridStyleKey="22">
+      <Service Type="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.GoogleImageSearchService"
+               ID="15E0288C-0B25-4D78-8132-1F85EEB52E87"
+               Name="GoogleImageSearchService"
+               ShortName="GISS"
+               ServiceApiUri="https://ajax.googleapis.com/ajax/services/search/images?q={0}&amp;rsz={1}&amp;start={2}&amp;v=1.0&amp;imgsz=xlarge"
+               ServiceApiParameters="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.ApiParameters.GoogleImageSearchServiceApiParameter"
+               ServiceType="0"
+               MaxItemCount="63"
+               IsSupportBackgroundTask="true"
+               BackgroundTaskService="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.GoogleImageSearchBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+    </ServiceChannel>
+
+
+    <!--
+        Flickr image search API: https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;api_key=6759d52882025518081557e6075a17b5&amp;tags={0}&amp;per_page={1}&amp;page={2}&amp;format=rest
+      
+        return format: XML(REST)
+      -->
+    <!-- Flickr image service channel config XML -->
+    <ServiceChannel Name="FlickrImageSearchServiceChannel"
+                    ID="EBA49891-A1E8-4EFA-9716-B3A9CF1E7EF9"
+                    Type="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.FlickrImageSearchServiceChannel"
+                    ShortName="FISSC"
+                    IsEnabled="true"
+                    LogoCount="10"
+                    VariableSizedWrapGridStyleKey="22">
+      <Service Type="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.FlickrImageSearchService"
+               ID="F9B6617A-B4DF-4BE6-8CE1-2DE544A5285D"
+               Name="FlickrImageSearchService"
+               ShortName="FISS"
+               ServiceApiUri="https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;api_key=6759d52882025518081557e6075a17b5&amp;tags={0}&amp;per_page={1}&amp;page={2}&amp;format=rest"
+               ServiceApiParameters="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.ApiParameters.FlickrImageSearchServiceApiParameter"
+               ServiceType="0"
+               BaseImageUrl="https://farm{0}.staticflickr.com/{1}/{2}_{3}{4}.jpg"
+               BaseUserProfileUrl="https://www.flickr.com/photos/{0}/"
+               BasePhotoProfileUrl="https://www.flickr.com/photos/{0}/{1}"
+               MaxItemCount="1000"
+               IsSupportBackgroundTask="true"
+               BackgroundTaskService="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.FlickrImageSearchBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+    </ServiceChannel>
+
+    <!--
+        info.com image search API: http://images.info.com/search?page={0}&qkw={1}&qcat=images
+        qkw: key word
+        page: page number
+        
+        return format: HTML
+      -->
+    <!-- Info.com image service channel config XML -->
+    <ServiceChannel Name="InfoImageSearchServiceChannel"
+                    ID="475ADEF6-258F-427E-A0C2-5EB6C64DD5F0"
+                    Type="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.InfoImageSearchServiceChannel"
+                    ShortName="IISSC"
+                    IsEnabled="true"
+                    LogoCount="10"
+                    VariableSizedWrapGridStyleKey="22">
+      <Service Type="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.InfoImageSearchService"
+               ID="EA4132D3-5361-46C8-BD31-A952454945D5"
+               Name="InfoImageSearchService"
+               ShortName="IISS"
+               ServiceApiUri="http://images.info.com/search?page={0}&amp;qkw={1}&amp;qcat=images"
+               ServiceApiParameters="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.ApiParameters.InfoImageSearchServiceApiParameter"
+               ServiceType="0"
+               MaxItemCount="1000"
+               NumberInPage="20"
+               IsSupportBackgroundTask="true"
+               BackgroundTaskService="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.InfoImageSearchBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+    </ServiceChannel>
+
+
+    <!--
+      Provide service for Add Custom Picture page
+    -->
+    <ServiceChannel Name="AddCustomPictureServiceChannel"
+                    ID="68EC8334-CD99-4B6A-A14F-832A2309332D"
+                    Type="MagicLockScreen_Service_ImageSearchService, Culture=''|MagicLockScreen_Service_ImageSearchService.AddCustomPictureServiceChannel"
+                    ShortName="ACPSC"
+                    IsEnabled="true"
+                    VariableSizedWrapGridStyleKey="11"/>
+    
+  </ServiceChannels>
+</App>

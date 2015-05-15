@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="appDescription" xml:space="preserve">
+    <value>Caméléon (Magical LockScreen) est un service de télécharger un image via l'internet à chaque jour. Il est mettre à jour les images en ligne et en locale. Vous pouvez aussi le configurer pour choisir un image aléatoirement comme votre écran de Verrouillage!</value>
+  </data>
+  <data name="appDisplayName" xml:space="preserve">
+    <value>Caméléon</value>
+  </data>
+  <data name="AppName.Text" xml:space="preserve">
+    <value>Caméléon</value>
+  </data>
+  <data name="appShortName" xml:space="preserve">
+    <value>Caméléon</value>
+  </data>
+  <data name="packageDisplayName" xml:space="preserve">
+    <value>Caméléon</value>
+  </data>
+  <data name="DownloadingLabel.Text" xml:space="preserve">
+    <value>Téléchargement: </value>
+  </data>
+  <data name="ExplanationTextLabel.Title" xml:space="preserve">
+    <value>A Propos:</value>
+  </data>
+  <data name="OriginalSiteUrlLabel.Text" xml:space="preserve">
+    <value>Pour en savoir plus,veillez visiter:</value>
+  </data>
+  <data name="CopyrightLabel.Text" xml:space="preserve">
+    <value>Copyright:</value>
+  </data>
+  <data name="DescriptionTextLabel.Title" xml:space="preserve">
+    <value>A Propos:</value>
+  </data>
+  <data name="SummaryTextLabel.Title" xml:space="preserve">
+    <value>Résumé:</value>
+  </data>
+  <data name="InfoButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="InformationTitle" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="PrimaryInformation" xml:space="preserve">
+    <value>&lt;StackPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+    &lt;StackPanel.Resources&gt;
+        &lt;Style TargetType="TextBlock"&gt;
+            &lt;Setter Property="Margin" Value="0,8,0,8"/&gt;
+            &lt;Setter Property="TextWrapping" Value="Wrap"/&gt;
+        &lt;/Style&gt;
+    &lt;/StackPanel.Resources&gt;
+    &lt;TextBlock Foreground="Red" FontWeight="Bold"&gt;Attention: Le changement automatique de l'écran de verrouillage NE FONCTIONNE PAS dans un Windows 8.1 non-activé, merci de vérifier votre situation d'activation de Windows avant de nous laisser une note injuste.&lt;/TextBlock&gt;
+    &lt;TextBlock&gt;V3.0 Caméléon ont commencé à soutenir le changement de Windows papier peint de bureau. &lt;/TextBlock&gt;
+    &lt;Grid&gt;
+        &lt;HyperlinkButton Grid.Column="1" Content="Download ChameDesk Desktop Service" VerticalAlignment="Center" NavigateUri="http://chameapp.azurewebsites.net/chamedesk/chamedesk_setup.exe"/&gt;
+    &lt;/Grid&gt;
+    
+    &lt;TextBlock&gt;Caméléon (Magical LockScreen) est un service de télécharger un image via l'internet à chaque jour. Il est mettre à jour les images en ligne et en locale. Vous pouvez aussi le configurer pour choisir un image aléatoirement comme votre écran de Verrouillage!&lt;/TextBlock&gt;
+    &lt;TextBlock&gt;Le service d'image en ligne quotidien  inclus:&lt;/TextBlock&gt;
+    &lt;HyperlinkButton Content="NASA L'astronomie du jour" NavigateUri="http://apod.nasa.gov/apod/"/&gt;
+    &lt;HyperlinkButton Content="Bing fonds d'écran du jour" NavigateUri="http://www.bing.com/"/&gt;
+    &lt;HyperlinkButton Content="Flickr intéressant" NavigateUri="http://www.flickr.com/explore/interesting/"/&gt;
+    &lt;HyperlinkButton Content="InterfaceLIFT HD Wallpaper" NavigateUri="http://interfacelift.com/"/&gt;
+    &lt;!--&lt;HyperlinkButton Content="Google Picasa Image Public" NavigateUri="https://picasaweb.google.com/"/&gt;--&gt;
+    &lt;HyperlinkButton Content="Lunar Image du jour" NavigateUri="http://lpod.wikispaces.com/"/&gt;
+    &lt;!--&lt;HyperlinkButton Content="Océans du jour" NavigateUri="http://theoceanproject.org/opod/index.php"/&gt;--&gt;
+    &lt;HyperlinkButton Content="Wikipedia du jour" NavigateUri="http://commons.wikimedia.org/wiki/Commons:Picture_of_the_day"/&gt;
+    &lt;HyperlinkButton Content="National Geographic du jour" NavigateUri="http://photography.nationalgeographic.com/"/&gt;
+    &lt;HyperlinkButton Content="Microsoft® Arrière-plans du Bureau" NavigateUri="http://windows.microsoft.com/en-us/windows/wallpaper"/&gt;
+    &lt;HyperlinkButton Content="WWF© Photos" NavigateUri="http://worldwildlife.org/media?filter=photos"/&gt;
+    &lt;TextBlock&gt;Il support aussi parcourir les images en locale et les choisir comme votre écran de Verrouillage!&lt;/TextBlock&gt;
+    &lt;TextBlock&gt;Toutes les photos sont fournis par les service gratuits du réseau public，Toutes les images copyright appartient à des propriétaires des images，L'application obtiens ces images via internet, considérant que l'image est déjà autorisés pour le partage.Toute personne ne pourra utiliser ces images à des buts commerciales.Questions juridiques découlant de toute utilisation non autorisée, par les images des détenteurs de copyright, conformément aux lois locales et de poursuivre leurs responsabilités légales.&lt;/TextBlock&gt;
+    &lt;TextBlock&gt;Pour toutes les questions, merci à contacter l'author: jar.bob@gmail.com&lt;/TextBlock&gt;
+    &lt;TextBlock FontWeight="Bold"&gt;Chameleon Series:&lt;/TextBlock&gt;
+    &lt;Grid&gt;
+        &lt;Grid.ColumnDefinitions&gt;
+            &lt;ColumnDefinition Width="auto"/&gt;
+            &lt;ColumnDefinition Width="*"/&gt;
+        &lt;/Grid.ColumnDefinitions&gt;                
+        &lt;Image Source="ms-appx:///Assets/ChameHOTLogo.png"/&gt;
+        &lt;HyperlinkButton Grid.Column="1" Content="Télécharger Chameleon - On This Day" VerticalAlignment="Center" NavigateUri="http://apps.microsoft.com/windows/app/chameleon-on-this-day/513a0951-1c08-485d-80d4-2a06832dbd83"/&gt;
+    &lt;/Grid&gt;
+&lt;/StackPanel&gt;</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>A propos</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>Paramètrer</value>
+  </data>
+  <data name="SettingButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="HelpButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Politique de confidentialité</value>
+  </data>
+  <data name="PrivacyPolicyContent" xml:space="preserve">
+    <value>&lt;StackPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+            &lt;StackPanel.Resources&gt;
+                &lt;Style TargetType="TextBlock"&gt;
+                    &lt;Setter Property="Margin" Value="0,8,0,8"/&gt;
+                    &lt;Setter Property="TextWrapping" Value="Wrap"/&gt;
+                &lt;/Style&gt;
+            &lt;/StackPanel.Resources&gt;
+            &lt;TextBlock&gt;Caméléon (Magical Lockscreen) ne recueillir, stocker ou délivrer aucun de vos informations personnels ou des données liés à vos appareils. Caméléon (Magical Lockscreen) ni recueille des données statistiques ou analytiques, ni suivre le comportement de l'utilisateur.&lt;/TextBlock&gt;
+&lt;TextBlock&gt;En tous nécessités de modification de la politique confidentialité de Caméléon (Magical LockScreen), l'auteur mettra à jour les modifications dans la page paramètrage, pour que vous sachiez toujours quelles informations cette application recueille. Si vous avez des questions ou des soucis liés à  cette politique de confidentialité, vous pouvez toujours contacter l'auteur via jar.bob@gmail.com&lt;/TextBlock&gt;
+&lt;/StackPanel&gt;</value>
+  </data>
+  <data name="InvalidImage.Text" xml:space="preserve">
+    <value>L'image est invalide</value>
+  </data>
+  <data name="RefreshButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Actualiser</value>
+  </data>
+  <data name="AppName.FontFamily" xml:space="preserve">
+    <value>Jokerman</value>
+  </data>
+  <data name="AppName.FontStyle" xml:space="preserve">
+    <value>Italic</value>
+  </data>
+  <data name="PageLogo.Source" xml:space="preserve">
+    <value>Assets/AppTitle.fr.png</value>
+  </data>
+  <data name="HelpPage1" xml:space="preserve">
+    <value>Assets/Help/HelpPage1.fr.jpg</value>
+  </data>
+  <data name="HelpPage2" xml:space="preserve">
+    <value>Assets/Help/HelpPage2.fr.jpg</value>
+  </data>
+  <data name="HelpPage3" xml:space="preserve">
+    <value>Assets/Help/HelpPage3.fr.jpg</value>
+  </data>
+  <data name="CloseButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="UpgradePrompt" xml:space="preserve">
+    <value>Paramètres ont été réinitialisés, merci de réconfiguer vos paramètres de  changement automatique de l'écran de verrouillage</value>
+  </data>
+  <data name="GetItLabel.Text" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
+</root>

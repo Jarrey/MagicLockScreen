@@ -1,0 +1,392 @@
+﻿<common:LayoutAwarePage
+    x:Name="pageRoot"
+    x:Class="MagicLockScreen_UI.ServiceChannelItemsPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MagicLockScreen_UI"
+    xmlns:common="using:NoteOne_Core.UI.Common"
+    xmlns:i="using:NoteOne_Core.Interaction"
+    xmlns:b="using:NoteOne_Core.Behaviours"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled">
+
+
+    <Page.Resources>
+
+        <!-- 此页所显示的项集合-->
+        <CollectionViewSource
+            x:Name="itemsViewSource"
+            Source="{Binding ServiceChannelGroups}"
+            ItemsPath="Models"
+            IsSourceGrouped="true" />
+
+        <common:ViewModelExtension x:Name="viewModel" Instance="{Binding}" />
+
+        <!-- ServiceChannel item template as seen in the GroupedItemsPage and ItemsPage -->
+        <DataTemplate x:Key="GridViewServiceChannelItemTemplate">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DataContext="{Binding}">
+                <!--<Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                    <Image Source="{Binding LogoUri}" Stretch="UniformToFill"/>
+                </Border>-->
+
+                <Grid Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Opacity=".7" />
+
+                <Grid>
+                    <!--<Image Source="{Binding ThumbnailImage}" Stretch="UniformToFill"
+                           Visibility="{Binding IsThumbnailImageDownloading, Converter={StaticResource booleanToVisibilityConverter}, ConverterParameter=NEG}"/>-->
+                    <common:PollImage x:Name="logoImage" Images="{Binding Logo}"
+                                      IsEnableTransition="{Binding Instance.LOCAL_SETTINGS.LOGO_ANIMATION, Source={StaticResource viewModel}}" />
+                    <StackPanel DataContext="{Binding CurrentImage, ElementName=logoImage}" VerticalAlignment="Center"
+                                Visibility="{Binding IsThumbnailImageDownloading, Converter={StaticResource booleanToVisibilityConverter}}">
+                        <ProgressBar Value="{Binding ThumbnailImageDownloadingProgress}" Margin="15,5,15,5" />
+                        <TextBlock HorizontalAlignment="Center" Margin="5">
+                            <TextBlock.Inlines>
+                                <Run x:Uid="DownloadingLabel" Text="Downloading: " />
+                                <Run Text="{Binding ThumbnailImageDownloadingProgress}" />
+                                <Run Text=" %" />
+                            </TextBlock.Inlines>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+
+                <common:ListViewItemOverlay VerticalAlignment="Bottom" Title="{Binding Title}"
+                                            Visibility="{Binding ShowOverlay, Converter={StaticResource booleanToVisibilityConverter}}">
+                    <StackPanel>
+                        <TextBlock Text="{Binding SubTitle}" IsHitTestVisible="False"
+                                   Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}"
+                                   Style="{StaticResource CaptionTextStyle}"
+                                   TextWrapping="Wrap"
+                                   Margin="15,0,15,2" />
+                        <Button Content="&#x24d8;" FontSize="24" FontFamily="Segoe UI Symbol"
+                                Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}"
+                                HorizontalAlignment="Right" Margin="15,0,8,2"
+                                Style="{StaticResource TextButtonStyle}"
+                                Command="{Binding ShowInfoCommand}" />
+                    </StackPanel>
+                </common:ListViewItemOverlay>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ListViewServiceChannelItemTemplate">
+            <Grid Margin="0" DataContext="{Binding}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!--<Border Background="Transparent" Width="60" Height="60">
+                    <Image Source="{Binding LogoUri}" Stretch="UniformToFill"/>
+                </Border>-->
+
+                <Grid x:Name="backgroundGrid" Grid.ColumnSpan="2" Opacity=".7"
+                      Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}"
+                      Visibility="{Binding ShowOverlay, Converter={StaticResource booleanToVisibilityConverter}}" />
+
+                <Grid Width="60" Height="60">
+                    <!--<Image Source="{Binding ThumbnailImage}" Stretch="UniformToFill"
+                           Visibility="{Binding IsThumbnailImageDownloading, Converter={StaticResource booleanToVisibilityConverter}, ConverterParameter=NEG}"/>-->
+                    <common:PollImage x:Name="logoImage" Images="{Binding Logo}" Visibility="{Binding HasSecondLogo, Converter={StaticResource booleanToVisibilityConverter}, ConverterParameter=NEG}"/>
+                    <common:PollImage x:Name="secondLogoImage" Images="{Binding SecondLogo}" Visibility="{Binding HasSecondLogo, Converter={StaticResource booleanToVisibilityConverter}}"/>
+
+                    <StackPanel DataContext="{Binding CurrentImage, ElementName=logoImage}" VerticalAlignment="Center"
+                                Visibility="{Binding IsThumbnailImageDownloading, Converter={StaticResource booleanToVisibilityConverter}}">
+                        <TextBlock HorizontalAlignment="Center" Margin="5">
+                            <TextBlock.Inlines>
+                                <Run Text="{Binding ThumbnailImageDownloadingProgress}" />
+                                <Run Text=" %" />
+                            </TextBlock.Inlines>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Grid.Column="1" Margin="10,0,0,0"
+                            Visibility="{Binding ShowOverlay, Converter={StaticResource booleanToVisibilityConverter}}">
+                    <TextBlock Text="{Binding Title}" Style="{StaticResource ItemTextStyle}" MaxHeight="40" />
+                    <TextBlock Text="{Binding SubTitle}" Style="{StaticResource CaptionTextStyle}"
+                               TextWrapping="NoWrap" MaxHeight="30" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+
+        <Style x:Name="ListViewServiceChannelItemStyle" TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        </Style>
+
+        <Style x:Name="GridViewServiceChannelItemStyle2x2" TargetType="GridViewItem"
+               BasedOn="{StaticResource VariableSizedWrapGridStyle2x2}">
+            <Setter Property="Width" Value="250" />
+            <Setter Property="Height" Value="250" />
+        </Style>
+
+        <Style x:Name="GridViewServiceChannelItemStyle2x4" TargetType="GridViewItem"
+               BasedOn="{StaticResource VariableSizedWrapGridStyle2x4}">
+            <Setter Property="Width" Value="250" />
+            <Setter Property="Height" Value="500" />
+        </Style>
+
+        <Style x:Name="GridViewServiceChannelItemStyle4x2" TargetType="GridViewItem"
+               BasedOn="{StaticResource VariableSizedWrapGridStyle4x2}">
+            <Setter Property="Width" Value="500" />
+            <Setter Property="Height" Value="250" />
+        </Style>
+
+        <Style x:Name="GridViewServiceChannelItemStyle4x4" TargetType="GridViewItem"
+               BasedOn="{StaticResource VariableSizedWrapGridStyle4x4}">
+            <Setter Property="Width" Value="500" />
+            <Setter Property="Height" Value="500" />
+        </Style>
+
+        <Style x:Name="GridViewServiceChannelItemStyle1x1" TargetType="GridViewItem"
+               BasedOn="{StaticResource VariableSizedWrapGridStyle1x1}">
+            <Setter Property="Width" Value="125" />
+            <Setter Property="Height" Value="125" />
+        </Style>
+
+        <Style x:Name="GridViewServiceChannelItemStyle2x1" TargetType="GridViewItem"
+               BasedOn="{StaticResource VariableSizedWrapGridStyle2x1}">
+            <Setter Property="Width" Value="250" />
+            <Setter Property="Height" Value="125" />
+        </Style>
+
+        <common:VariableSizedWrapGridStyleSelector x:Name="variableSizedWrapGridStyleSelector"
+                                                   Style2x2="{StaticResource GridViewServiceChannelItemStyle2x2}"
+                                                   Style2x4="{StaticResource GridViewServiceChannelItemStyle2x4}"
+                                                   Style4x2="{StaticResource GridViewServiceChannelItemStyle4x2}"
+                                                   Style4x4="{StaticResource GridViewServiceChannelItemStyle4x4}"
+                                                   Style1x1="{StaticResource GridViewServiceChannelItemStyle1x1}"
+                                                   Style2x1="{StaticResource GridViewServiceChannelItemStyle2x1}"/>
+    </Page.Resources>
+
+    <i:Interaction.Triggers>
+        <i:TriggerCollection>
+            <i:EventTrigger EventName="Loaded">
+                <b:CommandBehaviour CommandPropertyPath="PageLoadedCommand" />
+            </i:EventTrigger>
+        </i:TriggerCollection>
+    </i:Interaction.Triggers>
+
+    <!--
+        此网格用作定义以下两行的页的根面板:
+        * 第 0 行包含后退按钮和页标题
+        * 第 1 行包含页布局的其余部分
+    -->
+    <Grid Style="{StaticResource LayoutRootStyle}" Background="{StaticResource appBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" />
+            <RowDefinition Height="59*" />
+            <RowDefinition Height="255*" />
+        </Grid.RowDefinitions>
+
+        <!-- 在大多数视图状态中使用的水平滚动网格-->
+        <GridView x:Name="itemGridView"
+                  Grid.RowSpan="3"
+                  AutomationProperties.AutomationId="ItemsGridView"
+                  AutomationProperties.Name="ServiceChannels"
+                  TabIndex="1"
+                  Margin="0,136,0,0"
+                  Padding="116,0,116,46"
+                  ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
+                  ItemTemplate="{StaticResource GridViewServiceChannelItemTemplate}"
+                  SelectionMode="None"
+                  IsSwipeEnabled="false"
+                  IsItemClickEnabled="True"
+                  ItemContainerStyleSelector="{StaticResource variableSizedWrapGridStyleSelector}"
+                  Background="Transparent">
+            <i:Interaction.Triggers>
+                <i:TriggerCollection>
+                    <i:EventTrigger EventName="ItemClick">
+                        <b:NavigateToBehaviour />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="ItemClick">
+                        <b:CommandBehaviour CommandPropertyPath="ItemClickCommand" />
+                    </i:EventTrigger>
+                </i:TriggerCollection>
+            </i:Interaction.Triggers>
+
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+            <GridView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Margin="1,0,0,6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Button IsHitTestVisible="False"
+                                        AutomationProperties.Name="Group Title"
+                                        Style="{StaticResource TextPrimaryButtonStyle}">
+                                    <TextBlock Text="{Binding Title}" Margin="3,-7,10,10"
+                                               Style="{StaticResource GroupHeaderTextStyle}" />
+                                </Button>
+
+                                <!--<Button Content="&#xe1a3;" FontFamily="Segoe UI Symbol" Grid.Column="1" FontSize="20"
+                                        Margin="0,0,0,8"
+                                        Style="{StaticResource TextPrimaryButtonStyle}"
+                                        Visibility="{Binding HasAction, Converter={StaticResource booleanToVisibilityConverter}}"
+                                        Command="{Binding Action}"/>-->
+                            </Grid>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                    <GroupStyle.Panel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid Orientation="Vertical" Margin="0,0,80,0"
+                                                   ItemHeight="125" ItemWidth="125" />
+                        </ItemsPanelTemplate>
+                    </GroupStyle.Panel>
+                </GroupStyle>
+            </GridView.GroupStyle>
+        </GridView>
+
+        <!-- Vertical scrolling list only used when snapped -->
+        <ListView
+            x:Name="itemListView"
+            AutomationProperties.AutomationId="ItemsListView"
+            AutomationProperties.Name="Items"
+            TabIndex="1"
+            Visibility="Collapsed"
+            Margin="0,130,0,0"
+            Padding="10,0,0,60"
+            ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
+            ItemTemplate="{StaticResource ListViewServiceChannelItemTemplate}"
+            ItemContainerStyle="{StaticResource ListViewServiceChannelItemStyle}"
+            SelectionMode="None"
+            IsSwipeEnabled="false" Grid.RowSpan="3"
+            IsItemClickEnabled="True">
+
+            <i:Interaction.Triggers>
+                <i:TriggerCollection>
+                    <i:EventTrigger EventName="ItemClick">
+                        <b:NavigateToBehaviour />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="ItemClick">
+                        <b:CommandBehaviour CommandPropertyPath="ItemClickCommand" />
+                    </i:EventTrigger>
+                </i:TriggerCollection>
+            </i:Interaction.Triggers>
+
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Margin="7,7,0,0">
+                                <Button IsHitTestVisible="False"
+                                        AutomationProperties.Name="Group Title"
+                                        Style="{StaticResource TextPrimaryButtonStyle}">
+                                    <TextBlock Text="{Binding Title}" Margin="3,-7,10,10"
+                                               Style="{StaticResource GroupHeaderTextStyle}" />
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
+        </ListView>
+
+        <!-- Back button and page title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"
+                    Style="{StaticResource BackButtonStyle}" />
+            <Image x:Name="pageLogo" x:Uid="PageLogo" Source="Assets/AppTitle.en.png" Grid.Column="1"
+                   Margin="0,20,20,20" />
+            <!--<TextBlock x:Name="pageTitle" Grid.Column="2" x:Uid="AppName" Text="Magic Lock Screen" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>-->
+
+
+            <Grid x:Name="searchButton" Grid.Column="3" Margin="0,0,30,0" Background="Transparent">
+                <Path Data="M 0,0 L 0,120 40,110 80,120 80,0 Z" Fill="#DD802300" />
+                <Button Content="&#xe1a3;" FontFamily="Segoe UI Symbol" FontSize="30"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource TextPrimaryButtonStyle}"
+                        Command="{Binding SearchCommand}" />
+            </Grid>
+        </Grid>
+
+        <VisualStateManager.VisualStateGroups>
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup>
+                <VisualState x:Name="DefaultLayout" />
+                <!--
+                    The back button and title have different styles when snapped, and the list representation is substituted
+                    for the grid displayed in all other view states
+                -->
+                <VisualState x:Name="Below500Layout">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton"
+                                                       Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageLogo"
+                                                       Storyboard.TargetProperty="Width">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="280" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageLogo" Storyboard.TargetProperty="Height">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="50"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>-->
+
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemListView"
+                                                       Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemGridView"
+                                                       Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="rightPart"
+                                                       Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="searchButton"
+                                                       Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <AppBar>
+            <Grid>
+                <StackPanel x:Name="leftPart" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button x:Uid="RefreshButton" Style="{StaticResource RefreshAppBarButtonStyle}"
+                            Command="{Binding RefreshCommand}" />
+                </StackPanel>
+
+                <StackPanel x:Name="rightPart" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Uid="SettingButton"
+                            AutomationProperties.Name="Settings"
+                            Style="{StaticResource SettingsAppBarButtonStyle}"
+                            Command="{Binding ShowSettingCommand}" />
+                    <Button x:Uid="HelpButton"
+                            AutomationProperties.Name="Help"
+                            Style="{StaticResource HelpAppBarButtonStyle}"
+                            Command="{Binding ShowHelpCommand}" />
+                    <Button Content="&#x0069;" x:Uid="InfoButton"
+                            AutomationProperties.AutomationId="InfoButton"
+                            AutomationProperties.Name="Info"
+                            Style="{StaticResource AppBarButtonStyle}"
+                            Command="{Binding ShowInfoCommand}" />
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
+</common:LayoutAwarePage>

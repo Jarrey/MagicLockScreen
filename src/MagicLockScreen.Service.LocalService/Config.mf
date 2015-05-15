@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+    <ServiceChannel Name="LocalPictureLibraryServiceChannel"
+                    ID="1bc3fb99-e045-4b2d-935d-698bf2f161f2"
+                    Type="MagicLockScreen_Service_LocalService, Culture=''|MagicLockScreen_Service_LocalService.LocalPictureLibraryServiceChannel"
+                    ShortName="LPLSC"
+                    IsEnabled="true"
+                    VariableSizedWrapGridStyleKey="22">
+
+      <Service Type="MagicLockScreen_Service_LocalService, Culture=''|MagicLockScreen_Service_LocalService.LocalPictureLibraryQueryService"
+               ID="b1943724-5c34-4267-959c-dc773ce93d00"
+               Name="LocalPictureLibraryQueryService"
+               ShortName="LPLQS"
+               ServiceApiUri="local://PictureLibrary"
+               ServiceType="1"
+               IsSupportBackgroundTask="True"
+               BackgroundTaskService="MagicLockScreen_Service_LocalService, Culture=''|MagicLockScreen_Service_LocalService.LocalPictureLibraryBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+      
+    </ServiceChannel>
+
+    <!--
+      Provide service for Add Local Picture Folder page
+    -->
+    <ServiceChannel Name="AddLocalPictureServiceChannel"
+                    ID="394B5D80-66B6-4743-8276-74A473A22B14"
+                    Type="MagicLockScreen_Service_LocalService, Culture=''|MagicLockScreen_Service_LocalService.AddLocalPictureServiceChannel"
+                    ShortName="ALPSC"
+                    IsEnabled="true"
+                    VariableSizedWrapGridStyleKey="11">
+      <Service Type="MagicLockScreen_Service_LocalService, Culture=''|MagicLockScreen_Service_LocalService.AddLocalPictureFolderSelectionService"
+               ID="9CD9312C-428A-4061-BCF4-A221B63DB213"
+               Name="AddLocalPictureFolderSelectionService"
+               ShortName="ALPFSS"
+               ServiceApiUri="undefined"
+               ServiceType="1"
+               MaxItemCount="100"/>
+    </ServiceChannel>
+  </ServiceChannels>
+</App>

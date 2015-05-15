@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+    <ServiceChannel Name="OceanPODServiceChannel"
+                    ID="2BA2015A-D900-4978-AEA1-8C4134E9C6CE"
+                    Type="MagicLockScreen_Service_OceanPODService, Culture=''|MagicLockScreen_Service_OceanPODService.OceanPODServiceChannel"
+                    ShortName="OPSC"
+                    IsEnabled="false"
+                    LogoCount="6"
+                    VariableSizedWrapGridStyleKey="22">
+
+      <Service Type="MagicLockScreen_Service_OceanPODService, Culture=''|MagicLockScreen_Service_OceanPODService.OceanPODQueryService"
+               ID="25D5FC07-74BE-478A-8234-7A6D90E64A3B"
+               Name="OceanPODQueryService"
+               ShortName="OPQS"
+               ServiceApiUri="http://theoceanproject.org/opod/index.php?date={0:yyyy-MM-dd}"
+               ServiceApiParameters="MagicLockScreen_Service_OceanPODService, Culture=''|MagicLockScreen_Service_OceanPODService.ApiParameters.OceanPODServiceApiParameter"
+               ServiceType="0"
+               MaxItemCount="1000"
+               IsSupportBackgroundTask="True"
+               BackgroundTaskService="MagicLockScreen_Service_OceanPODService, Culture=''|MagicLockScreen_Service_OceanPODService.OceanPODBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT15M:15|BT30M:30|BT45M:45|BT1H:60|BT2H:120|BT3H:180|BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+      
+    </ServiceChannel>
+  </ServiceChannels>
+</App>

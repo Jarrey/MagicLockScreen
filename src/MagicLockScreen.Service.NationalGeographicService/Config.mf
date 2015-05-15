@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App>
+  <ServiceChannels>
+    <ServiceChannel Name="NationalGeographicServiceChannel"
+                    ID="0bf98a7f-7e23-462c-904e-c9f70d7bf59c"
+                    Type="MagicLockScreen_Service_NationalGeographicService, Culture=''|MagicLockScreen_Service_NationalGeographicService.NationalGeographicServiceChannel"
+                    ShortName="NGSC"
+                    IsEnabled="true"
+                    LogoCount="5"
+                    VariableSizedWrapGridStyleKey="22">
+
+      <Service Type="MagicLockScreen_Service_NationalGeographicService, Culture=''|MagicLockScreen_Service_NationalGeographicService.NationalGeographicQueryService"
+               ID="0cec6bd0-8612-4aac-9f33-3c2fa5c59207"
+               Name="NationalGeographicQueryService"
+               ShortName="NGQS"
+               ServiceApiUri="http://photography.nationalgeographic.com/photography/photo-of-the-day/"
+               ServiceApiParameters="MagicLockScreen_Service_NationalGeographicService, Culture=''|MagicLockScreen_Service_NationalGeographicService.ApiParameters.NationalGeographicServiceApiParameter"
+               ServiceType="0"
+               BaseUrl="http://photography.nationalgeographic.com"
+               MaxItemCount="100"
+               IsSupportBackgroundTask="True"
+               BackgroundTaskService="MagicLockScreen_Service_NationalGeographicService, Culture=''|MagicLockScreen_Service_NationalGeographicService.NationalGeographicBackgroundTaskService">
+        <BackgroundTaskService EntryPoint="MagicLockScreen.BackgroundTask.UpdateLockScreenBackgroundTask"
+                               Name="UpdateLockScreenBackgroundTask"
+                               TimeTriggerTimes="BT12H:720|BT1D:1440|BT2D:2880"/>
+      </Service>
+      
+    </ServiceChannel>
+  </ServiceChannels>
+</App>
